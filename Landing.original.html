@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root { --wx-grad: linear-gradient(135deg,#7A2BE6,#2E6BFF,#2E8FD0); --wx-accent:#5AA6E8; --wx-bg:#05060f; --wx-text:#eef0ff; }
+  html.wx-light { --wx-bg:#eef0f7; --wx-text:#171a2c; }
+  html.wx-light footer a{ color:#39406a !important; }
+  html.wx-light footer p{ color:#474d70 !important; }
+  html.wx-light #contact p{ color:#474d70 !important; }
+  html.wx-light #contact input{ color:#1b1e30 !important; background:rgba(20,23,44,.05) !important; border-color:rgba(20,23,44,.2) !important; }
+  html.wx-light header{ color:#eef0ff !important; }
+  html.wx-light header button{ color:#eef0ff !important; }
+  html.wx-light [data-screen-label="Hero"]{ color:#eef0ff !important; }
+  html.wx-light [data-screen-label="Works (Images)"] a{ color:#eef0ff !important; }
+  html.wx-light [data-screen-label="Works (Video)"] a{ color:#eef0ff !important; }
+  html.wx-light #team a{ color:#eef0ff !important; }
+  html.wx-light #services{ background:transparent !important; padding:80px 48px !important; }
+  html.wx-light #services [data-reveal]:first-child{ color:#566092 !important; }
+  body { background: var(--wx-bg); transition: background .5s ease; }
+  @keyframes glowPulse { 0%,100% { opacity:.5; } 50% { opacity:.8; } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  ::selection { background: #2E6BFF; color: #fff; }
+  input::placeholder { color: #6c719b; }
+</style>
+</helmet>
+<div dir="rtl" style="position:relative; color:var(--wx-text); font-family:'Inter','IBM Plex Sans Arabic',sans-serif; min-height:100vh; overflow-x:hidden; background:transparent;">
+
+  <!-- ===== GLOBAL AMBIENT BACKGROUND ===== -->
+  <div style="position:fixed; inset:0; z-index:0; background:radial-gradient(58% 48% at 16% 8%, rgba(122,43,230,.22), transparent 60%), radial-gradient(54% 44% at 88% 18%, rgba(23,201,220,.16), transparent 62%), radial-gradient(80% 65% at 50% 114%, rgba(46,107,255,.24), transparent 72%), var(--wx-bg); pointer-events:none; transition:background .5s ease;">
+    <div style="position:absolute; bottom:-14%; left:50%; transform:translateX(-50%); width:1300px; height:760px; max-width:135vw; background:radial-gradient(ellipse at center, rgba(46,107,255,.18), rgba(122,43,230,.10) 45%, transparent 72%); filter:blur(64px); animation:glowPulse 9s ease-in-out infinite;"></div>
+  </div>
+
+  <div style="position:relative; z-index:1;">
+
+  <!-- ===== STICKY HEADER ===== -->
+  <header ref="{{ headerRef }}" style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 48px; transition:background .35s, backdrop-filter .35s, border-color .35s, padding .35s; border-bottom:1px solid transparent;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="width:34px; height:34px; border-radius:10px; background:var(--wx-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 0 24px -4px rgba(46,107,255,.85);">
+        <div style="width:11px; height:11px; background:#fff; border-radius:3px;"></div>
+      </div>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; letter-spacing:.16em; font-size:15px;">Wexon</span>
+    </div>
+    <nav style="display:flex; align-items:center; gap:32px; font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:500;">
+      <a href="#services" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">Services</a>
+      <a href="#works" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">Works</a>
+      <a href="#team" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">Team</a>
+      <a href="#contact" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <div style="display:flex; align-items:center; gap:6px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px;">
+        <span style="font-weight:700;">EN</span><span style="color:#4a4f78;">/</span><span style="color:#6c719b;">AR</span>
+      </div>
+      <button type="button" onClick="{{ toggleTheme }}" aria-label="Light / dark" style="width:38px; height:38px; border-radius:100px; border:1px solid rgba(127,127,160,.34); background:rgba(127,127,160,.10); color:var(--wx-text); font-size:15px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px);">◐</button>
+      <a href="#contact" style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:11px 22px; border-radius:100px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13.5px; font-weight:600; white-space:nowrap; box-shadow:0 8px 24px -8px rgba(46,107,255,.9);">Start a project</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section data-screen-label="Hero" style="position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden;">
+    <video ref="{{ videoRef }}" muted autoplay loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.9;"></video>
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(4,5,15,.9) 0%, rgba(4,5,15,.4) 40%, rgba(4,5,15,0) 78%);"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(4,5,15,.4) 0%, transparent 34%, rgba(4,5,15,.88) 100%);"></div>
+
+    <!-- content -->
+    <div dir="ltr" style="position:relative; z-index:10; padding:0 48px 96px; max-width:1280px; margin:0 auto; width:100%;">
+      <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.18em; color:var(--wx-accent); margin-bottom:22px;">CREATIVE COLLECTIVE — نص تجريبي</div>
+      <h1 data-reveal style="font-family:'Inter',sans-serif; font-weight:800; text-transform:uppercase; font-size:clamp(40px,7vw,84px); line-height:.98; letter-spacing:-.025em; margin:0 0 16px;">We build brands<br>that last<span style="color:#17C9DC;">.</span></h1>
+      <h2 data-reveal dir="rtl" style="font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:500; font-size:clamp(20px,2.4vw,30px); color:#c4c8ee; margin:0 0 26px;">عنوان فرعي تجريبي يوضع هنا بالعربي</h2>
+      <p data-reveal style="font-family:'Inter','IBM Plex Sans Arabic',sans-serif; font-size:15px; line-height:1.7; color:rgba(238,240,255,.7); max-width:512px; margin:0 0 34px;">نص تجريبي يوضّح مكان الوصف القصير للصفحة — استبدله بالنص الحقيقي لاحقاً. A short example description goes here.</p>
+      <div data-reveal style="display:flex; align-items:center; gap:16px;">
+        <a href="#works" style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:15px 30px; border-radius:100px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:700; box-shadow:0 12px 34px -10px rgba(46,107,255,.9); display:inline-flex; align-items:center; gap:9px;">View our work <span style="font-size:17px;">→</span></a>
+        <a href="#contact" style="text-decoration:none; color:#eef0ff; padding:15px 26px; border-radius:100px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:500; border:1px solid rgba(255,255,255,.16);">تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES — LIGHT SECTION ===== -->
+  <section id="services" data-screen-label="Services" style="position:relative; background:linear-gradient(180deg, transparent 0%, rgba(236,233,225,.28) 7%, rgba(236,233,225,.78) 13%, #ece9e1 19%, #ece9e1 81%, rgba(236,233,225,.78) 88%, rgba(236,233,225,.28) 94%, transparent 100%); color:#16171d; padding:230px 48px 250px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#8a8576; margin-bottom:40px;">— WHAT WE DO / خدماتنا</div>
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <!-- banner 1 -->
+        <a data-reveal href="#works" dir="ltr" style="text-decoration:none; color:inherit; position:relative; display:flex; align-items:center; justify-content:flex-start; height:240px; border-radius:20px; overflow:hidden; background:#fbfaf7; box-shadow:0 20px 50px -30px rgba(20,20,40,.4);">
+          <!-- full-bleed image -->
+          <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#e6e2d8,#e6e2d8 13px,#dedacf 13px,#dedacf 26px);"></div>
+          <div style="position:absolute; right:7%; top:50%; transform:translateY(-50%); font-family:'Plus Jakarta Sans',monospace; font-size:11px; letter-spacing:.2em; color:#a8a394;">SERVICE IMAGE</div>
+          <!-- frosted glass gradient, fades into the image -->
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(251,250,247,.92) 0%, rgba(251,250,247,.6) 42%, rgba(251,250,247,0) 74%); backdrop-filter:blur(8px) saturate(120%); -webkit-backdrop-filter:blur(8px) saturate(120%); -webkit-mask:linear-gradient(90deg, #000 34%, transparent 72%); mask:linear-gradient(90deg, #000 34%, transparent 72%);"></div>
+          <div dir="rtl" style="position:relative; z-index:2; width:56%; padding:0 46px;">
+            <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(22px,2.6vw,34px); font-weight:700; margin:0 0 14px;">عنوان خدمة تجريبي</h3>
+            <p style="font-size:15px; line-height:1.7; color:#5a584f; margin:0 0 22px; max-width:420px; font-family:'IBM Plex Sans Arabic',sans-serif;">نص تجريبي يوضّح وصف الخدمة الأولى — يستبدل بالنص الحقيقي.</p>
+            <span style="display:inline-flex; align-items:center; gap:9px; color:#fff; background:var(--wx-grad); padding:11px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700;">اكتشف الخدمة →</span>
+          </div>
+        </a>
+        <!-- banner 2 (mirrored) -->
+        <a data-reveal href="#works" dir="ltr" style="text-decoration:none; color:inherit; position:relative; display:flex; align-items:center; justify-content:flex-end; height:240px; border-radius:20px; overflow:hidden; background:#16171d; color:#eef0ff;">
+          <!-- full-bleed image -->
+          <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#1b1d27,#1b1d27 13px,#15161f 13px,#15161f 26px);"></div>
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 22% 50%, rgba(51,0,153,.4), transparent 55%);"></div>
+          <div style="position:absolute; left:7%; top:50%; transform:translateY(-50%); font-family:'Plus Jakarta Sans',monospace; font-size:11px; letter-spacing:.2em; color:#4a4f78;">SERVICE IMAGE</div>
+          <!-- frosted glass gradient, fades into the image -->
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(22,23,29,0) 26%, rgba(22,23,29,.6) 58%, rgba(22,23,29,.92) 100%); backdrop-filter:blur(8px) saturate(120%); -webkit-backdrop-filter:blur(8px) saturate(120%); -webkit-mask:linear-gradient(90deg, transparent 28%, #000 66%); mask:linear-gradient(90deg, transparent 28%, #000 66%);"></div>
+          <div dir="rtl" style="position:relative; z-index:2; width:56%; padding:0 46px; text-align:right;">
+            <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(22px,2.6vw,34px); font-weight:700; margin:0 0 14px;">عنوان خدمة تجريبي</h3>
+            <p style="font-size:15px; line-height:1.7; color:#9fa3c9; margin:0 0 22px; max-width:420px; margin-right:0; margin-left:auto; font-family:'IBM Plex Sans Arabic',sans-serif;">نص تجريبي يوضّح وصف الخدمة الثانية — يستبدل بالنص الحقيقي.</p>
+            <span style="display:inline-flex; align-items:center; gap:9px; color:#fff; background:var(--wx-grad); padding:11px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700;">اكتشف الخدمة →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOGO MARQUEE — 3 ROWS SEAMLESS ===== -->
+  <section data-screen-label="Clients" style="padding:58px 0; overflow:hidden;">
+    <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#5a5f88; text-align:center; margin-bottom:40px;">TRUSTED BY / عملاؤنا</div>
+    <div style="display:flex; flex-direction:column; gap:30px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);">
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoARef }}" style="display:flex; width:max-content; will-change:transform;"><sc-for list="{{ logosA2 }}" as="a" hint-placeholder-count="20"><span style="font-family:'Plus Jakarta Sans','IBM Plex Sans Arabic',sans-serif; font-size:26px; font-weight:700; color:#3a3f66; white-space:nowrap; padding-inline:32px;">{{ a }}</span></sc-for></div></div>
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoBRef }}" style="display:flex; width:max-content; will-change:transform;"><sc-for list="{{ logosB2 }}" as="b" hint-placeholder-count="20"><span style="font-family:'Plus Jakarta Sans','IBM Plex Sans Arabic',sans-serif; font-size:26px; font-weight:700; color:#4a4f78; white-space:nowrap; padding-inline:32px;">{{ b }}</span></sc-for></div></div>
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoCRef }}" style="display:flex; width:max-content; will-change:transform;"><sc-for list="{{ logosC2 }}" as="c" hint-placeholder-count="20"><span style="font-family:'Plus Jakarta Sans','IBM Plex Sans Arabic',sans-serif; font-size:26px; font-weight:700; color:#3a3f66; white-space:nowrap; padding-inline:32px;">{{ c }}</span></sc-for></div></div>
+    </div>
+  </section>
+
+  <!-- ===== WORKS — IMAGE WEBTOON MARQUEE ===== -->
+  <section id="works" data-screen-label="Works (Images)" style="padding:80px 0 50px;">
+    <div data-reveal style="padding:0 48px; max-width:1400px; margin:0 auto 46px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#6c719b; margin-bottom:16px;">— SELECTED WORK / مختارات</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:700; margin:0; letter-spacing:-.015em;">أعمالنا المصوّرة</h2>
+    </div>
+    <div dir="ltr" style="overflow:hidden; padding:6px 0;" onMouseEnter="{{ wiEnter }}" onMouseLeave="{{ wiLeave }}">
+      <div ref="{{ wiTrack }}" style="display:flex; width:max-content; will-change:transform;">
+        <sc-for list="{{ worksImages2 }}" as="w" hint-placeholder-count="12">
+          <a href="#project" style="text-decoration:none; color:inherit; display:block; flex:0 0 auto; width:340px; margin:0 12px; position:relative; aspect-ratio:4/5; border-radius:16px; overflow:hidden; background:repeating-linear-gradient(135deg,#0d0f22,#0d0f22 13px,#090b1a 13px,#090b1a 26px);">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',monospace; font-size:11px; letter-spacing:.2em; color:#33375c;">PROJECT IMAGE</div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:48%; backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); -webkit-mask:linear-gradient(to top,#000 35%,transparent); mask:linear-gradient(to top,#000 35%,transparent);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:60%; background:linear-gradient(to top, rgba(4,5,15,.96) 0%, rgba(4,5,15,.55) 45%, transparent 100%);"></div>
+            <div dir="rtl" style="position:absolute; bottom:0; right:0; left:0; padding:22px;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:.1em; color:#7aa2ff; margin-bottom:8px;">{{ w.tag }}</div>
+              <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:21px; font-weight:700; margin:0;">{{ w.title }}</h3>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INK / LIQUID DIVIDER (WebGL shader, no text) ===== -->
+  <div aria-hidden="true" style="height:220px; position:relative; overflow:hidden; background:transparent; -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%); mask-image:linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);">
+    <div ref="{{ inkRef }}" style="position:absolute; inset:0;"></div>
+  </div>
+
+  <!-- ===== WORKS — VIDEO PORTRAIT MARQUEE ===== -->
+  <section data-screen-label="Works (Video)" style="padding:80px 0 90px; background:linear-gradient(180deg, rgba(6,8,20,.6), rgba(4,5,15,0));">
+    <div data-reveal style="padding:0 48px; max-width:1400px; margin:0 auto 46px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#6c719b; margin-bottom:16px;">— MOTION & FILM / إنتاج مرئي</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:700; margin:0; letter-spacing:-.015em;">أعمالنا المرئية</h2>
+    </div>
+    <div dir="ltr" style="overflow:hidden; padding:6px 0;" onMouseEnter="{{ wvEnter }}" onMouseLeave="{{ wvLeave }}">
+      <div ref="{{ wvTrack }}" style="display:flex; width:max-content; will-change:transform;">
+        <sc-for list="{{ worksVideos2 }}" as="v" hint-placeholder-count="10">
+          <a href="#project" style="text-decoration:none; color:inherit; display:block; flex:0 0 auto; width:300px; margin:0 12px; position:relative; aspect-ratio:9/16; border-radius:16px; overflow:hidden; background:repeating-linear-gradient(135deg,#0d0f22,#0d0f22 13px,#090b1a 13px,#090b1a 26px); box-shadow:0 30px 70px -42px rgba(0,0,40,.9);">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+              <div style="width:64px; height:64px; border-radius:100px; background:rgba(255,255,255,.06); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center; color:#fff; font-size:19px; box-shadow:0 0 30px -6px rgba(51,51,255,.6);">▶</div>
+            </div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:42%; backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); -webkit-mask:linear-gradient(to top,#000 35%,transparent); mask:linear-gradient(to top,#000 35%,transparent);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:55%; background:linear-gradient(to top, rgba(4,5,15,.96) 0%, rgba(4,5,15,.5) 45%, transparent 100%);"></div>
+            <div dir="rtl" style="position:absolute; bottom:0; right:0; left:0; padding:22px;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; letter-spacing:.1em; color:#7aa2ff; margin-bottom:8px;">{{ v.tag }}</div>
+              <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:20px; font-weight:700; margin:0;">{{ v.title }}</h3>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM — LARGE CLOUDY INK SIDE SLIDER ===== -->
+  <section id="team" data-screen-label="Team" style="position:relative; padding:90px 0; overflow:hidden;">
+    <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:1200px; height:100%; max-width:140vw; background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(51,0,153,.3), rgba(51,51,255,.12) 45%, transparent 72%); filter:blur(50px); pointer-events:none;"></div>
+    <div data-reveal style="position:relative; padding:0 48px; margin-bottom:50px; max-width:1400px; margin-left:auto; margin-right:auto;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#6c719b; margin-bottom:16px;">— THE TEAM / الفريق</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(34px,4.4vw,64px); font-weight:700; margin:0; letter-spacing:-.015em;">العقول خلف العمل</h2>
+    </div>
+    <div dir="ltr" style="position:relative; overflow:hidden; padding:10px 0;" onMouseEnter="{{ teamEnter }}" onMouseLeave="{{ teamLeave }}">
+      <div ref="{{ teamTrack }}" style="display:flex; width:max-content; will-change:transform;">
+        <sc-for list="{{ team2 }}" as="m" hint-placeholder-count="8">
+          <a href="#cv" style="text-decoration:none; color:inherit; display:block; flex:0 0 auto; width:420px; margin:0 16px; position:relative; aspect-ratio:4/5; border-radius:22px; overflow:hidden; background:repeating-linear-gradient(135deg,#0e1024,#0e1024 14px,#0a0c1c 14px,#0a0c1c 28px);">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',monospace; font-size:12px; letter-spacing:.2em; color:#33375c;">PORTRAIT</div>
+            <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 110%, rgba(51,51,255,.45), transparent 60%);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:55%; backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); -webkit-mask:linear-gradient(to top,#000 30%,transparent); mask:linear-gradient(to top,#000 30%,transparent);"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; height:62%; background:linear-gradient(to top, rgba(4,5,15,.95) 0%, rgba(20,10,60,.4) 50%, transparent 100%);"></div>
+            <div dir="rtl" style="position:absolute; bottom:0; right:0; left:0; padding:30px;">
+              <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:28px; font-weight:700; margin:0 0 6px;">{{ m.name }}</h3>
+              <div style="font-size:15px; color:#aab0e0; font-family:'IBM Plex Sans Arabic',sans-serif;">{{ m.role }}</div>
+              <div style="display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; letter-spacing:.04em; color:#7aa2ff;">عرض السيرة ↗</div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" data-screen-label="Contact" style="position:relative; padding:100px 48px; overflow:hidden;">
+    <div data-reveal style="position:relative; max-width:1000px; margin:0 auto; text-align:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-accent); margin-bottom:26px;">LET'S BUILD SOMETHING</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(38px,6vw,82px); line-height:1.08; font-weight:600; margin:0 0 28px; letter-spacing:-.015em;">عنوان تجريبي كبير <span style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:var(--wx-accent);">للتواصل</span></h2>
+      <p style="font-size:18px; line-height:1.7; color:#9fa3c9; max-width:520px; margin:0 auto 42px; font-family:'IBM Plex Sans Arabic',sans-serif;">نص تجريبي قصير يشرح دعوة التواصل — يستبدل لاحقاً بالنص الحقيقي.</p>
+      <div style="display:flex; gap:14px; max-width:540px; margin:0 auto; flex-wrap:wrap; justify-content:center;">
+        <input type="email" placeholder="بريدك الإلكتروني" style="flex:1; min-width:240px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.14); color:#eef0ff; padding:16px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15px; outline:none; backdrop-filter:blur(8px);">
+        <a href="#" style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:16px 34px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15px; font-weight:700; white-space:nowrap; box-shadow:0 12px 34px -10px rgba(46,107,255,.9);">أرسل الطلب →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="padding:70px 48px 46px;">
+    <div style="max-width:1280px; margin:0 auto; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:40px;">
+      <div style="max-width:300px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <div style="width:30px; height:30px; border-radius:9px; background:var(--wx-grad); display:flex; align-items:center; justify-content:center;">
+            <div style="width:10px; height:10px; background:#fff; border-radius:3px;"></div>
+          </div>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; letter-spacing:.16em; font-size:14px;">Wexon</span>
+        </div>
+        <p style="font-size:14px; line-height:1.7; color:#7a7fa8; margin:0; font-family:'IBM Plex Sans Arabic',sans-serif;">نص تجريبي قصير عن الاستوديو يوضع هنا.</p>
+      </div>
+      <div style="display:flex; gap:64px; flex-wrap:wrap;">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:.18em; color:#5a5f88; margin-bottom:4px;">Links</span>
+          <a href="#services" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">Services</a>
+          <a href="#works" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">Works</a>
+          <a href="#team" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">Team</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:.18em; color:#5a5f88; margin-bottom:4px;">Contact</span>
+          <a href="#" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">Instagram</a>
+          <a href="#" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">Behance</a>
+          <a href="#contact" style="color:#c4c8ee; text-decoration:none; font-size:14px;" style-hover="color:#7aa2ff;">hello@wexon.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1280px; margin:48px auto 0; padding-top:26px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; color:#5a5f88;">
+      <span>© 2026 Wexon</span>
+      <span>نص تجريبي ✦</span>
+    </div>
+  </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;pauseMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;الحركة&quot;},&quot;speedFactor&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:1.8,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;x&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;الحركة&quot;},&quot;hideInk&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;حبر مخفي&quot;}}">
+class Component extends DCLogic {
+  headerRef = React.createRef();
+  videoRef = React.createRef();
+  inkRef = React.createRef();
+  wiTrack = React.createRef();
+  wvTrack = React.createRef();
+  teamTrack = React.createRef();
+  logoARef = React.createRef();
+  logoBRef = React.createRef();
+  logoCRef = React.createRef();
+
+  componentDidMount() {
+    this._when(() => window.Hls, () => this._initVideo());
+    this._when(() => window.THREE && this.inkRef.current, () => this._initInk());
+    this._initReveals();
+    this._initHeader();
+    this._when(() => this.wiTrack.current && this.logoARef.current && this.teamTrack.current, () => this._initMarquees());
+  }
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._mraf) cancelAnimationFrame(this._mraf);
+    if (this._inkRaf) cancelAnimationFrame(this._inkRaf);
+    if (this._onInkResize) window.removeEventListener('resize', this._onInkResize);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._hls) { try { this._hls.destroy(); } catch (e) {} }
+  }
+
+  _when(check, cb) {
+    if (check()) { cb(); return; }
+    let n = 0;
+    const id = setInterval(() => {
+      if (check()) { clearInterval(id); cb(); }
+      else if (++n > 120) clearInterval(id);
+    }, 60);
+  }
+
+  _initHeader() {
+    const h = this.headerRef.current;
+    if (!h) return;
+    this._onScroll = () => {
+      if (window.scrollY > 30) {
+        h.style.background = 'rgba(6,8,18,.72)';
+        h.style.backdropFilter = 'blur(16px) saturate(140%)';
+        h.style.webkitBackdropFilter = 'blur(16px) saturate(140%)';
+        h.style.borderBottomColor = 'rgba(255,255,255,.08)';
+        h.style.padding = '12px 48px';
+      } else {
+        h.style.background = 'transparent';
+        h.style.backdropFilter = 'none';
+        h.style.webkitBackdropFilter = 'none';
+        h.style.borderBottomColor = 'transparent';
+        h.style.padding = '18px 48px';
+      }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  _initVideo() {
+    const v = this.videoRef.current;
+    if (!v) return;
+    // React/runtime doesn't reflect the `muted` attribute to the DOM property,
+    // so the browser blocks muted-autoplay. Force it imperatively.
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
+    const src = 'https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8';
+    try {
+      if (window.Hls && window.Hls.isSupported()) {
+        const hh = new window.Hls({ enableWorker: false });
+        hh.loadSource(src);
+        hh.attachMedia(v);
+        hh.on(window.Hls.Events.MANIFEST_PARSED, tryPlay);
+        // Recover from segment/network aborts so the loop never stalls.
+        hh.on(window.Hls.Events.ERROR, (_e, data) => {
+          if (!data || !data.fatal) return;
+          if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) hh.startLoad();
+          else if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR) hh.recoverMediaError();
+        });
+        this._hls = hh;
+      } else {
+        v.src = src;
+        v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      }
+      // If playback stalls (buffer underrun), nudge it back to life.
+      v.addEventListener('stalled', tryPlay);
+      v.addEventListener('waiting', tryPlay);
+      tryPlay();
+    } catch (e) {}
+  }
+
+  _initInk() {
+    try {
+      const THREE = window.THREE;
+      const c = this.inkRef.current;
+      if (!c || c.childNodes.length) return;
+      const w = c.clientWidth || 800, h = c.clientHeight || 220;
+      const scene = new THREE.Scene();
+      const cam = new THREE.Camera();
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(w, h);
+      renderer.setClearColor(0x000000, 0);
+      const cv = renderer.domElement;
+      cv.style.width = '100%'; cv.style.height = '100%'; cv.style.display = 'block';
+      c.appendChild(cv);
+      const frag = `
+        precision highp float;
+        varying vec2 vUv;
+        uniform float uTime;
+        uniform vec2 uRes;
+        vec2 hash(vec2 p){ p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))); return -1.0+2.0*fract(sin(p)*43758.5453123); }
+        float noise(vec2 p){
+          vec2 i=floor(p), f=fract(p);
+          vec2 u=f*f*(3.0-2.0*f);
+          return mix(mix(dot(hash(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(hash(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),
+                     mix(dot(hash(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(hash(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);
+        }
+        float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<6;i++){ v+=a*noise(p); p=p*2.0+7.3; a*=0.5; } return v; }
+        void main(){
+          float aspect=uRes.x/max(uRes.y,1.0);
+          vec2 uv=vUv;
+          vec2 p=vec2(uv.x*aspect,uv.y)*2.2;
+          float t=uTime*0.05;
+          vec2 q=vec2(fbm(p+vec2(0.0,t)),fbm(p+vec2(5.2,1.3-t*0.8)));
+          vec2 r=vec2(fbm(p+3.5*q+vec2(1.7,9.2)+t*0.9),fbm(p+3.5*q+vec2(8.3,2.8)-t*0.6));
+          float f=fbm(p+4.0*r);
+          float n=smoothstep(-0.35,0.5,f);
+          vec3 c1=vec3(0.40,0.10,0.85);
+          vec3 c2=vec3(0.16,0.42,1.0);
+          vec3 c3=vec3(0.34,0.60,0.90);
+          vec3 col=mix(c1,c2,smoothstep(0.32,0.7,n));
+          col=mix(col,c3,smoothstep(0.74,1.0,n)*0.85);
+          float ink=smoothstep(0.24,0.82,n);          float vfade=smoothstep(0.0,0.34,uv.y)*smoothstep(1.0,0.62,uv.y);
+          float hfade=smoothstep(0.0,0.06,uv.x)*smoothstep(1.0,0.94,uv.x);
+          gl_FragColor=vec4(col, ink*vfade*hfade);
+        }
+      `;
+      const mat = new THREE.ShaderMaterial({
+        transparent: true, depthTest: false, depthWrite: false,
+        uniforms: { uTime: { value: 0 }, uRes: { value: new THREE.Vector2(w, h) } },
+        vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader: frag
+      });
+      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
+      mesh.frustumCulled = false;
+      scene.add(mesh);
+      const resize = () => {
+        const W = c.clientWidth || w, H = c.clientHeight || h;
+        renderer.setSize(W, H);
+        mat.uniforms.uRes.value.set(W, H);
+      };
+      this._onInkResize = resize;
+      window.addEventListener('resize', resize);
+      const animate = (ts) => {
+        this._inkRaf = requestAnimationFrame(animate);
+        const pr = this.props || {};
+        const hidden = pr.hideInk === true;
+        cv.style.display = hidden ? 'none' : 'block';
+        if (c.parentElement) c.parentElement.style.height = hidden ? '0px' : '220px';
+        if (hidden) return;
+        if (pr.pauseMotion !== true) mat.uniforms.uTime.value = (ts || 0) * 0.001 * (pr.speedFactor || 1);
+        renderer.render(scene, cam);
+      };
+      this._inkRaf = requestAnimationFrame(animate);
+      this._ink = { renderer, mat };
+    } catch (e) {}
+  }
+
+  _initReveals() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    const reveal = (el) => { el.style.opacity = '1'; };
+    els.forEach((el) => {
+      el.style.transition = 'opacity .85s ease';
+      const r = el.getBoundingClientRect();
+      el.style.opacity = (r.top < window.innerHeight * 0.92) ? '1' : '0';
+    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach((el) => { if (el.style.opacity === '0') io.observe(el); });
+    } else { els.forEach(reveal); }
+    setTimeout(() => els.forEach(reveal), 2600);
+  }
+
+  _initMarquees() {
+    // {ref, dir, speed(px/s)}  dir: -1 = leftward, +1 = rightward
+    const defs = [
+      { el: this.logoARef.current, dir: 1, speed: 55, slow: false, off: 0, cur: 55, copies: 3 },
+      { el: this.logoBRef.current, dir: -1, speed: 48, slow: false, off: 0, cur: 48, copies: 3 },
+      { el: this.logoCRef.current, dir: 1, speed: 62, slow: false, off: 0, cur: 62, copies: 3 },
+      { name: 'wi', el: this.wiTrack.current, dir: -1, speed: 50, slow: false, off: 0, cur: 50, copies: 2 },
+      { name: 'wv', el: this.wvTrack.current, dir: -1, speed: 46, slow: false, off: 0, cur: 46, copies: 2 },
+      { name: 'team', el: this.teamTrack.current, dir: -1, speed: 40, slow: false, off: 0, cur: 40, copies: 2 },
+    ].filter((m) => m.el);
+    this._mq = {};
+    defs.forEach((m) => { if (m.name) this._mq[m.name] = m; });
+    this._mqs = defs;
+    this._mlast = 0;
+    const tick = (ts) => {
+      if (!this._mlast) this._mlast = ts;
+      let dt = (ts - this._mlast) / 1000; this._mlast = ts;
+      if (dt > 0.05) dt = 0.05;
+      const p = this.props || {};
+      const factor = p.speedFactor || 1;
+      const paused = p.pauseMotion === true;
+      for (let i = 0; i < this._mqs.length; i++) {
+        try {
+          const m = this._mqs[i];
+          const period = (m.el.scrollWidth / m.copies) || 1;
+          const target = paused ? 0 : (m.slow ? m.speed * 0.16 : m.speed) * factor;
+          m.cur += (target - m.cur) * Math.min(1, dt * 4);
+          m.off += m.cur * dt * m.dir;
+          let o = m.off % period;
+          if (o > 0) o -= period;
+          m.el.style.setProperty('transform', 'translateX(' + o + 'px)');
+        } catch (e) {}
+      }
+      this._mraf = requestAnimationFrame(tick);
+    };
+    this._mraf = requestAnimationFrame(tick);
+  }
+
+  _setSlow(name, v) { if (this._mq && this._mq[name]) this._mq[name].slow = v; }
+
+  renderVals() {
+    const logosA = ['NOVA', 'الشرق', 'MERAKI', 'قافلة', 'LUMEN', 'سدر', 'ARC', 'طريق'];
+    const logosB = ['ZAYTOON', 'نون', 'VERTEX', 'مدى', 'ORBIT', 'سراج', 'FLUX', 'واحة'];
+    const logosC = ['PIXEL', 'ركيزة', 'NORA', 'بصمة', 'AXIS', 'منارة', 'NIMBUS', 'رواق'];
+    const wImg = [
+      { title: 'مشروع تجريبي', tag: 'BRANDING' },
+      { title: 'مشروع تجريبي', tag: 'E-COMMERCE' },
+      { title: 'مشروع تجريبي', tag: 'PRODUCT' },
+      { title: 'مشروع تجريبي', tag: 'WEB' },
+      { title: 'مشروع تجريبي', tag: 'CAMPAIGN' },
+      { title: 'مشروع تجريبي', tag: 'PLATFORM' },
+    ];
+    const wVid = [
+      { title: 'عمل مرئي تجريبي', tag: 'FILM' },
+      { title: 'عمل مرئي تجريبي', tag: 'MOTION' },
+      { title: 'عمل مرئي تجريبي', tag: 'AD' },
+      { title: 'عمل مرئي تجريبي', tag: 'SOCIAL' },
+      { title: 'عمل مرئي تجريبي', tag: 'REEL' },
+    ];
+    const team = [
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+    ];
+    return {
+      headerRef: this.headerRef,
+      videoRef: this.videoRef,
+      inkRef: this.inkRef,
+      wiTrack: this.wiTrack,
+      wvTrack: this.wvTrack,
+      teamTrack: this.teamTrack,
+      logoARef: this.logoARef,
+      logoBRef: this.logoBRef,
+      logoCRef: this.logoCRef,
+      logosA2: logosA.concat(logosA, logosA),
+      logosB2: logosB.concat(logosB, logosB),
+      logosC2: logosC.concat(logosC, logosC),
+      worksImages2: wImg.concat(wImg),
+      worksVideos2: wVid.concat(wVid),
+      team2: team.concat(team),
+      wiEnter: () => this._setSlow('wi', true), wiLeave: () => this._setSlow('wi', false),
+      wvEnter: () => this._setSlow('wv', true), wvLeave: () => this._setSlow('wv', false),
+      teamEnter: () => this._setSlow('team', true), teamLeave: () => this._setSlow('team', false),
+      toggleTheme: () => document.documentElement.classList.toggle('wx-light'),
+    };
+  }
+}
+</script>
+</body>
+</html>

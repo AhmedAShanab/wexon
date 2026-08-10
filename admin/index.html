@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wexon Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <div id="auth" class="auth-screen" hidden>
+    <form id="authForm" class="auth-card" autocomplete="off">
+      <div class="auth-brand">Wexon</div>
+      <h1 id="authTitle">دخول الأدمن</h1>
+      <p id="authHint" class="muted">أدخل مفتاح الأدمن للمتابعة.</p>
+      <label class="field">
+        <span>المفتاح</span>
+        <input id="authKey" type="password" minlength="8" required placeholder="••••••••••••">
+      </label>
+      <label id="authConfirmWrap" class="field" hidden>
+        <span>تأكيد المفتاح</span>
+        <input id="authConfirm" type="password" minlength="8" placeholder="••••••••••••">
+      </label>
+      <p id="authError" class="error" hidden></p>
+      <button type="submit" class="btn primary" id="authSubmit">دخول</button>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <aside class="sidebar">
+      <div class="side-brand">
+        <span class="mark"></span>
+        <div>
+          <strong>Wexon</strong>
+          <small>لوحة التحكم</small>
+        </div>
+      </div>
+      <nav id="nav" class="nav"></nav>
+      <div class="side-foot">
+        <a class="ghost" href="/" target="_blank" rel="noopener">عرض الموقع ↗</a>
+        <button type="button" class="ghost" id="logoutBtn">خروج</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">نظرة عامة</h1>
+          <p id="pageSub" class="muted">إحصائيات الزيارات</p>
+        </div>
+        <div class="top-actions">
+          <span id="saveState" class="save-state">محفوظ</span>
+          <button type="button" class="btn primary" id="saveBtn" disabled>حفظ التغييرات</button>
+        </div>
+      </header>
+      <div id="view" class="view"></div>
+    </main>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

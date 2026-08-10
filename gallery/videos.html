@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04070d">
+  <meta name="color-scheme" content="dark">
+  <!-- wexon-seo --><!-- /wexon-seo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/gallery-assets/gallery.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js" defer></script>
+  <script src="/gallery-assets/gallery.js" defer></script>
+</head>
+<body data-gallery-mode="video" data-layout="livewall">
+
+  <header class="g-nav">
+    <a class="g-brand" href="/"><span class="g-brand-dot" aria-hidden="true"></span><span data-brand>Wexon</span></a>
+    <nav class="g-nav-links" aria-label="التنقل">
+      <a href="/">الرئيسية</a>
+      <a href="/gallery">معرض التصاميم</a>
+    </nav>
+  </header>
+
+  <section class="g-hero" aria-labelledby="page-title">
+    <p class="g-eyebrow" data-gallery-eyebrow>WEXON MOTION ARCHIVE</p>
+    <h1 class="g-title" id="page-title" data-gallery-title>معرض الفيديو</h1>
+    <div class="g-hero-row">
+      <p class="g-desc" data-gallery-description>أفلام، موشن، إعلانات وريلز مصممة لتتحرك بجرأة.</p>
+      <div class="g-hero-meta">
+        <span class="g-count" data-work-count aria-live="polite">…</span>
+        <a class="g-cta" href="/#contact" data-gallery-cta>ابدأ مشروع فيديو</a>
+      </div>
+    </div>
+  </section>
+
+  <p class="g-status" data-status role="alert" hidden></p>
+
+  <div class="g-toolbar">
+    <div class="g-filters" data-filter-list aria-label="تصفية الأعمال"></div>
+    <span class="g-result" data-result-label aria-live="polite"></span>
+  </div>
+
+  <main class="g-main" id="gallery" data-gallery-root aria-live="polite"></main>
+
+  <footer class="g-footer"><span data-brand>Wexon</span> — موشن وأفلام وإنتاج مرئي</footer>
+
+  <aside class="g-switcher" aria-label="معاينة مؤقتة للأنماط">
+    <span class="g-sw-label">معاينة مؤقتة</span>
+    <button type="button" data-layout-option="livewall" aria-pressed="true">غرفة البث</button>
+    <button type="button" data-layout-option="reels" aria-pressed="false">وضع الريلز</button>
+    <button type="button" data-layout-option="orbit" aria-pressed="false">المدار 3D</button>
+  </aside>
+
+  <div class="g-modal" data-modal data-open="false" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="g-modal-box g-modal-video">
+      <button class="g-modal-close" type="button" data-modal-close aria-label="إغلاق">✕</button>
+      <div class="g-modal-media" data-modal-media></div>
+      <div class="g-modal-info">
+        <p class="g-modal-tag" data-modal-tag></p>
+        <h2 class="g-modal-title" id="modal-title" data-modal-title></h2>
+        <p class="g-modal-desc" data-modal-description></p>
+        <dl class="g-meta" data-metadata></dl>
+        <a class="g-modal-page" data-modal-page href="#">الصفحة الكاملة للمشروع ↗</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

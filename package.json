@@ -1,0 +1,19 @@
+{
+  "name": "wexon-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wexon landing page + local admin CMS",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

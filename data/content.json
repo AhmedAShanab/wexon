@@ -1,0 +1,2331 @@
+{
+  "site": {
+    "brand": "Wexon",
+    "whatsapp": "970567818143",
+    "socials": {
+      "instagram": "#",
+      "behance": "#",
+      "linkedin": "#",
+      "x": "#"
+    },
+    "socialLinks": [
+      { "id": "soc-ig", "platform": "instagram", "label": "Instagram", "url": "#" },
+      { "id": "soc-x", "platform": "x", "label": "X", "url": "#" },
+      { "id": "soc-li", "platform": "linkedin", "label": "LinkedIn", "url": "#" },
+      { "id": "soc-be", "platform": "behance", "label": "Behance", "url": "#" }
+    ]
+  },
+  "hero": {
+    "eyebrow": " نص تجريبي",
+    "titleHtml": "نصنع علامات<br>تبقى في الذاكرة<span style=\"color:#17C9DC;\">.</span>",
+    "subtitle": "عنوان فرعي تجريبي يوضع هنا بالعربي",
+    "description": "نص تجريبي يوضّح مكان الوصف القصير للصفحة — استبدله بالنص الحقيقي لاحقاً. A short example description goes here.",
+    "ctaPrimary": "شاهد أعمالنا",
+    "ctaSecondary": "تواصل معنا",
+    "videoSrc": "/uploads/mrf2927t-q71672.mp4"
+  },
+  "services": [
+    {
+      "id": "svc-1",
+      "index": "01",
+      "title": "عنوان خدمة تجريبي",
+      "description": "نص تجريبي يوضّح وصف الخدمة الأولى — يستبدل بالنص الحقيقي.",
+      "cta": "اكتشف الخدمة →",
+      "image": "",
+      "align": "end",
+      "link": "/gallery"
+    },
+    {
+      "id": "svc-2",
+      "index": "02",
+      "title": "عنوان خدمة تجريبي",
+      "description": "نص تجريبي يوضّح وصف الخدمة الثانية — يستبدل بالنص الحقيقي.",
+      "cta": "اكتشف الخدمة →",
+      "image": "",
+      "align": "start",
+      "link": "/video-gallery"
+    }
+  ],
+  "partners": {
+    "label": "TRUSTED BY / عملاؤنا",
+    "logosA": [
+      {
+        "name": "Notion",
+        "image": "https://cdn.simpleicons.org/notion/8b93a8"
+      },
+      {
+        "name": "Figma",
+        "image": "https://cdn.simpleicons.org/figma/8b93a8"
+      },
+      {
+        "name": "Slack",
+        "image": "https://cdn.simpleicons.org/slack/8b93a8"
+      },
+      {
+        "name": "Stripe",
+        "image": "https://cdn.simpleicons.org/stripe/8b93a8"
+      },
+      {
+        "name": "Vercel",
+        "image": "https://cdn.simpleicons.org/vercel/8b93a8"
+      },
+      {
+        "name": "Spotify",
+        "image": "https://cdn.simpleicons.org/spotify/8b93a8"
+      },
+      {
+        "name": "Discord",
+        "image": "https://cdn.simpleicons.org/discord/8b93a8"
+      },
+      {
+        "name": "GitHub",
+        "image": "https://cdn.simpleicons.org/github/8b93a8"
+      }
+    ],
+    "logosB": [
+      {
+        "name": "Adobe",
+        "image": "https://cdn.simpleicons.org/adobe/8b93a8"
+      },
+      {
+        "name": "Shopify",
+        "image": "https://cdn.simpleicons.org/shopify/8b93a8"
+      },
+      {
+        "name": "Airbnb",
+        "image": "https://cdn.simpleicons.org/airbnb/8b93a8"
+      },
+      {
+        "name": "Netflix",
+        "image": "https://cdn.simpleicons.org/netflix/8b93a8"
+      },
+      {
+        "name": "Dropbox",
+        "image": "https://cdn.simpleicons.org/dropbox/8b93a8"
+      },
+      {
+        "name": "LinkedIn",
+        "image": "https://cdn.simpleicons.org/linkedin/8b93a8"
+      },
+      {
+        "name": "Twitter",
+        "image": "https://cdn.simpleicons.org/x/8b93a8"
+      },
+      {
+        "name": "YouTube",
+        "image": "https://cdn.simpleicons.org/youtube/8b93a8"
+      }
+    ],
+    "logosC": [
+      {
+        "name": "Amazon",
+        "image": "https://cdn.simpleicons.org/amazon/8b93a8"
+      },
+      {
+        "name": "Apple",
+        "image": "https://cdn.simpleicons.org/apple/8b93a8"
+      },
+      {
+        "name": "Google",
+        "image": "https://cdn.simpleicons.org/google/8b93a8"
+      },
+      {
+        "name": "Microsoft",
+        "image": "https://cdn.simpleicons.org/microsoft/8b93a8"
+      },
+      {
+        "name": "Meta",
+        "image": "https://cdn.simpleicons.org/meta/8b93a8"
+      },
+      {
+        "name": "Uber",
+        "image": "https://cdn.simpleicons.org/uber/8b93a8"
+      },
+      {
+        "name": "PayPal",
+        "image": "https://cdn.simpleicons.org/paypal/8b93a8"
+      },
+      {
+        "name": "Twitch",
+        "image": "https://cdn.simpleicons.org/twitch/8b93a8"
+      }
+    ]
+  },
+  "works": {
+    "imagesLabel": "— SELECTED WORK / مختارات",
+    "imagesTitle": "أعمالنا المصوّرة",
+    "videosLabel": "— MOTION & FILM / إنتاج مرئي",
+    "videosTitle": "أعمالنا المرئية",
+    "gallery": {
+      "eyebrow": "WEXON DESIGN ARCHIVE",
+      "title": "معرض التصاميم",
+      "description": "أرشيف شامل لأعمال الهوية، السوشل، الحملات والتجارب البصرية.",
+      "cta": "ابدأ مشروعك",
+      "seoTitle": "معرض تصاميم Wexon",
+      "seoDescription": "استكشف أعمال Wexon في الهوية البصرية، تصميم السوشل والحملات الإبداعية."
+    },
+    "videoGallery": {
+      "eyebrow": "WEXON MOTION ARCHIVE",
+      "title": "معرض الفيديو",
+      "description": "أفلام، موشن، إعلانات وريلز مصممة لتتحرك بجرأة.",
+      "cta": "ابدأ مشروع فيديو",
+      "seoTitle": "معرض فيديو Wexon",
+      "seoDescription": "شاهد أعمال Wexon في إنتاج الفيديو، الموشن والإعلانات المرئية."
+    },
+    "images": [
+      {
+        "id": "wi-1",
+        "tag": "SOCIAL MEDIA",
+        "title": "مشروع تجريبي",
+        "cover": "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=880&h=588&q=80",
+        "detail": "وصف مختصر لدراسة الحالة — يُعدّل من الأدمن.",
+        "client": "عميل تجريبي",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": true,
+        "published": true,
+        "slug": "social-launch-sample",
+        "caseStudy": {
+          "intro": "«مشروع تجريبي» احتاج حضوراً رقمياً يوقف السكرول — نظام محتوى شهري كامل بهوية بصرية ثابتة ونبرة واضحة.",
+          "objective": "نظام محتوى متكامل يرفع التفاعل ويحافظ على اتساق العلامة بدون مجهود يومي من العميل.",
+          "services": "استراتيجية المحتوى، تصميم القوالب، الإدارة الفنية، تقويم النشر",
+          "tools": "Photoshop, Figma, After Effects",
+          "palette": "#1a1030,#e6467a,#ffe9f0,#2ec4b6",
+          "phases": [
+            {
+              "title": "استراتيجية المحتوى",
+              "body": "تحليل الجمهور والمنافسين وتحديد أعمدة المحتوى ونبرة الصوت لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-1-p1/1100/700"
+            },
+            {
+              "title": "النظام البصري للفيد",
+              "body": "تصميم قوالب بوست وستوري وريلز بهوية موحدة تخلي الفيد قطعة واحدة متناسقة.",
+              "media": "https://picsum.photos/seed/wx-wi-1-p2/1100/700"
+            },
+            {
+              "title": "الإنتاج والتقويم",
+              "body": "إنتاج دفعات المحتوى الشهرية وجدولة النشر بأوقات الذروة لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-1-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-1-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-1-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-1-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-1-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-1-g5/900/1100"
+          ],
+          "outcome": "فيد «مشروع تجريبي» تحوّل لواجهة بصرية متسقة ترفع الثقة — والتفاعل ارتفع بشكل ملموس من أول شهر.",
+          "quote": "صار الفيد يشتغل كموظف مبيعات إضافي.",
+          "quoteAuthor": "فريق مشروع تجريبي"
+        }
+      },
+      {
+        "id": "wi-2",
+        "tag": "BRANDING",
+        "title": "مشروع تجريبي",
+        "cover": "/uploads/mrez6plj-tqmqe9.jpg",
+        "detail": "وصف مختصر لدراسة الحالة — يُعدّل من الأدمن.",
+        "client": "عميل تجريبي",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": true,
+        "published": true,
+        "slug": "branding-sample",
+        "caseStudy": {
+          "intro": "علامة «مشروع تجريبي» احتاجت بناء علامة تجارية متكاملة تعبّر عن شخصيتها وتميّزها في سوق مزدحم. اشتغلنا من الجذور: استراتيجية، هوية، وتطبيقات حقيقية على أرض الواقع.",
+          "objective": "علامة متكاملة الشخصية — اسم مرئي، نبرة، وحضور متّسق على كل نقطة تماس مع الجمهور.",
+          "services": "استراتيجية العلامة، تصميم الشعار، الهوية البصرية، دليل الاستخدام",
+          "tools": "Illustrator, Figma, Photoshop",
+          "palette": "#1f2233,#c8a06b,#f2ede4,#31506e",
+          "phases": [
+            {
+              "title": "الاستكشاف والاستراتيجية",
+              "body": "جلسات اكتشاف مع الفريق المؤسس وتحليل المنافسين لتحديد موقع العلامة ونبرة صوتها وجمهورها الأساسي.",
+              "media": "https://picsum.photos/seed/wx-wi-2-p1/1100/700"
+            },
+            {
+              "title": "تصميم الشعار",
+              "body": "اسكتشات مكثفة ثم تطوير ٣ اتجاهات بصرية، وصولاً لشعار نهائي مرن يشتغل بكل المقاسات والخلفيات.",
+              "media": "https://picsum.photos/seed/wx-wi-2-p2/1100/700"
+            },
+            {
+              "title": "النظام البصري",
+              "body": "ألوان، خطوط، أنماط جرافيكية وقواعد تصوير — نظام كامل يضمن اتساق العلامة في كل مكان.",
+              "media": "https://picsum.photos/seed/wx-wi-2-p3/1100/700"
+            },
+            {
+              "title": "التطبيقات والدليل",
+              "body": "تطبيق الهوية على المطبوعات والرقمي، وتسليم دليل استخدام يحمي العلامة مستقبلاً.",
+              "media": "https://picsum.photos/seed/wx-wi-2-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-2-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-2-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-2-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-2-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-2-g5/900/1100"
+          ],
+          "outcome": "خرجت علامة «مشروع تجريبي» بهوية متماسكة جاهزة للنمو — حضور موحّد رفع تميّزها أمام جمهورها من اليوم الأول.",
+          "quote": "صار عندنا علامة نفتخر نحطها على أي شي.",
+          "quoteAuthor": "فريق مشروع تجريبي"
+        }
+      },
+      {
+        "id": "wi-3",
+        "tag": "LOGO",
+        "title": "مشروع تجريبي",
+        "cover": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=880&h=588&q=80",
+        "detail": "وصف مختصر لدراسة الحالة — يُعدّل من الأدمن.",
+        "client": "عميل تجريبي",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": true,
+        "published": true,
+        "slug": "logo-sample",
+        "caseStudy": {
+          "intro": "شعار «مشروع تجريبي» كان لازم يختصر قصة كاملة في علامة واحدة — بسيطة تعلق في الذاكرة، ومرنة تعيش سنوات.",
+          "objective": "شعار مميز قابل للاستخدام بكل المقاسات — من أيقونة التطبيق إلى اللوحة الإعلانية.",
+          "services": "تصميم الشعار، بناء العلامة، ملفات التسليم الكاملة",
+          "tools": "Illustrator, Figma",
+          "palette": "#101321,#2e6bff,#f4f6fb,#19c37d",
+          "phases": [
+            {
+              "title": "الفكرة والاسكتش",
+              "body": "عشرات الاسكتشات اليدوية لاستكشاف الرموز والحروف الممكنة، وتصفية الاتجاهات الأقوى.",
+              "media": "https://picsum.photos/seed/wx-wi-3-p1/1100/700"
+            },
+            {
+              "title": "البناء الهندسي",
+              "body": "بناء الشعار المختار على شبكة هندسية دقيقة تضمن التوازن البصري بكل المقاسات.",
+              "media": "https://picsum.photos/seed/wx-wi-3-p2/1100/700"
+            },
+            {
+              "title": "الاختبار والتسليم",
+              "body": "اختبار الشعار على خلفيات ومقاسات وسياقات حقيقية، وتسليم ملفات كاملة بكل الصيغ.",
+              "media": "https://picsum.photos/seed/wx-wi-3-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-3-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-3-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-3-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-3-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-3-g5/900/1100"
+          ],
+          "outcome": "شعار «مشروع تجريبي» صار وجه العلامة — بسيط، مميز، ويشتغل من فافيكون 16 بكسل إلى واجهة محل.",
+          "quote": "كل ما نشوف الشعار نحس إنه كان موجود من زمان — وهذا بالضبط اللي بغيناه.",
+          "quoteAuthor": "فريق مشروع تجريبي"
+        }
+      },
+      {
+        "id": "wi-4",
+        "tag": "VISUAL IDENTITY",
+        "title": "مشروع تجريبي",
+        "cover": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=880&h=588&q=80",
+        "detail": "وصف مختصر لدراسة الحالة — يُعدّل من الأدمن.",
+        "client": "عميل تجريبي",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": true,
+        "published": true,
+        "slug": "identity-sample",
+        "caseStudy": {
+          "intro": "«مشروع تجريبي» احتاج هوية بصرية تحكي قصته بصرياً — من أول لقطة يشوفها الجمهور إلى أصغر تفصيلة مطبوعة.",
+          "objective": "نظام بصري كامل قابل للتطبيق على البيئة المكانية والرقمية والمطبوعة دون فقدان الشخصية.",
+          "services": "الهوية البصرية، النظام الجرافيكي، التطبيقات المكانية والرقمية",
+          "tools": "Illustrator, Figma, InDesign",
+          "palette": "#141824,#7a2be6,#e9e4f7,#f5b841",
+          "phases": [
+            {
+              "title": "البحث البصري",
+              "body": "جمع مراجع وتحليل اللغة البصرية للمجال، وبناء مود بورد يحدد الاتجاه الفني للهوية.",
+              "media": "https://picsum.photos/seed/wx-wi-4-p1/1100/700"
+            },
+            {
+              "title": "بناء النظام",
+              "body": "تطوير الشعار والعناصر الجرافيكية والشبكات — نظام مرن يتمدد من بطاقة العمل إلى واجهة المبنى.",
+              "media": "https://picsum.photos/seed/wx-wi-4-p2/1100/700"
+            },
+            {
+              "title": "الألوان والخطوط",
+              "body": "لوحة لونية مميزة وخطوط عربية/لاتينية متوافقة تعطي الهوية صوتها الخاص.",
+              "media": "https://picsum.photos/seed/wx-wi-4-p3/1100/700"
+            },
+            {
+              "title": "التطبيق الشامل",
+              "body": "تنفيذ الهوية على كل نقاط التماس: لافتات، مطبوعات، شاشات، وسوشل ميديا.",
+              "media": "https://picsum.photos/seed/wx-wi-4-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-4-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-4-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-4-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-4-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-4-g5/900/1100"
+          ],
+          "outcome": "هوية «مشروع تجريبي» صارت لغة بصرية كاملة — أي قطعة تصميم تطلع منها تتعرف عليها من بعيد.",
+          "quote": "الهوية ما زيّنت المشروع بس — وحّدت طريقة تفكيرنا فيه.",
+          "quoteAuthor": "فريق مشروع تجريبي"
+        }
+      },
+      {
+        "id": "wi-5",
+        "slug": "reef-cafe-identity",
+        "tag": "BRANDING",
+        "title": "هوية بصرية — مقهى ريف",
+        "cover": "https://picsum.photos/seed/wx-brand1/900/700",
+        "detail": "بناء هوية كاملة لمقهى مختص: شعار، ألوان، وتطبيقات مطبوعة.",
+        "client": "مقهى ريف",
+        "year": "2026",
+        "duration": "٤ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "caseStudy": {
+          "intro": "مقهى ريف مشروع محلي مختص بالقهوة المقطّرة أراد هوية تحمل دفء الريف وبساطته دون أن تفقد الطابع العصري. التحدي كان بناء علامة تنافس سلاسل القهوة الكبرى بميزانية مشروع ناشئ.",
+          "objective": "هوية متكاملة قابلة للتطبيق على الأكواب، الواجهة، القوائم والسوشل ميديا خلال أربعة أسابيع فقط.",
+          "services": "استراتيجية العلامة، تصميم الشعار، نظام الألوان، التطبيقات المطبوعة",
+          "tools": "Illustrator, Figma, Photoshop",
+          "palette": "#3e2f23,#c8a06b,#f4ead8,#1f4a3d",
+          "phases": [
+            {
+              "title": "البحث والفكرة",
+              "body": "بدأنا بجلسة اكتشاف مع المؤسسين وتحليل ٩ منافسين محليين. خرجنا بمفهوم «الضيافة الريفية الحديثة» كركيزة بصرية ولفظية للعلامة.",
+              "media": "https://picsum.photos/seed/wx-cs-research/1100/700"
+            },
+            {
+              "title": "تصميم الشعار",
+              "body": "٢٤ اسكتشاً يدوياً اختُصرت إلى ٣ اتجاهات، ثم بُني الشعار النهائي على حرف الراء بتكوين يوحي بحبة البن وورقة الشجر معاً.",
+              "media": "https://picsum.photos/seed/wx-cs-logo/1100/700"
+            },
+            {
+              "title": "نظام الألوان والخط",
+              "body": "لوحة ترابية دافئة مستوحاة من درجات التحميص، مع خط عربي مخصص للعناوين يوازن بين الجدية والود.",
+              "media": "https://picsum.photos/seed/wx-cs-colors/1100/700"
+            },
+            {
+              "title": "التطبيقات",
+              "body": "طبّقنا الهوية على الأكواب، أكياس البن، القوائم، الواجهة الخارجية وقوالب السوشل — مع دليل استخدام من ٣٢ صفحة.",
+              "media": "https://picsum.photos/seed/wx-cs-apps/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-csg-1/800/1000",
+            "https://picsum.photos/seed/wx-csg-2/1000/700",
+            "https://picsum.photos/seed/wx-csg-3/800/800",
+            "https://picsum.photos/seed/wx-csg-4/900/1100",
+            "https://picsum.photos/seed/wx-csg-5/1100/700",
+            "https://picsum.photos/seed/wx-csg-6/800/950"
+          ],
+          "outcome": "أُطلقت الهوية مع افتتاح الفرع الأول وحققت العلامة حضوراً لافتاً: ٤٢٠٠ متابع في أول شهر، ونفدت الطبعة الأولى من أكياس البن خلال أسبوعين.",
+          "quote": "فريق Wexon فهم روح المشروع من أول جلسة — الهوية صارت تتكلم عنا قبل ما نتكلم.",
+          "quoteAuthor": "مؤسس مقهى ريف"
+        }
+      },
+      {
+        "id": "wi-6",
+        "tag": "LOGO",
+        "title": "شعار — استوديو عمارة",
+        "cover": "https://picsum.photos/seed/wx-logo1/800/1000",
+        "detail": "شعار هندسي بسيط يعكس دقة التصميم المعماري.",
+        "client": "استوديو البُعد",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "showOnHome": false,
+        "published": true,
+        "slug": "amara-studio-logo",
+        "caseStudy": {
+          "intro": "شعار «استوديو عمارة» كان لازم يختصر قصة كاملة في علامة واحدة — بسيطة تعلق في الذاكرة، ومرنة تعيش سنوات.",
+          "objective": "شعار مميز قابل للاستخدام بكل المقاسات — من أيقونة التطبيق إلى اللوحة الإعلانية.",
+          "services": "تصميم الشعار، بناء العلامة، ملفات التسليم الكاملة",
+          "tools": "Illustrator, Figma",
+          "palette": "#101321,#2e6bff,#f4f6fb,#19c37d",
+          "phases": [
+            {
+              "title": "الفكرة والاسكتش",
+              "body": "عشرات الاسكتشات اليدوية لاستكشاف الرموز والحروف الممكنة، وتصفية الاتجاهات الأقوى.",
+              "media": "https://picsum.photos/seed/wx-wi-6-p1/1100/700"
+            },
+            {
+              "title": "البناء الهندسي",
+              "body": "بناء الشعار المختار على شبكة هندسية دقيقة تضمن التوازن البصري بكل المقاسات.",
+              "media": "https://picsum.photos/seed/wx-wi-6-p2/1100/700"
+            },
+            {
+              "title": "الاختبار والتسليم",
+              "body": "اختبار الشعار على خلفيات ومقاسات وسياقات حقيقية، وتسليم ملفات كاملة بكل الصيغ.",
+              "media": "https://picsum.photos/seed/wx-wi-6-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-6-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-6-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-6-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-6-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-6-g5/900/1100"
+          ],
+          "outcome": "شعار «استوديو عمارة» صار وجه العلامة — بسيط، مميز، ويشتغل من فافيكون 16 بكسل إلى واجهة محل.",
+          "quote": "كل ما نشوف الشعار نحس إنه كان موجود من زمان — وهذا بالضبط اللي بغيناه.",
+          "quoteAuthor": "فريق استوديو عمارة"
+        }
+      },
+      {
+        "id": "wi-7",
+        "tag": "SOCIAL MEDIA",
+        "title": "سوشل ميديا — مطعم لمسة",
+        "cover": "https://picsum.photos/seed/wx-social1/900/900",
+        "detail": "نظام محتوى شهري كامل مع قوالب ستوري وبوست.",
+        "client": "مطعم لمسة",
+        "year": "2025",
+        "duration": "٣ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "lamsa-restaurant-social",
+        "caseStudy": {
+          "intro": "«مطعم لمسة» احتاج حضوراً رقمياً يوقف السكرول — نظام محتوى شهري كامل بهوية بصرية ثابتة ونبرة واضحة.",
+          "objective": "نظام محتوى متكامل يرفع التفاعل ويحافظ على اتساق العلامة بدون مجهود يومي من العميل.",
+          "services": "استراتيجية المحتوى، تصميم القوالب، الإدارة الفنية، تقويم النشر",
+          "tools": "Photoshop, Figma, After Effects",
+          "palette": "#1a1030,#e6467a,#ffe9f0,#2ec4b6",
+          "phases": [
+            {
+              "title": "استراتيجية المحتوى",
+              "body": "تحليل الجمهور والمنافسين وتحديد أعمدة المحتوى ونبرة الصوت لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-7-p1/1100/700"
+            },
+            {
+              "title": "النظام البصري للفيد",
+              "body": "تصميم قوالب بوست وستوري وريلز بهوية موحدة تخلي الفيد قطعة واحدة متناسقة.",
+              "media": "https://picsum.photos/seed/wx-wi-7-p2/1100/700"
+            },
+            {
+              "title": "الإنتاج والتقويم",
+              "body": "إنتاج دفعات المحتوى الشهرية وجدولة النشر بأوقات الذروة لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-7-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-7-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-7-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-7-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-7-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-7-g5/900/1100"
+          ],
+          "outcome": "فيد «مطعم لمسة» تحوّل لواجهة بصرية متسقة ترفع الثقة — والتفاعل ارتفع بشكل ملموس من أول شهر.",
+          "quote": "صار الفيد يشتغل كموظف مبيعات إضافي.",
+          "quoteAuthor": "فريق مطعم لمسة"
+        }
+      },
+      {
+        "id": "wi-8",
+        "tag": "PACKAGING",
+        "title": "تغليف — عسل السدر",
+        "cover": "https://picsum.photos/seed/wx-pack1/850/1100",
+        "detail": "تصميم عبوات فاخرة بخامات طبيعية وطباعة ذهبية.",
+        "client": "مناحل الوادي",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "sidr-honey-packaging",
+        "caseStudy": {
+          "intro": "منتج «عسل السدر» كان يحتاج عبوة توقف العين على الرف — تغليف يحكي جودة المنتج قبل ما يفتحه أحد.",
+          "objective": "تغليف مميز على الرف، عملي في الإنتاج، ويعزز قيمة المنتج المدركة.",
+          "services": "تصميم التغليف، بنية العبوة، الإشراف الطباعي",
+          "tools": "Illustrator, Dimension, InDesign",
+          "palette": "#2b1d12,#d9a441,#f7f1e5,#4a6b3a",
+          "phases": [
+            {
+              "title": "بحث الرف",
+              "body": "دراسة المنافسين على أرفف حقيقية وتحديد الفجوة البصرية التي تخلي المنتج يبرز.",
+              "media": "https://picsum.photos/seed/wx-wi-8-p1/1100/700"
+            },
+            {
+              "title": "بنية العبوة والتصميم",
+              "body": "تطوير بنية العبوة (dieline) وتصميم الوجوه بكل تفاصيلها التنظيمية والتسويقية.",
+              "media": "https://picsum.photos/seed/wx-wi-8-p2/1100/700"
+            },
+            {
+              "title": "نماذج وطباعة",
+              "body": "نماذج أولية ملموسة، ضبط الألوان مع المطبعة، والإشراف على أول تشغيلة إنتاج.",
+              "media": "https://picsum.photos/seed/wx-wi-8-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-8-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-8-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-8-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-8-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-8-g5/900/1100"
+          ],
+          "outcome": "عبوة «عسل السدر» صارت أداة البيع الأولى — تميّز فوري على الرف وارتفاع في نسبة الالتقاط والشراء.",
+          "quote": "الناس صاروا يصورون العبوة قبل ما يفتحونها.",
+          "quoteAuthor": "فريق عسل السدر"
+        }
+      },
+      {
+        "id": "wi-9",
+        "tag": "CAMPAIGN",
+        "title": "حملة إطلاق — تطبيق وصلة",
+        "cover": "https://picsum.photos/seed/wx-camp1/1200/800",
+        "detail": "حملة إطلاق رقمية متكاملة عبر ثلاث منصات.",
+        "client": "تطبيق وصلة",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "wasla-app-campaign",
+        "caseStudy": {
+          "intro": "حملة «تطبيق وصلة» احتاجت فكرة واحدة قوية تتفرع لكل القنوات — رسالة تلمس الجمهور وتحرّكه للفعل.",
+          "objective": "حملة متعددة القنوات برسالة موحدة تحقق وعياً واسعاً وتحويلاً قابلاً للقياس.",
+          "services": "الفكرة الإبداعية، التصميم الإعلاني، إعلانات رقمية ومطبوعة، أصول سوشل",
+          "tools": "Photoshop, Illustrator, After Effects",
+          "palette": "#0f1c2e,#ff5f45,#fff4ec,#ffd166",
+          "phases": [
+            {
+              "title": "الفكرة الكبيرة",
+              "body": "جلسات عصف وصياغة الرسالة المحورية التي تختصر الحملة في جملة واحدة لا تُنسى.",
+              "media": "https://picsum.photos/seed/wx-wi-9-p1/1100/700"
+            },
+            {
+              "title": "التصميم عبر القنوات",
+              "body": "تحويل الفكرة لأصول متكاملة: إعلانات رقمية، مطبوعات، لوحات، ومحتوى سوشل.",
+              "media": "https://picsum.photos/seed/wx-wi-9-p2/1100/700"
+            },
+            {
+              "title": "الإطلاق والتتبع",
+              "body": "إطلاق مجدول عبر القنوات مع متابعة الأداء وتحسين الأصول أثناء الحملة.",
+              "media": "https://picsum.photos/seed/wx-wi-9-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-9-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-9-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-9-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-9-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-9-g5/900/1100"
+          ],
+          "outcome": "حملة «تطبيق وصلة» وصلت لجمهورها برسالة واحدة متسقة — وعي أعلى وأرقام تفاعل تجاوزت المستهدف.",
+          "quote": "أول حملة نطلقها والناس يعيدون نشرها بدون ما نطلب.",
+          "quoteAuthor": "فريق تطبيق وصلة"
+        }
+      },
+      {
+        "id": "wi-10",
+        "tag": "VISUAL IDENTITY",
+        "title": "هوية — معرض نون الفني",
+        "cover": "https://picsum.photos/seed/wx-vis1/900/1200",
+        "detail": "هوية متغيرة تتشكل مع كل معرض فني جديد.",
+        "client": "غاليري نون",
+        "year": "2025",
+        "duration": "٧ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "noon-gallery-identity",
+        "caseStudy": {
+          "intro": "«معرض نون الفني» احتاج هوية بصرية تحكي قصته بصرياً — من أول لقطة يشوفها الجمهور إلى أصغر تفصيلة مطبوعة.",
+          "objective": "نظام بصري كامل قابل للتطبيق على البيئة المكانية والرقمية والمطبوعة دون فقدان الشخصية.",
+          "services": "الهوية البصرية، النظام الجرافيكي، التطبيقات المكانية والرقمية",
+          "tools": "Illustrator, Figma, InDesign",
+          "palette": "#141824,#7a2be6,#e9e4f7,#f5b841",
+          "phases": [
+            {
+              "title": "البحث البصري",
+              "body": "جمع مراجع وتحليل اللغة البصرية للمجال، وبناء مود بورد يحدد الاتجاه الفني للهوية.",
+              "media": "https://picsum.photos/seed/wx-wi-10-p1/1100/700"
+            },
+            {
+              "title": "بناء النظام",
+              "body": "تطوير الشعار والعناصر الجرافيكية والشبكات — نظام مرن يتمدد من بطاقة العمل إلى واجهة المبنى.",
+              "media": "https://picsum.photos/seed/wx-wi-10-p2/1100/700"
+            },
+            {
+              "title": "الألوان والخطوط",
+              "body": "لوحة لونية مميزة وخطوط عربية/لاتينية متوافقة تعطي الهوية صوتها الخاص.",
+              "media": "https://picsum.photos/seed/wx-wi-10-p3/1100/700"
+            },
+            {
+              "title": "التطبيق الشامل",
+              "body": "تنفيذ الهوية على كل نقاط التماس: لافتات، مطبوعات، شاشات، وسوشل ميديا.",
+              "media": "https://picsum.photos/seed/wx-wi-10-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-10-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-10-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-10-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-10-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-10-g5/900/1100"
+          ],
+          "outcome": "هوية «معرض نون الفني» صارت لغة بصرية كاملة — أي قطعة تصميم تطلع منها تتعرف عليها من بعيد.",
+          "quote": "الهوية ما زيّنت المشروع بس — وحّدت طريقة تفكيرنا فيه.",
+          "quoteAuthor": "فريق معرض نون الفني"
+        }
+      },
+      {
+        "id": "wi-11",
+        "tag": "BRANDING",
+        "title": "علامة — قهوة محمصة",
+        "cover": "https://picsum.photos/seed/wx-brand2/1000/750",
+        "detail": "إعادة بناء علامة محمصة قهوة محلية بروح عصرية.",
+        "client": "محمصة بُن",
+        "year": "2025",
+        "duration": "٥ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "roasted-coffee-brand",
+        "caseStudy": {
+          "intro": "علامة «قهوة محمصة» احتاجت بناء علامة تجارية متكاملة تعبّر عن شخصيتها وتميّزها في سوق مزدحم. اشتغلنا من الجذور: استراتيجية، هوية، وتطبيقات حقيقية على أرض الواقع.",
+          "objective": "علامة متكاملة الشخصية — اسم مرئي، نبرة، وحضور متّسق على كل نقطة تماس مع الجمهور.",
+          "services": "استراتيجية العلامة، تصميم الشعار، الهوية البصرية، دليل الاستخدام",
+          "tools": "Illustrator, Figma, Photoshop",
+          "palette": "#1f2233,#c8a06b,#f2ede4,#31506e",
+          "phases": [
+            {
+              "title": "الاستكشاف والاستراتيجية",
+              "body": "جلسات اكتشاف مع الفريق المؤسس وتحليل المنافسين لتحديد موقع العلامة ونبرة صوتها وجمهورها الأساسي.",
+              "media": "https://picsum.photos/seed/wx-wi-11-p1/1100/700"
+            },
+            {
+              "title": "تصميم الشعار",
+              "body": "اسكتشات مكثفة ثم تطوير ٣ اتجاهات بصرية، وصولاً لشعار نهائي مرن يشتغل بكل المقاسات والخلفيات.",
+              "media": "https://picsum.photos/seed/wx-wi-11-p2/1100/700"
+            },
+            {
+              "title": "النظام البصري",
+              "body": "ألوان، خطوط، أنماط جرافيكية وقواعد تصوير — نظام كامل يضمن اتساق العلامة في كل مكان.",
+              "media": "https://picsum.photos/seed/wx-wi-11-p3/1100/700"
+            },
+            {
+              "title": "التطبيقات والدليل",
+              "body": "تطبيق الهوية على المطبوعات والرقمي، وتسليم دليل استخدام يحمي العلامة مستقبلاً.",
+              "media": "https://picsum.photos/seed/wx-wi-11-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-11-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-11-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-11-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-11-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-11-g5/900/1100"
+          ],
+          "outcome": "خرجت علامة «قهوة محمصة» بهوية متماسكة جاهزة للنمو — حضور موحّد رفع تميّزها أمام جمهورها من اليوم الأول.",
+          "quote": "صار عندنا علامة نفتخر نحطها على أي شي.",
+          "quoteAuthor": "فريق قهوة محمصة"
+        }
+      },
+      {
+        "id": "wi-12",
+        "tag": "LOGO",
+        "title": "شعار — نادي لياقة",
+        "cover": "https://picsum.photos/seed/wx-logo2/900/650",
+        "detail": "شعار حركي بزوايا حادة يعكس الطاقة والقوة.",
+        "client": "نادي فورما",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "showOnHome": false,
+        "published": true,
+        "slug": "fitness-club-logo",
+        "caseStudy": {
+          "intro": "شعار «نادي لياقة» كان لازم يختصر قصة كاملة في علامة واحدة — بسيطة تعلق في الذاكرة، ومرنة تعيش سنوات.",
+          "objective": "شعار مميز قابل للاستخدام بكل المقاسات — من أيقونة التطبيق إلى اللوحة الإعلانية.",
+          "services": "تصميم الشعار، بناء العلامة، ملفات التسليم الكاملة",
+          "tools": "Illustrator, Figma",
+          "palette": "#101321,#2e6bff,#f4f6fb,#19c37d",
+          "phases": [
+            {
+              "title": "الفكرة والاسكتش",
+              "body": "عشرات الاسكتشات اليدوية لاستكشاف الرموز والحروف الممكنة، وتصفية الاتجاهات الأقوى.",
+              "media": "https://picsum.photos/seed/wx-wi-12-p1/1100/700"
+            },
+            {
+              "title": "البناء الهندسي",
+              "body": "بناء الشعار المختار على شبكة هندسية دقيقة تضمن التوازن البصري بكل المقاسات.",
+              "media": "https://picsum.photos/seed/wx-wi-12-p2/1100/700"
+            },
+            {
+              "title": "الاختبار والتسليم",
+              "body": "اختبار الشعار على خلفيات ومقاسات وسياقات حقيقية، وتسليم ملفات كاملة بكل الصيغ.",
+              "media": "https://picsum.photos/seed/wx-wi-12-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-12-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-12-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-12-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-12-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-12-g5/900/1100"
+          ],
+          "outcome": "شعار «نادي لياقة» صار وجه العلامة — بسيط، مميز، ويشتغل من فافيكون 16 بكسل إلى واجهة محل.",
+          "quote": "كل ما نشوف الشعار نحس إنه كان موجود من زمان — وهذا بالضبط اللي بغيناه.",
+          "quoteAuthor": "فريق نادي لياقة"
+        }
+      },
+      {
+        "id": "wi-13",
+        "tag": "SOCIAL MEDIA",
+        "title": "محتوى — عيادة ابتسامة",
+        "cover": "https://picsum.photos/seed/wx-social2/850/850",
+        "detail": "هوية سوشل ناعمة تبني ثقة المرضى بصرياً.",
+        "client": "عيادة ابتسامة",
+        "year": "2025",
+        "duration": "٤ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "smile-clinic-content",
+        "caseStudy": {
+          "intro": "«عيادة ابتسامة» احتاج حضوراً رقمياً يوقف السكرول — نظام محتوى شهري كامل بهوية بصرية ثابتة ونبرة واضحة.",
+          "objective": "نظام محتوى متكامل يرفع التفاعل ويحافظ على اتساق العلامة بدون مجهود يومي من العميل.",
+          "services": "استراتيجية المحتوى، تصميم القوالب، الإدارة الفنية، تقويم النشر",
+          "tools": "Photoshop, Figma, After Effects",
+          "palette": "#1a1030,#e6467a,#ffe9f0,#2ec4b6",
+          "phases": [
+            {
+              "title": "استراتيجية المحتوى",
+              "body": "تحليل الجمهور والمنافسين وتحديد أعمدة المحتوى ونبرة الصوت لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-13-p1/1100/700"
+            },
+            {
+              "title": "النظام البصري للفيد",
+              "body": "تصميم قوالب بوست وستوري وريلز بهوية موحدة تخلي الفيد قطعة واحدة متناسقة.",
+              "media": "https://picsum.photos/seed/wx-wi-13-p2/1100/700"
+            },
+            {
+              "title": "الإنتاج والتقويم",
+              "body": "إنتاج دفعات المحتوى الشهرية وجدولة النشر بأوقات الذروة لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-13-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-13-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-13-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-13-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-13-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-13-g5/900/1100"
+          ],
+          "outcome": "فيد «عيادة ابتسامة» تحوّل لواجهة بصرية متسقة ترفع الثقة — والتفاعل ارتفع بشكل ملموس من أول شهر.",
+          "quote": "صار الفيد يشتغل كموظف مبيعات إضافي.",
+          "quoteAuthor": "فريق عيادة ابتسامة"
+        }
+      },
+      {
+        "id": "wi-14",
+        "tag": "PACKAGING",
+        "title": "تغليف — شوكولاتة كاكاو",
+        "cover": "https://picsum.photos/seed/wx-pack2/800/1050",
+        "detail": "سلسلة أغلفة بنقوش يدوية لكل نكهة طابعها.",
+        "client": "كاكاو هاوس",
+        "year": "2026",
+        "duration": "٦ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "cacao-chocolate-packaging",
+        "caseStudy": {
+          "intro": "منتج «شوكولاتة كاكاو» كان يحتاج عبوة توقف العين على الرف — تغليف يحكي جودة المنتج قبل ما يفتحه أحد.",
+          "objective": "تغليف مميز على الرف، عملي في الإنتاج، ويعزز قيمة المنتج المدركة.",
+          "services": "تصميم التغليف، بنية العبوة، الإشراف الطباعي",
+          "tools": "Illustrator, Dimension, InDesign",
+          "palette": "#2b1d12,#d9a441,#f7f1e5,#4a6b3a",
+          "phases": [
+            {
+              "title": "بحث الرف",
+              "body": "دراسة المنافسين على أرفف حقيقية وتحديد الفجوة البصرية التي تخلي المنتج يبرز.",
+              "media": "https://picsum.photos/seed/wx-wi-14-p1/1100/700"
+            },
+            {
+              "title": "بنية العبوة والتصميم",
+              "body": "تطوير بنية العبوة (dieline) وتصميم الوجوه بكل تفاصيلها التنظيمية والتسويقية.",
+              "media": "https://picsum.photos/seed/wx-wi-14-p2/1100/700"
+            },
+            {
+              "title": "نماذج وطباعة",
+              "body": "نماذج أولية ملموسة، ضبط الألوان مع المطبعة، والإشراف على أول تشغيلة إنتاج.",
+              "media": "https://picsum.photos/seed/wx-wi-14-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-14-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-14-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-14-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-14-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-14-g5/900/1100"
+          ],
+          "outcome": "عبوة «شوكولاتة كاكاو» صارت أداة البيع الأولى — تميّز فوري على الرف وارتفاع في نسبة الالتقاط والشراء.",
+          "quote": "الناس صاروا يصورون العبوة قبل ما يفتحونها.",
+          "quoteAuthor": "فريق شوكولاتة كاكاو"
+        }
+      },
+      {
+        "id": "wi-15",
+        "tag": "CAMPAIGN",
+        "title": "حملة — اليوم الوطني",
+        "cover": "https://picsum.photos/seed/wx-camp2/1200/700",
+        "detail": "مفهوم بصري موحد لحملة احتفالية على المنصات والشوارع.",
+        "client": "مجموعة أفق",
+        "year": "2025",
+        "duration": "٣ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "national-day-campaign",
+        "caseStudy": {
+          "intro": "حملة «اليوم الوطني» احتاجت فكرة واحدة قوية تتفرع لكل القنوات — رسالة تلمس الجمهور وتحرّكه للفعل.",
+          "objective": "حملة متعددة القنوات برسالة موحدة تحقق وعياً واسعاً وتحويلاً قابلاً للقياس.",
+          "services": "الفكرة الإبداعية، التصميم الإعلاني، إعلانات رقمية ومطبوعة، أصول سوشل",
+          "tools": "Photoshop, Illustrator, After Effects",
+          "palette": "#0f1c2e,#ff5f45,#fff4ec,#ffd166",
+          "phases": [
+            {
+              "title": "الفكرة الكبيرة",
+              "body": "جلسات عصف وصياغة الرسالة المحورية التي تختصر الحملة في جملة واحدة لا تُنسى.",
+              "media": "https://picsum.photos/seed/wx-wi-15-p1/1100/700"
+            },
+            {
+              "title": "التصميم عبر القنوات",
+              "body": "تحويل الفكرة لأصول متكاملة: إعلانات رقمية، مطبوعات، لوحات، ومحتوى سوشل.",
+              "media": "https://picsum.photos/seed/wx-wi-15-p2/1100/700"
+            },
+            {
+              "title": "الإطلاق والتتبع",
+              "body": "إطلاق مجدول عبر القنوات مع متابعة الأداء وتحسين الأصول أثناء الحملة.",
+              "media": "https://picsum.photos/seed/wx-wi-15-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-15-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-15-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-15-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-15-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-15-g5/900/1100"
+          ],
+          "outcome": "حملة «اليوم الوطني» وصلت لجمهورها برسالة واحدة متسقة — وعي أعلى وأرقام تفاعل تجاوزت المستهدف.",
+          "quote": "أول حملة نطلقها والناس يعيدون نشرها بدون ما نطلب.",
+          "quoteAuthor": "فريق اليوم الوطني"
+        }
+      },
+      {
+        "id": "wi-16",
+        "tag": "VISUAL IDENTITY",
+        "title": "هوية — مهرجان ضوء",
+        "cover": "https://picsum.photos/seed/wx-vis2/950/1150",
+        "detail": "نظام بصري متوهج لمهرجان فنون رقمية.",
+        "client": "مهرجان ضوء",
+        "year": "2026",
+        "duration": "٨ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "daw-festival-identity",
+        "caseStudy": {
+          "intro": "«مهرجان ضوء» احتاج هوية بصرية تحكي قصته بصرياً — من أول لقطة يشوفها الجمهور إلى أصغر تفصيلة مطبوعة.",
+          "objective": "نظام بصري كامل قابل للتطبيق على البيئة المكانية والرقمية والمطبوعة دون فقدان الشخصية.",
+          "services": "الهوية البصرية، النظام الجرافيكي، التطبيقات المكانية والرقمية",
+          "tools": "Illustrator, Figma, InDesign",
+          "palette": "#141824,#7a2be6,#e9e4f7,#f5b841",
+          "phases": [
+            {
+              "title": "البحث البصري",
+              "body": "جمع مراجع وتحليل اللغة البصرية للمجال، وبناء مود بورد يحدد الاتجاه الفني للهوية.",
+              "media": "https://picsum.photos/seed/wx-wi-16-p1/1100/700"
+            },
+            {
+              "title": "بناء النظام",
+              "body": "تطوير الشعار والعناصر الجرافيكية والشبكات — نظام مرن يتمدد من بطاقة العمل إلى واجهة المبنى.",
+              "media": "https://picsum.photos/seed/wx-wi-16-p2/1100/700"
+            },
+            {
+              "title": "الألوان والخطوط",
+              "body": "لوحة لونية مميزة وخطوط عربية/لاتينية متوافقة تعطي الهوية صوتها الخاص.",
+              "media": "https://picsum.photos/seed/wx-wi-16-p3/1100/700"
+            },
+            {
+              "title": "التطبيق الشامل",
+              "body": "تنفيذ الهوية على كل نقاط التماس: لافتات، مطبوعات، شاشات، وسوشل ميديا.",
+              "media": "https://picsum.photos/seed/wx-wi-16-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-16-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-16-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-16-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-16-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-16-g5/900/1100"
+          ],
+          "outcome": "هوية «مهرجان ضوء» صارت لغة بصرية كاملة — أي قطعة تصميم تطلع منها تتعرف عليها من بعيد.",
+          "quote": "الهوية ما زيّنت المشروع بس — وحّدت طريقة تفكيرنا فيه.",
+          "quoteAuthor": "فريق مهرجان ضوء"
+        }
+      },
+      {
+        "id": "wi-17",
+        "tag": "BRANDING",
+        "title": "علامة — متجر خيوط",
+        "cover": "https://picsum.photos/seed/wx-brand3/880/660",
+        "detail": "هوية دافئة لمتجر أقمشة وخياطة راقية.",
+        "client": "متجر خيوط",
+        "year": "2025",
+        "duration": "٤ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "khuyut-store-brand",
+        "caseStudy": {
+          "intro": "علامة «متجر خيوط» احتاجت بناء علامة تجارية متكاملة تعبّر عن شخصيتها وتميّزها في سوق مزدحم. اشتغلنا من الجذور: استراتيجية، هوية، وتطبيقات حقيقية على أرض الواقع.",
+          "objective": "علامة متكاملة الشخصية — اسم مرئي، نبرة، وحضور متّسق على كل نقطة تماس مع الجمهور.",
+          "services": "استراتيجية العلامة، تصميم الشعار، الهوية البصرية، دليل الاستخدام",
+          "tools": "Illustrator, Figma, Photoshop",
+          "palette": "#1f2233,#c8a06b,#f2ede4,#31506e",
+          "phases": [
+            {
+              "title": "الاستكشاف والاستراتيجية",
+              "body": "جلسات اكتشاف مع الفريق المؤسس وتحليل المنافسين لتحديد موقع العلامة ونبرة صوتها وجمهورها الأساسي.",
+              "media": "https://picsum.photos/seed/wx-wi-17-p1/1100/700"
+            },
+            {
+              "title": "تصميم الشعار",
+              "body": "اسكتشات مكثفة ثم تطوير ٣ اتجاهات بصرية، وصولاً لشعار نهائي مرن يشتغل بكل المقاسات والخلفيات.",
+              "media": "https://picsum.photos/seed/wx-wi-17-p2/1100/700"
+            },
+            {
+              "title": "النظام البصري",
+              "body": "ألوان، خطوط، أنماط جرافيكية وقواعد تصوير — نظام كامل يضمن اتساق العلامة في كل مكان.",
+              "media": "https://picsum.photos/seed/wx-wi-17-p3/1100/700"
+            },
+            {
+              "title": "التطبيقات والدليل",
+              "body": "تطبيق الهوية على المطبوعات والرقمي، وتسليم دليل استخدام يحمي العلامة مستقبلاً.",
+              "media": "https://picsum.photos/seed/wx-wi-17-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-17-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-17-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-17-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-17-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-17-g5/900/1100"
+          ],
+          "outcome": "خرجت علامة «متجر خيوط» بهوية متماسكة جاهزة للنمو — حضور موحّد رفع تميّزها أمام جمهورها من اليوم الأول.",
+          "quote": "صار عندنا علامة نفتخر نحطها على أي شي.",
+          "quoteAuthor": "فريق متجر خيوط"
+        }
+      },
+      {
+        "id": "wi-18",
+        "tag": "LOGO",
+        "title": "شعار — شركة شحن",
+        "cover": "https://picsum.photos/seed/wx-logo3/1100/800",
+        "detail": "رمز سهم متحرك يختصر السرعة والدقة.",
+        "client": "سهم للشحن",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "showOnHome": false,
+        "published": true,
+        "slug": "shipping-company-logo",
+        "caseStudy": {
+          "intro": "شعار «شركة شحن» كان لازم يختصر قصة كاملة في علامة واحدة — بسيطة تعلق في الذاكرة، ومرنة تعيش سنوات.",
+          "objective": "شعار مميز قابل للاستخدام بكل المقاسات — من أيقونة التطبيق إلى اللوحة الإعلانية.",
+          "services": "تصميم الشعار، بناء العلامة، ملفات التسليم الكاملة",
+          "tools": "Illustrator, Figma",
+          "palette": "#101321,#2e6bff,#f4f6fb,#19c37d",
+          "phases": [
+            {
+              "title": "الفكرة والاسكتش",
+              "body": "عشرات الاسكتشات اليدوية لاستكشاف الرموز والحروف الممكنة، وتصفية الاتجاهات الأقوى.",
+              "media": "https://picsum.photos/seed/wx-wi-18-p1/1100/700"
+            },
+            {
+              "title": "البناء الهندسي",
+              "body": "بناء الشعار المختار على شبكة هندسية دقيقة تضمن التوازن البصري بكل المقاسات.",
+              "media": "https://picsum.photos/seed/wx-wi-18-p2/1100/700"
+            },
+            {
+              "title": "الاختبار والتسليم",
+              "body": "اختبار الشعار على خلفيات ومقاسات وسياقات حقيقية، وتسليم ملفات كاملة بكل الصيغ.",
+              "media": "https://picsum.photos/seed/wx-wi-18-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-18-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-18-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-18-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-18-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-18-g5/900/1100"
+          ],
+          "outcome": "شعار «شركة شحن» صار وجه العلامة — بسيط، مميز، ويشتغل من فافيكون 16 بكسل إلى واجهة محل.",
+          "quote": "كل ما نشوف الشعار نحس إنه كان موجود من زمان — وهذا بالضبط اللي بغيناه.",
+          "quoteAuthor": "فريق شركة شحن"
+        }
+      },
+      {
+        "id": "wi-19",
+        "tag": "SOCIAL MEDIA",
+        "title": "سوشل — علامة عطور",
+        "cover": "https://picsum.photos/seed/wx-social3/900/1125",
+        "detail": "اتجاه فني فاخر بإضاءة درامية لمنتجات العطور.",
+        "client": "دار عبير",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "perfume-brand-social",
+        "caseStudy": {
+          "intro": "«علامة عطور» احتاج حضوراً رقمياً يوقف السكرول — نظام محتوى شهري كامل بهوية بصرية ثابتة ونبرة واضحة.",
+          "objective": "نظام محتوى متكامل يرفع التفاعل ويحافظ على اتساق العلامة بدون مجهود يومي من العميل.",
+          "services": "استراتيجية المحتوى، تصميم القوالب، الإدارة الفنية، تقويم النشر",
+          "tools": "Photoshop, Figma, After Effects",
+          "palette": "#1a1030,#e6467a,#ffe9f0,#2ec4b6",
+          "phases": [
+            {
+              "title": "استراتيجية المحتوى",
+              "body": "تحليل الجمهور والمنافسين وتحديد أعمدة المحتوى ونبرة الصوت لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-19-p1/1100/700"
+            },
+            {
+              "title": "النظام البصري للفيد",
+              "body": "تصميم قوالب بوست وستوري وريلز بهوية موحدة تخلي الفيد قطعة واحدة متناسقة.",
+              "media": "https://picsum.photos/seed/wx-wi-19-p2/1100/700"
+            },
+            {
+              "title": "الإنتاج والتقويم",
+              "body": "إنتاج دفعات المحتوى الشهرية وجدولة النشر بأوقات الذروة لكل منصة.",
+              "media": "https://picsum.photos/seed/wx-wi-19-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-19-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-19-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-19-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-19-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-19-g5/900/1100"
+          ],
+          "outcome": "فيد «علامة عطور» تحوّل لواجهة بصرية متسقة ترفع الثقة — والتفاعل ارتفع بشكل ملموس من أول شهر.",
+          "quote": "صار الفيد يشتغل كموظف مبيعات إضافي.",
+          "quoteAuthor": "فريق علامة عطور"
+        }
+      },
+      {
+        "id": "wi-20",
+        "tag": "PACKAGING",
+        "title": "تغليف — مستحضرات عناية",
+        "cover": "https://picsum.photos/seed/wx-pack3/820/980",
+        "detail": "خط تغليف نظيف بألوان باستيل هادئة.",
+        "client": "بيور كير",
+        "year": "2025",
+        "duration": "٦ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "skincare-packaging",
+        "caseStudy": {
+          "intro": "منتج «مستحضرات عناية» كان يحتاج عبوة توقف العين على الرف — تغليف يحكي جودة المنتج قبل ما يفتحه أحد.",
+          "objective": "تغليف مميز على الرف، عملي في الإنتاج، ويعزز قيمة المنتج المدركة.",
+          "services": "تصميم التغليف، بنية العبوة، الإشراف الطباعي",
+          "tools": "Illustrator, Dimension, InDesign",
+          "palette": "#2b1d12,#d9a441,#f7f1e5,#4a6b3a",
+          "phases": [
+            {
+              "title": "بحث الرف",
+              "body": "دراسة المنافسين على أرفف حقيقية وتحديد الفجوة البصرية التي تخلي المنتج يبرز.",
+              "media": "https://picsum.photos/seed/wx-wi-20-p1/1100/700"
+            },
+            {
+              "title": "بنية العبوة والتصميم",
+              "body": "تطوير بنية العبوة (dieline) وتصميم الوجوه بكل تفاصيلها التنظيمية والتسويقية.",
+              "media": "https://picsum.photos/seed/wx-wi-20-p2/1100/700"
+            },
+            {
+              "title": "نماذج وطباعة",
+              "body": "نماذج أولية ملموسة، ضبط الألوان مع المطبعة، والإشراف على أول تشغيلة إنتاج.",
+              "media": "https://picsum.photos/seed/wx-wi-20-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-20-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-20-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-20-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-20-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-20-g5/900/1100"
+          ],
+          "outcome": "عبوة «مستحضرات عناية» صارت أداة البيع الأولى — تميّز فوري على الرف وارتفاع في نسبة الالتقاط والشراء.",
+          "quote": "الناس صاروا يصورون العبوة قبل ما يفتحونها.",
+          "quoteAuthor": "فريق مستحضرات عناية"
+        }
+      },
+      {
+        "id": "wi-21",
+        "tag": "CAMPAIGN",
+        "title": "حملة — افتتاح مول",
+        "cover": "https://picsum.photos/seed/wx-camp3/1250/750",
+        "detail": "هوية إعلانية ضخمة للافتتاح: لوحات، رقمي، وتجارب.",
+        "client": "سيتي ووك",
+        "year": "2026",
+        "duration": "٩ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "mall-opening-campaign",
+        "caseStudy": {
+          "intro": "حملة «افتتاح مول» احتاجت فكرة واحدة قوية تتفرع لكل القنوات — رسالة تلمس الجمهور وتحرّكه للفعل.",
+          "objective": "حملة متعددة القنوات برسالة موحدة تحقق وعياً واسعاً وتحويلاً قابلاً للقياس.",
+          "services": "الفكرة الإبداعية، التصميم الإعلاني، إعلانات رقمية ومطبوعة، أصول سوشل",
+          "tools": "Photoshop, Illustrator, After Effects",
+          "palette": "#0f1c2e,#ff5f45,#fff4ec,#ffd166",
+          "phases": [
+            {
+              "title": "الفكرة الكبيرة",
+              "body": "جلسات عصف وصياغة الرسالة المحورية التي تختصر الحملة في جملة واحدة لا تُنسى.",
+              "media": "https://picsum.photos/seed/wx-wi-21-p1/1100/700"
+            },
+            {
+              "title": "التصميم عبر القنوات",
+              "body": "تحويل الفكرة لأصول متكاملة: إعلانات رقمية، مطبوعات، لوحات، ومحتوى سوشل.",
+              "media": "https://picsum.photos/seed/wx-wi-21-p2/1100/700"
+            },
+            {
+              "title": "الإطلاق والتتبع",
+              "body": "إطلاق مجدول عبر القنوات مع متابعة الأداء وتحسين الأصول أثناء الحملة.",
+              "media": "https://picsum.photos/seed/wx-wi-21-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-21-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-21-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-21-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-21-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-21-g5/900/1100"
+          ],
+          "outcome": "حملة «افتتاح مول» وصلت لجمهورها برسالة واحدة متسقة — وعي أعلى وأرقام تفاعل تجاوزت المستهدف.",
+          "quote": "أول حملة نطلقها والناس يعيدون نشرها بدون ما نطلب.",
+          "quoteAuthor": "فريق افتتاح مول"
+        }
+      },
+      {
+        "id": "wi-22",
+        "tag": "VISUAL IDENTITY",
+        "title": "هوية — منصة تعليمية",
+        "cover": "https://picsum.photos/seed/wx-vis3/900/680",
+        "detail": "نظام ألوان ورسوم توضيحية صديقة للطلاب.",
+        "client": "منصة درس",
+        "year": "2025",
+        "duration": "٧ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "edu-platform-identity",
+        "caseStudy": {
+          "intro": "«منصة تعليمية» احتاج هوية بصرية تحكي قصته بصرياً — من أول لقطة يشوفها الجمهور إلى أصغر تفصيلة مطبوعة.",
+          "objective": "نظام بصري كامل قابل للتطبيق على البيئة المكانية والرقمية والمطبوعة دون فقدان الشخصية.",
+          "services": "الهوية البصرية، النظام الجرافيكي، التطبيقات المكانية والرقمية",
+          "tools": "Illustrator, Figma, InDesign",
+          "palette": "#141824,#7a2be6,#e9e4f7,#f5b841",
+          "phases": [
+            {
+              "title": "البحث البصري",
+              "body": "جمع مراجع وتحليل اللغة البصرية للمجال، وبناء مود بورد يحدد الاتجاه الفني للهوية.",
+              "media": "https://picsum.photos/seed/wx-wi-22-p1/1100/700"
+            },
+            {
+              "title": "بناء النظام",
+              "body": "تطوير الشعار والعناصر الجرافيكية والشبكات — نظام مرن يتمدد من بطاقة العمل إلى واجهة المبنى.",
+              "media": "https://picsum.photos/seed/wx-wi-22-p2/1100/700"
+            },
+            {
+              "title": "الألوان والخطوط",
+              "body": "لوحة لونية مميزة وخطوط عربية/لاتينية متوافقة تعطي الهوية صوتها الخاص.",
+              "media": "https://picsum.photos/seed/wx-wi-22-p3/1100/700"
+            },
+            {
+              "title": "التطبيق الشامل",
+              "body": "تنفيذ الهوية على كل نقاط التماس: لافتات، مطبوعات، شاشات، وسوشل ميديا.",
+              "media": "https://picsum.photos/seed/wx-wi-22-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-22-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-22-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-22-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-22-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-22-g5/900/1100"
+          ],
+          "outcome": "هوية «منصة تعليمية» صارت لغة بصرية كاملة — أي قطعة تصميم تطلع منها تتعرف عليها من بعيد.",
+          "quote": "الهوية ما زيّنت المشروع بس — وحّدت طريقة تفكيرنا فيه.",
+          "quoteAuthor": "فريق منصة تعليمية"
+        }
+      },
+      {
+        "id": "wi-23",
+        "tag": "BRANDING",
+        "title": "علامة — مطعم بحري",
+        "cover": "https://picsum.photos/seed/wx-brand4/860/1080",
+        "detail": "هوية مستوحاة من الموج والملح والشِباك.",
+        "client": "مرسى البحر",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "seafood-restaurant-brand",
+        "caseStudy": {
+          "intro": "علامة «مطعم بحري» احتاجت بناء علامة تجارية متكاملة تعبّر عن شخصيتها وتميّزها في سوق مزدحم. اشتغلنا من الجذور: استراتيجية، هوية، وتطبيقات حقيقية على أرض الواقع.",
+          "objective": "علامة متكاملة الشخصية — اسم مرئي، نبرة، وحضور متّسق على كل نقطة تماس مع الجمهور.",
+          "services": "استراتيجية العلامة، تصميم الشعار، الهوية البصرية، دليل الاستخدام",
+          "tools": "Illustrator, Figma, Photoshop",
+          "palette": "#1f2233,#c8a06b,#f2ede4,#31506e",
+          "phases": [
+            {
+              "title": "الاستكشاف والاستراتيجية",
+              "body": "جلسات اكتشاف مع الفريق المؤسس وتحليل المنافسين لتحديد موقع العلامة ونبرة صوتها وجمهورها الأساسي.",
+              "media": "https://picsum.photos/seed/wx-wi-23-p1/1100/700"
+            },
+            {
+              "title": "تصميم الشعار",
+              "body": "اسكتشات مكثفة ثم تطوير ٣ اتجاهات بصرية، وصولاً لشعار نهائي مرن يشتغل بكل المقاسات والخلفيات.",
+              "media": "https://picsum.photos/seed/wx-wi-23-p2/1100/700"
+            },
+            {
+              "title": "النظام البصري",
+              "body": "ألوان، خطوط، أنماط جرافيكية وقواعد تصوير — نظام كامل يضمن اتساق العلامة في كل مكان.",
+              "media": "https://picsum.photos/seed/wx-wi-23-p3/1100/700"
+            },
+            {
+              "title": "التطبيقات والدليل",
+              "body": "تطبيق الهوية على المطبوعات والرقمي، وتسليم دليل استخدام يحمي العلامة مستقبلاً.",
+              "media": "https://picsum.photos/seed/wx-wi-23-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-23-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-23-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-23-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-23-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-23-g5/900/1100"
+          ],
+          "outcome": "خرجت علامة «مطعم بحري» بهوية متماسكة جاهزة للنمو — حضور موحّد رفع تميّزها أمام جمهورها من اليوم الأول.",
+          "quote": "صار عندنا علامة نفتخر نحطها على أي شي.",
+          "quoteAuthor": "فريق مطعم بحري"
+        }
+      },
+      {
+        "id": "wi-24",
+        "tag": "LOGO",
+        "title": "شعار — تطبيق مالية",
+        "cover": "https://picsum.photos/seed/wx-logo4/1000/720",
+        "detail": "علامة رقمية بسيطة تلهم الثقة والأمان.",
+        "client": "محفظة ون",
+        "year": "2026",
+        "duration": "٣ أسابيع",
+        "showOnHome": false,
+        "published": true,
+        "slug": "fintech-app-logo",
+        "caseStudy": {
+          "intro": "شعار «تطبيق مالية» كان لازم يختصر قصة كاملة في علامة واحدة — بسيطة تعلق في الذاكرة، ومرنة تعيش سنوات.",
+          "objective": "شعار مميز قابل للاستخدام بكل المقاسات — من أيقونة التطبيق إلى اللوحة الإعلانية.",
+          "services": "تصميم الشعار، بناء العلامة، ملفات التسليم الكاملة",
+          "tools": "Illustrator, Figma",
+          "palette": "#101321,#2e6bff,#f4f6fb,#19c37d",
+          "phases": [
+            {
+              "title": "الفكرة والاسكتش",
+              "body": "عشرات الاسكتشات اليدوية لاستكشاف الرموز والحروف الممكنة، وتصفية الاتجاهات الأقوى.",
+              "media": "https://picsum.photos/seed/wx-wi-24-p1/1100/700"
+            },
+            {
+              "title": "البناء الهندسي",
+              "body": "بناء الشعار المختار على شبكة هندسية دقيقة تضمن التوازن البصري بكل المقاسات.",
+              "media": "https://picsum.photos/seed/wx-wi-24-p2/1100/700"
+            },
+            {
+              "title": "الاختبار والتسليم",
+              "body": "اختبار الشعار على خلفيات ومقاسات وسياقات حقيقية، وتسليم ملفات كاملة بكل الصيغ.",
+              "media": "https://picsum.photos/seed/wx-wi-24-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wi-24-g1/900/1100",
+            "https://picsum.photos/seed/wx-wi-24-g2/1100/750",
+            "https://picsum.photos/seed/wx-wi-24-g3/900/1100",
+            "https://picsum.photos/seed/wx-wi-24-g4/1100/750",
+            "https://picsum.photos/seed/wx-wi-24-g5/900/1100"
+          ],
+          "outcome": "شعار «تطبيق مالية» صار وجه العلامة — بسيط، مميز، ويشتغل من فافيكون 16 بكسل إلى واجهة محل.",
+          "quote": "كل ما نشوف الشعار نحس إنه كان موجود من زمان — وهذا بالضبط اللي بغيناه.",
+          "quoteAuthor": "فريق تطبيق مالية"
+        }
+      }
+    ],
+    "videos": [
+      {
+        "id": "wv-1",
+        "tag": "FILM",
+        "title": "عمل مرئي تجريبي",
+        "cover": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=840&h=472&q=75",
+        "videoUrl": "https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8",
+        "size": "wide",
+        "showOnHome": true,
+        "published": true,
+        "loop": true,
+        "slug": "film-sample",
+        "client": "وكالة داخلية",
+        "year": "2026",
+        "duration": "٨ أسابيع",
+        "detail": "فيلم «عمل مرئي تجريبي» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — س…",
+        "caseStudy": {
+          "intro": "فيلم «عمل مرئي تجريبي» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إنساني بإيقاع سينمائي.",
+          "objective": "فيلم قصير يوصل جوهر القصة ويترك أثراً عاطفياً يربط الجمهور بالعلامة.",
+          "services": "تطوير القصة، سكربت، إخراج وتصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, DaVinci Resolve, Fairlight",
+          "phases": [
+            {
+              "title": "القصة والسكربت",
+              "body": "مقابلات وبحث ميداني لاستخراج القصة الحقيقية، ثم سكربت يحوّلها لبنية سردية بثلاث فصول.",
+              "media": "https://picsum.photos/seed/wx-wv-1-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد والتحضير",
+              "body": "لوحات مرسومة تحدد اللقطات والزوايا، وخطة تصوير تفصيلية للمواقع والإضاءة.",
+              "media": "https://picsum.photos/seed/wx-wv-1-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "أيام تصوير بعدسات سينمائية وإضاءة طبيعية معززة — لقطات مقابلات ولقطات حياة حقيقية.",
+              "media": "https://picsum.photos/seed/wx-wv-1-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والألوان",
+              "body": "بناء الإيقاع السردي في غرفة المونتاج، ولوك سينمائي يخدم مزاج القصة.",
+              "media": "https://picsum.photos/seed/wx-wv-1-p4/1100/700"
+            },
+            {
+              "title": "هندسة الصوت",
+              "body": "تنظيف الحوارات، تصميم أجواء صوتية، وموسيقى تدعم المنحنى العاطفي للفيلم.",
+              "media": "https://picsum.photos/seed/wx-wv-1-p5/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-1-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-1-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-1-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-1-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-1-g5/900/1100"
+          ],
+          "outcome": "فيلم «عمل مرئي تجريبي» حقق مشاهدات عضوية عالية ومعدل إكمال فوق المتوسط — والأهم: الناس حسّوا بالقصة.",
+          "quote": "أول مرة نشوف قصتنا معروضة بهالصدق.",
+          "quoteAuthor": "فريق عمل مرئي تجريبي"
+        }
+      },
+      {
+        "id": "wv-2",
+        "tag": "MOTION",
+        "title": "عمل مرئي تجريبي",
+        "cover": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=500&h=888&q=75",
+        "videoUrl": "https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8",
+        "size": "tall",
+        "showOnHome": true,
+        "published": true,
+        "loop": true,
+        "slug": "motion-sample",
+        "client": "عميل خاص",
+        "year": "2026",
+        "duration": "٤ أسابيع",
+        "detail": "مشروع «عمل مرئي تجريبي» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في ن…",
+        "caseStudy": {
+          "intro": "مشروع «عمل مرئي تجريبي» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس الوقت.",
+          "objective": "فيديو موشن يبسّط الرسالة المعقدة ويوصلها في أقل من دقيقة بأسلوب العلامة.",
+          "services": "سكربت، ستايل فريمز، رسم عناصر، أنيميشن، تصميم صوتي",
+          "tools": "After Effects, Illustrator, Cinema 4D",
+          "phases": [
+            {
+              "title": "السكربت والمود بورد",
+              "body": "كتابة سكربت مقسّم لمشاهد، وبناء مود بورد يحدد الأسلوب الفني والحركي.",
+              "media": "https://picsum.photos/seed/wx-wv-2-p1/1100/700"
+            },
+            {
+              "title": "ستايل فريمز",
+              "body": "تصميم اللقطات المفتاحية كاملة التفاصيل قبل التحريك — الموافقة على الشكل النهائي مبكراً.",
+              "media": "https://picsum.photos/seed/wx-wv-2-p2/1100/700"
+            },
+            {
+              "title": "الأنيميشن",
+              "body": "تحريك المشاهد بمنحنيات حركة مدروسة وانتقالات سلسة تحافظ على انتباه المشاهد.",
+              "media": "https://picsum.photos/seed/wx-wv-2-p3/1100/700"
+            },
+            {
+              "title": "الصوت والتسليم",
+              "body": "تصميم صوتي ومؤثرات متزامنة مع الحركة، وتسليم نسخ مقاسات لكل المنصات.",
+              "media": "https://picsum.photos/seed/wx-wv-2-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-2-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-2-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-2-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-2-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-2-g5/900/1100"
+          ],
+          "outcome": "«عمل مرئي تجريبي» صار أداة الشرح الأولى للعلامة — رسالة كانت تحتاج صفحة نص، صارت توصل في ٤٥ ثانية.",
+          "quote": "عرضنا الفيديو في اجتماع واحد ووفر علينا عشرات الاجتماعات.",
+          "quoteAuthor": "فريق عمل مرئي تجريبي"
+        }
+      },
+      {
+        "id": "wv-3",
+        "tag": "AD",
+        "title": "عمل مرئي تجريبي",
+        "cover": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=840&h=472&q=75",
+        "videoUrl": "https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8",
+        "size": "wide",
+        "showOnHome": true,
+        "published": true,
+        "loop": true,
+        "slug": "ad-sample",
+        "client": "شركة ناشئة",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "detail": "إعلان «عمل مرئي تجريبي» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد …",
+        "caseStudy": {
+          "intro": "إعلان «عمل مرئي تجريبي» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد الانتباه من أول ثانية ويبيع بدون ما يزعج.",
+          "objective": "إعلان مصوّر قصير يحقق وقف سكرول عالي ويحرّك الجمهور نحو الفعل.",
+          "services": "الفكرة والسيناريو، ستوري بورد، تصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, After Effects, DaVinci Resolve",
+          "phases": [
+            {
+              "title": "الفكرة والسكربت",
+              "body": "صياغة فكرة إعلانية تخاطب رغبة الجمهور الحقيقية، وسكربت محكم لكل ثانية.",
+              "media": "https://picsum.photos/seed/wx-wv-3-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد",
+              "body": "لوحات تحدد إيقاع القطع وزوايا الكاميرا — الإعلان يُبنى على الورق قبل الموقع.",
+              "media": "https://picsum.photos/seed/wx-wv-3-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "يوم تصوير مكثف بإضاءة مدروسة ولقطات منتج قريبة تبرز التفاصيل.",
+              "media": "https://picsum.photos/seed/wx-wv-3-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والصوت",
+              "body": "قص إيقاعي يحافظ على الانتباه حتى الثانية الأخيرة، مع صوت وموسيقى تدفع الرسالة.",
+              "media": "https://picsum.photos/seed/wx-wv-3-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-3-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-3-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-3-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-3-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-3-g5/900/1100"
+          ],
+          "outcome": "إعلان «عمل مرئي تجريبي» تجاوز معدلات المشاهدة المستهدفة وحقق تكلفة نتيجة أقل من متوسط الحساب.",
+          "quote": "أول إعلان ما نستحي نعيد نشره بأنفسنا.",
+          "quoteAuthor": "فريق عمل مرئي تجريبي"
+        }
+      },
+      {
+        "id": "wv-4",
+        "tag": "REEL",
+        "title": "عمل مرئي تجريبي",
+        "cover": "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=500&h=888&q=75",
+        "videoUrl": "https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8",
+        "size": "tall",
+        "showOnHome": true,
+        "published": true,
+        "loop": true,
+        "slug": "reel-sample",
+        "client": "علامة محلية",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "detail": "ريل «عمل مرئي تجريبي» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سر…",
+        "caseStudy": {
+          "intro": "ريل «عمل مرئي تجريبي» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع، ورسالة توصل قبل ما يهرب الإبهام.",
+          "objective": "ريل قصير عالي الطاقة يحقق انتشاراً عضوياً ويعرّف جمهوراً جديداً بالعلامة.",
+          "services": "فكرة الهوك، تصوير عمودي، مونتاج إيقاعي، كابشن وهاشتاق",
+          "tools": "Premiere Pro, CapCut, After Effects",
+          "phases": [
+            {
+              "title": "الهوك والبنية",
+              "body": "تصميم أول ثانيتين بعناية — الجملة أو اللقطة التي توقف السكرول وتخلي المشاهد يكمل.",
+              "media": "https://picsum.photos/seed/wx-wv-4-p1/1100/700"
+            },
+            {
+              "title": "التصوير العمودي",
+              "body": "تصوير مخصص للكادر العمودي 9:16 بلقطات قصيرة متنوعة وحركة كاميرا حيوية.",
+              "media": "https://picsum.photos/seed/wx-wv-4-p2/1100/700"
+            },
+            {
+              "title": "المونتاج الإيقاعي",
+              "body": "قص سريع على نبض الموسيقى مع نصوص متحركة تدعم الرسالة للمشاهدة الصامتة.",
+              "media": "https://picsum.photos/seed/wx-wv-4-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-4-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-4-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-4-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-4-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-4-g5/900/1100"
+          ],
+          "outcome": "ريل «عمل مرئي تجريبي» حقق وصولاً عضوياً أضعاف المتابعين الحاليين ونسبة إكمال فوق المعدل.",
+          "quote": "وصلنا لناس ما كنا نحلم نوصلهم بميزانية صفر إعلانات.",
+          "quoteAuthor": "فريق عمل مرئي تجريبي"
+        }
+      },
+      {
+        "id": "wv-5",
+        "slug": "energy-drink-launch-ad",
+        "tag": "AD",
+        "title": "إعلان — مشروب طاقة",
+        "cover": "https://picsum.photos/seed/wx-vid5/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "client": "علامة فولت",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "detail": "إعلان إطلاق لمشروب طاقة يستهدف جيل الرياضات الليلية.",
+        "caseStudy": {
+          "intro": "علامة فولت أرادت إعلان إطلاق يكسر نمط إعلانات مشروبات الطاقة التقليدية — لا صراخ ولا انفجارات مفتعلة، بل إيقاع بصري يعكس طاقة المدينة ليلاً.",
+          "objective": "فيلم ٤٥ ثانية للسوشل والشاشات الكبيرة يحقق مليون مشاهدة في أول أسبوعين.",
+          "services": "الفكرة والسيناريو، ستوري بورد، إخراج وتصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, After Effects, DaVinci Resolve, Ableton Live",
+          "phases": [
+            {
+              "title": "الفكرة والسكربت",
+              "body": "بنينا السرد حول عدّاء ليلي يطارد إضاءة المدينة. سكربت من ٣ مشاهد بلا حوار — الصوت والإيقاع هما الراوي.",
+              "media": "https://picsum.photos/seed/wx-vcs-script/1100/700"
+            },
+            {
+              "title": "الستوري بورد",
+              "body": "٢٨ لوحة مرسومة حددت زوايا الكاميرا وإيقاع القطع قبل يوم التصوير — وفّرت علينا ٤٠٪ من زمن الإنتاج.",
+              "media": "https://picsum.photos/seed/wx-vcs-board/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "ليلتا تصوير بكاميرا FX6 مع إضاءة نيون عملية. لقطات تتبّع بالجيمبال وسرعات بطيئة 120fps للحظات الذروة.",
+              "media": "https://picsum.photos/seed/wx-vcs-shoot/1100/700"
+            },
+            {
+              "title": "المونتاج وتصحيح الألوان",
+              "body": "قصّ إيقاعي متصاعد يتقاطع مع نبض الموسيقى، ولوك سينمائي بارد تكسره ألوان العلامة الدافئة في لحظة الكشف.",
+              "media": "https://picsum.photos/seed/wx-vcs-edit/1100/700"
+            },
+            {
+              "title": "هندسة الصوت",
+              "body": "تصميم صوتي من الصفر: أنفاس العدّاء، نبض المدينة، وموسيقى أصلية بُنيت طبقة فوق طبقة حتى لحظة الانفجار الختامية.",
+              "media": "https://picsum.photos/seed/wx-vcs-sound/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-vcsg-1/1100/620",
+            "https://picsum.photos/seed/wx-vcsg-2/1100/620",
+            "https://picsum.photos/seed/wx-vcsg-3/800/1000",
+            "https://picsum.photos/seed/wx-vcsg-4/1100/620"
+          ],
+          "outcome": "تجاوز الإعلان ١.٤ مليون مشاهدة في ١٠ أيام، وارتفع البحث عن العلامة ٦٥٪ خلال شهر الإطلاق.",
+          "quote": "أول إعلان لنا يشاركه الناس لأنه فيلم مش لأنه إعلان.",
+          "quoteAuthor": "مدير تسويق فولت"
+        }
+      },
+      {
+        "id": "wv-6",
+        "tag": "MOTION",
+        "title": "موشن — هوية متحركة",
+        "cover": "https://picsum.photos/seed/wx-vid6/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "animated-identity-motion",
+        "client": "وكالة داخلية",
+        "year": "2026",
+        "duration": "٤ أسابيع",
+        "detail": "مشروع «هوية متحركة» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس ا…",
+        "caseStudy": {
+          "intro": "مشروع «هوية متحركة» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس الوقت.",
+          "objective": "فيديو موشن يبسّط الرسالة المعقدة ويوصلها في أقل من دقيقة بأسلوب العلامة.",
+          "services": "سكربت، ستايل فريمز، رسم عناصر، أنيميشن، تصميم صوتي",
+          "tools": "After Effects, Illustrator, Cinema 4D",
+          "phases": [
+            {
+              "title": "السكربت والمود بورد",
+              "body": "كتابة سكربت مقسّم لمشاهد، وبناء مود بورد يحدد الأسلوب الفني والحركي.",
+              "media": "https://picsum.photos/seed/wx-wv-6-p1/1100/700"
+            },
+            {
+              "title": "ستايل فريمز",
+              "body": "تصميم اللقطات المفتاحية كاملة التفاصيل قبل التحريك — الموافقة على الشكل النهائي مبكراً.",
+              "media": "https://picsum.photos/seed/wx-wv-6-p2/1100/700"
+            },
+            {
+              "title": "الأنيميشن",
+              "body": "تحريك المشاهد بمنحنيات حركة مدروسة وانتقالات سلسة تحافظ على انتباه المشاهد.",
+              "media": "https://picsum.photos/seed/wx-wv-6-p3/1100/700"
+            },
+            {
+              "title": "الصوت والتسليم",
+              "body": "تصميم صوتي ومؤثرات متزامنة مع الحركة، وتسليم نسخ مقاسات لكل المنصات.",
+              "media": "https://picsum.photos/seed/wx-wv-6-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-6-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-6-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-6-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-6-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-6-g5/900/1100"
+          ],
+          "outcome": "«هوية متحركة» صار أداة الشرح الأولى للعلامة — رسالة كانت تحتاج صفحة نص، صارت توصل في ٤٥ ثانية.",
+          "quote": "عرضنا الفيديو في اجتماع واحد ووفر علينا عشرات الاجتماعات.",
+          "quoteAuthor": "فريق هوية متحركة"
+        }
+      },
+      {
+        "id": "wv-7",
+        "tag": "REEL",
+        "title": "ريل — إطلاق منتج",
+        "cover": "https://picsum.photos/seed/wx-vid7/540/960",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "size": "tall",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "product-launch-reel",
+        "client": "عميل خاص",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "detail": "ريل «إطلاق منتج» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع، و…",
+        "caseStudy": {
+          "intro": "ريل «إطلاق منتج» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع، ورسالة توصل قبل ما يهرب الإبهام.",
+          "objective": "ريل قصير عالي الطاقة يحقق انتشاراً عضوياً ويعرّف جمهوراً جديداً بالعلامة.",
+          "services": "فكرة الهوك، تصوير عمودي، مونتاج إيقاعي، كابشن وهاشتاق",
+          "tools": "Premiere Pro, CapCut, After Effects",
+          "phases": [
+            {
+              "title": "الهوك والبنية",
+              "body": "تصميم أول ثانيتين بعناية — الجملة أو اللقطة التي توقف السكرول وتخلي المشاهد يكمل.",
+              "media": "https://picsum.photos/seed/wx-wv-7-p1/1100/700"
+            },
+            {
+              "title": "التصوير العمودي",
+              "body": "تصوير مخصص للكادر العمودي 9:16 بلقطات قصيرة متنوعة وحركة كاميرا حيوية.",
+              "media": "https://picsum.photos/seed/wx-wv-7-p2/1100/700"
+            },
+            {
+              "title": "المونتاج الإيقاعي",
+              "body": "قص سريع على نبض الموسيقى مع نصوص متحركة تدعم الرسالة للمشاهدة الصامتة.",
+              "media": "https://picsum.photos/seed/wx-wv-7-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-7-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-7-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-7-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-7-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-7-g5/900/1100"
+          ],
+          "outcome": "ريل «إطلاق منتج» حقق وصولاً عضوياً أضعاف المتابعين الحاليين ونسبة إكمال فوق المعدل.",
+          "quote": "وصلنا لناس ما كنا نحلم نوصلهم بميزانية صفر إعلانات.",
+          "quoteAuthor": "فريق إطلاق منتج"
+        }
+      },
+      {
+        "id": "wv-8",
+        "tag": "FILM",
+        "title": "فيلم — قصة علامة",
+        "cover": "https://picsum.photos/seed/wx-vid8/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "brand-story-film",
+        "client": "شركة ناشئة",
+        "year": "2026",
+        "duration": "٨ أسابيع",
+        "detail": "فيلم «قصة علامة» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إنس…",
+        "caseStudy": {
+          "intro": "فيلم «قصة علامة» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إنساني بإيقاع سينمائي.",
+          "objective": "فيلم قصير يوصل جوهر القصة ويترك أثراً عاطفياً يربط الجمهور بالعلامة.",
+          "services": "تطوير القصة، سكربت، إخراج وتصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, DaVinci Resolve, Fairlight",
+          "phases": [
+            {
+              "title": "القصة والسكربت",
+              "body": "مقابلات وبحث ميداني لاستخراج القصة الحقيقية، ثم سكربت يحوّلها لبنية سردية بثلاث فصول.",
+              "media": "https://picsum.photos/seed/wx-wv-8-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد والتحضير",
+              "body": "لوحات مرسومة تحدد اللقطات والزوايا، وخطة تصوير تفصيلية للمواقع والإضاءة.",
+              "media": "https://picsum.photos/seed/wx-wv-8-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "أيام تصوير بعدسات سينمائية وإضاءة طبيعية معززة — لقطات مقابلات ولقطات حياة حقيقية.",
+              "media": "https://picsum.photos/seed/wx-wv-8-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والألوان",
+              "body": "بناء الإيقاع السردي في غرفة المونتاج، ولوك سينمائي يخدم مزاج القصة.",
+              "media": "https://picsum.photos/seed/wx-wv-8-p4/1100/700"
+            },
+            {
+              "title": "هندسة الصوت",
+              "body": "تنظيف الحوارات، تصميم أجواء صوتية، وموسيقى تدعم المنحنى العاطفي للفيلم.",
+              "media": "https://picsum.photos/seed/wx-wv-8-p5/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-8-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-8-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-8-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-8-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-8-g5/900/1100"
+          ],
+          "outcome": "فيلم «قصة علامة» حقق مشاهدات عضوية عالية ومعدل إكمال فوق المتوسط — والأهم: الناس حسّوا بالقصة.",
+          "quote": "أول مرة نشوف قصتنا معروضة بهالصدق.",
+          "quoteAuthor": "فريق قصة علامة"
+        }
+      },
+      {
+        "id": "wv-9",
+        "tag": "AD",
+        "title": "إعلان — عرض رمضان",
+        "cover": "https://picsum.photos/seed/wx-vid9/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "ramadan-offer-ad",
+        "client": "علامة محلية",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "detail": "إعلان «عرض رمضان» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد الانتب…",
+        "caseStudy": {
+          "intro": "إعلان «عرض رمضان» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد الانتباه من أول ثانية ويبيع بدون ما يزعج.",
+          "objective": "إعلان مصوّر قصير يحقق وقف سكرول عالي ويحرّك الجمهور نحو الفعل.",
+          "services": "الفكرة والسيناريو، ستوري بورد، تصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, After Effects, DaVinci Resolve",
+          "phases": [
+            {
+              "title": "الفكرة والسكربت",
+              "body": "صياغة فكرة إعلانية تخاطب رغبة الجمهور الحقيقية، وسكربت محكم لكل ثانية.",
+              "media": "https://picsum.photos/seed/wx-wv-9-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد",
+              "body": "لوحات تحدد إيقاع القطع وزوايا الكاميرا — الإعلان يُبنى على الورق قبل الموقع.",
+              "media": "https://picsum.photos/seed/wx-wv-9-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "يوم تصوير مكثف بإضاءة مدروسة ولقطات منتج قريبة تبرز التفاصيل.",
+              "media": "https://picsum.photos/seed/wx-wv-9-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والصوت",
+              "body": "قص إيقاعي يحافظ على الانتباه حتى الثانية الأخيرة، مع صوت وموسيقى تدفع الرسالة.",
+              "media": "https://picsum.photos/seed/wx-wv-9-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-9-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-9-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-9-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-9-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-9-g5/900/1100"
+          ],
+          "outcome": "إعلان «عرض رمضان» تجاوز معدلات المشاهدة المستهدفة وحقق تكلفة نتيجة أقل من متوسط الحساب.",
+          "quote": "أول إعلان ما نستحي نعيد نشره بأنفسنا.",
+          "quoteAuthor": "فريق عرض رمضان"
+        }
+      },
+      {
+        "id": "wv-10",
+        "tag": "MOTION",
+        "title": "موشن — انفوجرافيك",
+        "cover": "https://picsum.photos/seed/wx-vid10/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "infographic-motion",
+        "client": "مجموعة تجارية",
+        "year": "2026",
+        "duration": "٤ أسابيع",
+        "detail": "مشروع «انفوجرافيك» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس ال…",
+        "caseStudy": {
+          "intro": "مشروع «انفوجرافيك» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس الوقت.",
+          "objective": "فيديو موشن يبسّط الرسالة المعقدة ويوصلها في أقل من دقيقة بأسلوب العلامة.",
+          "services": "سكربت، ستايل فريمز، رسم عناصر، أنيميشن، تصميم صوتي",
+          "tools": "After Effects, Illustrator, Cinema 4D",
+          "phases": [
+            {
+              "title": "السكربت والمود بورد",
+              "body": "كتابة سكربت مقسّم لمشاهد، وبناء مود بورد يحدد الأسلوب الفني والحركي.",
+              "media": "https://picsum.photos/seed/wx-wv-10-p1/1100/700"
+            },
+            {
+              "title": "ستايل فريمز",
+              "body": "تصميم اللقطات المفتاحية كاملة التفاصيل قبل التحريك — الموافقة على الشكل النهائي مبكراً.",
+              "media": "https://picsum.photos/seed/wx-wv-10-p2/1100/700"
+            },
+            {
+              "title": "الأنيميشن",
+              "body": "تحريك المشاهد بمنحنيات حركة مدروسة وانتقالات سلسة تحافظ على انتباه المشاهد.",
+              "media": "https://picsum.photos/seed/wx-wv-10-p3/1100/700"
+            },
+            {
+              "title": "الصوت والتسليم",
+              "body": "تصميم صوتي ومؤثرات متزامنة مع الحركة، وتسليم نسخ مقاسات لكل المنصات.",
+              "media": "https://picsum.photos/seed/wx-wv-10-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-10-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-10-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-10-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-10-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-10-g5/900/1100"
+          ],
+          "outcome": "«انفوجرافيك» صار أداة الشرح الأولى للعلامة — رسالة كانت تحتاج صفحة نص، صارت توصل في ٤٥ ثانية.",
+          "quote": "عرضنا الفيديو في اجتماع واحد ووفر علينا عشرات الاجتماعات.",
+          "quoteAuthor": "فريق انفوجرافيك"
+        }
+      },
+      {
+        "id": "wv-11",
+        "tag": "REEL",
+        "title": "ريل — خلف الكواليس",
+        "cover": "https://picsum.photos/seed/wx-vid11/540/960",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "size": "tall",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "behind-scenes-reel",
+        "client": "وكالة داخلية",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "detail": "ريل «خلف الكواليس» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع،…",
+        "caseStudy": {
+          "intro": "ريل «خلف الكواليس» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع، ورسالة توصل قبل ما يهرب الإبهام.",
+          "objective": "ريل قصير عالي الطاقة يحقق انتشاراً عضوياً ويعرّف جمهوراً جديداً بالعلامة.",
+          "services": "فكرة الهوك، تصوير عمودي، مونتاج إيقاعي، كابشن وهاشتاق",
+          "tools": "Premiere Pro, CapCut, After Effects",
+          "phases": [
+            {
+              "title": "الهوك والبنية",
+              "body": "تصميم أول ثانيتين بعناية — الجملة أو اللقطة التي توقف السكرول وتخلي المشاهد يكمل.",
+              "media": "https://picsum.photos/seed/wx-wv-11-p1/1100/700"
+            },
+            {
+              "title": "التصوير العمودي",
+              "body": "تصوير مخصص للكادر العمودي 9:16 بلقطات قصيرة متنوعة وحركة كاميرا حيوية.",
+              "media": "https://picsum.photos/seed/wx-wv-11-p2/1100/700"
+            },
+            {
+              "title": "المونتاج الإيقاعي",
+              "body": "قص سريع على نبض الموسيقى مع نصوص متحركة تدعم الرسالة للمشاهدة الصامتة.",
+              "media": "https://picsum.photos/seed/wx-wv-11-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-11-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-11-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-11-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-11-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-11-g5/900/1100"
+          ],
+          "outcome": "ريل «خلف الكواليس» حقق وصولاً عضوياً أضعاف المتابعين الحاليين ونسبة إكمال فوق المعدل.",
+          "quote": "وصلنا لناس ما كنا نحلم نوصلهم بميزانية صفر إعلانات.",
+          "quoteAuthor": "فريق خلف الكواليس"
+        }
+      },
+      {
+        "id": "wv-12",
+        "tag": "FILM",
+        "title": "فيلم — افتتاح فرع",
+        "cover": "https://picsum.photos/seed/wx-vid12/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "branch-opening-film",
+        "client": "عميل خاص",
+        "year": "2026",
+        "duration": "٨ أسابيع",
+        "detail": "فيلم «افتتاح فرع» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إن…",
+        "caseStudy": {
+          "intro": "فيلم «افتتاح فرع» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إنساني بإيقاع سينمائي.",
+          "objective": "فيلم قصير يوصل جوهر القصة ويترك أثراً عاطفياً يربط الجمهور بالعلامة.",
+          "services": "تطوير القصة، سكربت، إخراج وتصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, DaVinci Resolve, Fairlight",
+          "phases": [
+            {
+              "title": "القصة والسكربت",
+              "body": "مقابلات وبحث ميداني لاستخراج القصة الحقيقية، ثم سكربت يحوّلها لبنية سردية بثلاث فصول.",
+              "media": "https://picsum.photos/seed/wx-wv-12-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد والتحضير",
+              "body": "لوحات مرسومة تحدد اللقطات والزوايا، وخطة تصوير تفصيلية للمواقع والإضاءة.",
+              "media": "https://picsum.photos/seed/wx-wv-12-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "أيام تصوير بعدسات سينمائية وإضاءة طبيعية معززة — لقطات مقابلات ولقطات حياة حقيقية.",
+              "media": "https://picsum.photos/seed/wx-wv-12-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والألوان",
+              "body": "بناء الإيقاع السردي في غرفة المونتاج، ولوك سينمائي يخدم مزاج القصة.",
+              "media": "https://picsum.photos/seed/wx-wv-12-p4/1100/700"
+            },
+            {
+              "title": "هندسة الصوت",
+              "body": "تنظيف الحوارات، تصميم أجواء صوتية، وموسيقى تدعم المنحنى العاطفي للفيلم.",
+              "media": "https://picsum.photos/seed/wx-wv-12-p5/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-12-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-12-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-12-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-12-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-12-g5/900/1100"
+          ],
+          "outcome": "فيلم «افتتاح فرع» حقق مشاهدات عضوية عالية ومعدل إكمال فوق المتوسط — والأهم: الناس حسّوا بالقصة.",
+          "quote": "أول مرة نشوف قصتنا معروضة بهالصدق.",
+          "quoteAuthor": "فريق افتتاح فرع"
+        }
+      },
+      {
+        "id": "wv-13",
+        "tag": "AD",
+        "title": "إعلان — تطبيق توصيل",
+        "cover": "https://picsum.photos/seed/wx-vid13/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "delivery-app-ad",
+        "client": "شركة ناشئة",
+        "year": "2026",
+        "duration": "٥ أسابيع",
+        "detail": "إعلان «تطبيق توصيل» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد الان…",
+        "caseStudy": {
+          "intro": "إعلان «تطبيق توصيل» انبنى على فكرة تكسر النمط المعتاد في المجال — إعلان يشد الانتباه من أول ثانية ويبيع بدون ما يزعج.",
+          "objective": "إعلان مصوّر قصير يحقق وقف سكرول عالي ويحرّك الجمهور نحو الفعل.",
+          "services": "الفكرة والسيناريو، ستوري بورد، تصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, After Effects, DaVinci Resolve",
+          "phases": [
+            {
+              "title": "الفكرة والسكربت",
+              "body": "صياغة فكرة إعلانية تخاطب رغبة الجمهور الحقيقية، وسكربت محكم لكل ثانية.",
+              "media": "https://picsum.photos/seed/wx-wv-13-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد",
+              "body": "لوحات تحدد إيقاع القطع وزوايا الكاميرا — الإعلان يُبنى على الورق قبل الموقع.",
+              "media": "https://picsum.photos/seed/wx-wv-13-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "يوم تصوير مكثف بإضاءة مدروسة ولقطات منتج قريبة تبرز التفاصيل.",
+              "media": "https://picsum.photos/seed/wx-wv-13-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والصوت",
+              "body": "قص إيقاعي يحافظ على الانتباه حتى الثانية الأخيرة، مع صوت وموسيقى تدفع الرسالة.",
+              "media": "https://picsum.photos/seed/wx-wv-13-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-13-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-13-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-13-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-13-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-13-g5/900/1100"
+          ],
+          "outcome": "إعلان «تطبيق توصيل» تجاوز معدلات المشاهدة المستهدفة وحقق تكلفة نتيجة أقل من متوسط الحساب.",
+          "quote": "أول إعلان ما نستحي نعيد نشره بأنفسنا.",
+          "quoteAuthor": "فريق تطبيق توصيل"
+        }
+      },
+      {
+        "id": "wv-14",
+        "tag": "MOTION",
+        "title": "موشن — شعار متحرك",
+        "cover": "https://picsum.photos/seed/wx-vid14/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "logo-animation-motion",
+        "client": "علامة محلية",
+        "year": "2026",
+        "duration": "٤ أسابيع",
+        "detail": "مشروع «شعار متحرك» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس ال…",
+        "caseStudy": {
+          "intro": "مشروع «شعار متحرك» حوّل الرسائل الجامدة لحركة — موشن جرافيك يشرح ويمتع في نفس الوقت.",
+          "objective": "فيديو موشن يبسّط الرسالة المعقدة ويوصلها في أقل من دقيقة بأسلوب العلامة.",
+          "services": "سكربت، ستايل فريمز، رسم عناصر، أنيميشن، تصميم صوتي",
+          "tools": "After Effects, Illustrator, Cinema 4D",
+          "phases": [
+            {
+              "title": "السكربت والمود بورد",
+              "body": "كتابة سكربت مقسّم لمشاهد، وبناء مود بورد يحدد الأسلوب الفني والحركي.",
+              "media": "https://picsum.photos/seed/wx-wv-14-p1/1100/700"
+            },
+            {
+              "title": "ستايل فريمز",
+              "body": "تصميم اللقطات المفتاحية كاملة التفاصيل قبل التحريك — الموافقة على الشكل النهائي مبكراً.",
+              "media": "https://picsum.photos/seed/wx-wv-14-p2/1100/700"
+            },
+            {
+              "title": "الأنيميشن",
+              "body": "تحريك المشاهد بمنحنيات حركة مدروسة وانتقالات سلسة تحافظ على انتباه المشاهد.",
+              "media": "https://picsum.photos/seed/wx-wv-14-p3/1100/700"
+            },
+            {
+              "title": "الصوت والتسليم",
+              "body": "تصميم صوتي ومؤثرات متزامنة مع الحركة، وتسليم نسخ مقاسات لكل المنصات.",
+              "media": "https://picsum.photos/seed/wx-wv-14-p4/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-14-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-14-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-14-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-14-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-14-g5/900/1100"
+          ],
+          "outcome": "«شعار متحرك» صار أداة الشرح الأولى للعلامة — رسالة كانت تحتاج صفحة نص، صارت توصل في ٤٥ ثانية.",
+          "quote": "عرضنا الفيديو في اجتماع واحد ووفر علينا عشرات الاجتماعات.",
+          "quoteAuthor": "فريق شعار متحرك"
+        }
+      },
+      {
+        "id": "wv-15",
+        "tag": "REEL",
+        "title": "ريل — تغطية فعالية",
+        "cover": "https://picsum.photos/seed/wx-vid15/540/960",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "size": "tall",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "event-coverage-reel",
+        "client": "مجموعة تجارية",
+        "year": "2026",
+        "duration": "أسبوعان",
+        "detail": "ريل «تغطية فعالية» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع،…",
+        "caseStudy": {
+          "intro": "ريل «تغطية فعالية» صُمم لمنطق المنصات العمودية — هوك في أول ثانيتين، إيقاع سريع، ورسالة توصل قبل ما يهرب الإبهام.",
+          "objective": "ريل قصير عالي الطاقة يحقق انتشاراً عضوياً ويعرّف جمهوراً جديداً بالعلامة.",
+          "services": "فكرة الهوك، تصوير عمودي، مونتاج إيقاعي، كابشن وهاشتاق",
+          "tools": "Premiere Pro, CapCut, After Effects",
+          "phases": [
+            {
+              "title": "الهوك والبنية",
+              "body": "تصميم أول ثانيتين بعناية — الجملة أو اللقطة التي توقف السكرول وتخلي المشاهد يكمل.",
+              "media": "https://picsum.photos/seed/wx-wv-15-p1/1100/700"
+            },
+            {
+              "title": "التصوير العمودي",
+              "body": "تصوير مخصص للكادر العمودي 9:16 بلقطات قصيرة متنوعة وحركة كاميرا حيوية.",
+              "media": "https://picsum.photos/seed/wx-wv-15-p2/1100/700"
+            },
+            {
+              "title": "المونتاج الإيقاعي",
+              "body": "قص سريع على نبض الموسيقى مع نصوص متحركة تدعم الرسالة للمشاهدة الصامتة.",
+              "media": "https://picsum.photos/seed/wx-wv-15-p3/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-15-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-15-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-15-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-15-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-15-g5/900/1100"
+          ],
+          "outcome": "ريل «تغطية فعالية» حقق وصولاً عضوياً أضعاف المتابعين الحاليين ونسبة إكمال فوق المعدل.",
+          "quote": "وصلنا لناس ما كنا نحلم نوصلهم بميزانية صفر إعلانات.",
+          "quoteAuthor": "فريق تغطية فعالية"
+        }
+      },
+      {
+        "id": "wv-16",
+        "tag": "FILM",
+        "title": "فيلم — وثائقي قصير",
+        "cover": "https://picsum.photos/seed/wx-vid16/960/540",
+        "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "size": "wide",
+        "showOnHome": false,
+        "published": true,
+        "loop": true,
+        "slug": "short-documentary-film",
+        "client": "وكالة داخلية",
+        "year": "2026",
+        "duration": "٨ أسابيع",
+        "detail": "فيلم «وثائقي قصير» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إ…",
+        "caseStudy": {
+          "intro": "فيلم «وثائقي قصير» انبنى على قناعة إن القصة الصادقة أقوى من أي مؤثر بصري — سرد إنساني بإيقاع سينمائي.",
+          "objective": "فيلم قصير يوصل جوهر القصة ويترك أثراً عاطفياً يربط الجمهور بالعلامة.",
+          "services": "تطوير القصة، سكربت، إخراج وتصوير، مونتاج، تصحيح ألوان، هندسة صوت",
+          "tools": "Premiere Pro, DaVinci Resolve, Fairlight",
+          "phases": [
+            {
+              "title": "القصة والسكربت",
+              "body": "مقابلات وبحث ميداني لاستخراج القصة الحقيقية، ثم سكربت يحوّلها لبنية سردية بثلاث فصول.",
+              "media": "https://picsum.photos/seed/wx-wv-16-p1/1100/700"
+            },
+            {
+              "title": "الستوري بورد والتحضير",
+              "body": "لوحات مرسومة تحدد اللقطات والزوايا، وخطة تصوير تفصيلية للمواقع والإضاءة.",
+              "media": "https://picsum.photos/seed/wx-wv-16-p2/1100/700"
+            },
+            {
+              "title": "التصوير",
+              "body": "أيام تصوير بعدسات سينمائية وإضاءة طبيعية معززة — لقطات مقابلات ولقطات حياة حقيقية.",
+              "media": "https://picsum.photos/seed/wx-wv-16-p3/1100/700"
+            },
+            {
+              "title": "المونتاج والألوان",
+              "body": "بناء الإيقاع السردي في غرفة المونتاج، ولوك سينمائي يخدم مزاج القصة.",
+              "media": "https://picsum.photos/seed/wx-wv-16-p4/1100/700"
+            },
+            {
+              "title": "هندسة الصوت",
+              "body": "تنظيف الحوارات، تصميم أجواء صوتية، وموسيقى تدعم المنحنى العاطفي للفيلم.",
+              "media": "https://picsum.photos/seed/wx-wv-16-p5/1100/700"
+            }
+          ],
+          "gallery": [
+            "https://picsum.photos/seed/wx-wv-16-g1/900/1100",
+            "https://picsum.photos/seed/wx-wv-16-g2/1100/750",
+            "https://picsum.photos/seed/wx-wv-16-g3/900/1100",
+            "https://picsum.photos/seed/wx-wv-16-g4/1100/750",
+            "https://picsum.photos/seed/wx-wv-16-g5/900/1100"
+          ],
+          "outcome": "فيلم «وثائقي قصير» حقق مشاهدات عضوية عالية ومعدل إكمال فوق المتوسط — والأهم: الناس حسّوا بالقصة.",
+          "quote": "أول مرة نشوف قصتنا معروضة بهالصدق.",
+          "quoteAuthor": "فريق وثائقي قصير"
+        }
+      }
+    ]
+  },
+  "team": [
+    {
+      "id": "tm-1",
+      "name": "اسم تجريبي",
+      "role": "مسمّى تجريبي",
+      "image": "https://i.pravatar.cc/500?img=12"
+    },
+    {
+      "id": "tm-2",
+      "name": "اسم تجريبي",
+      "role": "مسمّى تجريبي",
+      "image": "https://i.pravatar.cc/500?img=32"
+    },
+    {
+      "id": "tm-3",
+      "name": "اسم تجريبي",
+      "role": "مسمّى تجريبي",
+      "image": "https://i.pravatar.cc/500?img=45"
+    },
+    {
+      "id": "tm-4",
+      "name": "اسم تجريبي",
+      "role": "مسمّى تجريبي",
+      "image": "https://i.pravatar.cc/500?img=56"
+    },
+    {
+      "id": "tm-5",
+      "name": "اسم تجريبي",
+      "role": "مسمّى تجريبي",
+      "image": "https://i.pravatar.cc/500?img=68"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "ts-1",
+      "quote": "تجربة عمل احترافية من أول اجتماع حتى التسليم.",
+      "name": "عميل تجريبي",
+      "role": "مدير تسويق",
+      "avatar": "https://i.pravatar.cc/100?img=11"
+    },
+    {
+      "id": "ts-2",
+      "quote": "الهوية البصرية رفعت حضور علامتنا بشكل واضح.",
+      "name": "عميل تجريبي",
+      "role": "مؤسس",
+      "avatar": "https://i.pravatar.cc/100?img=26"
+    },
+    {
+      "id": "ts-3",
+      "quote": "سرعة تنفيذ وجودة عالية في كل التفاصيل.",
+      "name": "عميل تجريبي",
+      "role": "Brand Lead",
+      "avatar": "https://i.pravatar.cc/100?img=33"
+    },
+    {
+      "id": "ts-4",
+      "quote": "فريق يفهم السوق المحلي والعالمي معاً.",
+      "name": "عميل تجريبي",
+      "role": "CEO",
+      "avatar": "https://i.pravatar.cc/100?img=48"
+    }
+  ],
+  "contact": {
+    "label": "— CONTACT / تواصل",
+    "title": "لنبدأ مشروعك",
+    "subtitle": "اترك تفاصيل سريعة وسنفتح محادثة واتساب مباشرة.",
+    "namePlaceholder": "الاسم",
+    "typePlaceholder": "نوع المشروع",
+    "msgPlaceholder": "تفاصيل إضافية",
+    "button": "أرسل عبر واتساب"
+  },
+  "footer": {
+    "blurb": "وكالة إبداعية نصنع بها هويات بصرية ومحتوى يتحرك.",
+    "copyright": "© Wexon. جميع الحقوق محفوظة."
+  },
+  "seo": {
+    "title": "Wexon — وكالة إبداعية للهوية والمحتوى المرئي",
+    "description": "وكالة Wexon نصمّم هويات بصرية، محتوى سوشل، وموشن يساعد العلامات على الظهور والنمو.",
+    "keywords": "وكالة إبداعية, هوية بصرية, موشن جرافيك, تصميم, Wexon",
+    "canonical": "",
+    "ogImage": "",
+    "ogTitle": "",
+    "ogDescription": "",
+    "locale": "ar_SA",
+    "robotsIndex": true,
+    "robotsFollow": true,
+    "geo": {
+      "summary": "Wexon وكالة إبداعية متخصصة في الهوية البصرية والمحتوى المرئي والموشن، تساعد الشركات على بناء حضور قوي عبر التصميم والحملات.",
+      "organizationType": "ProfessionalService",
+      "areaServed": "Palestine, Middle East",
+      "email": "hello@wexon.com",
+      "foundingDate": "",
+      "sameAs": "",
+      "llmsTxt": "",
+      "allowGptBot": true,
+      "allowGoogleExtended": true,
+      "allowPerplexity": true,
+      "faqs": [
+        {
+          "q": "ماذا تقدّم وكالة Wexon؟",
+          "a": "نقدّم هوية بصرية، محتوى سوشل، موشن جرافيك، وتصميم مواقع يساعد العلامات على الظهور بوضوح."
+        },
+        {
+          "q": "كيف نبدأ مشروعاً معكم؟",
+          "a": "تواصل عبر واتساب من صفحة التواصل، وشاركنا نوع المشروع والتفاصيل لنبدأ بريف سريع."
+        }
+      ]
+    }
+  }
+}

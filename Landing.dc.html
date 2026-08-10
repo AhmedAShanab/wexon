@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://stream.mux.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css">
+<script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root { --wx-grad: linear-gradient(135deg,#7A2BE6,#2E6BFF,#2E8FD0); --wx-accent:#5AA6E8; --wx-bg:#05060f; --wx-text:#eef0ff; --wx-band-0:rgba(0,0,0,.9); --wx-band-1:#000000; --wx-band-t:rgba(0,0,0,0); --wx-title:#eef0ff; --wx-muted:#6c719b; --wx-body:#9fa3c9; --wx-panel:rgba(255,255,255,.03); --wx-border:rgba(255,255,255,.10); --wx-glass-0:rgba(10,12,22,.92); --wx-glass-1:rgba(10,12,22,.6); --wx-glass-t:rgba(10,12,22,0); --wx-note:rgba(22,24,40,.82); }
+  html { color-scheme: dark; transition: --wx-band-0 .5s ease, --wx-band-1 .5s ease, --wx-band-t .5s ease; }
+  html.wx-light { color-scheme: light; --wx-bg:#eef0f7; --wx-text:#171a2c; --wx-band-0:rgba(255,255,255,.92); --wx-band-1:#ffffff; --wx-band-t:rgba(255,255,255,0); --wx-title:#15182e; --wx-muted:#666e92; --wx-body:#565e80; --wx-panel:#ffffff; --wx-border:rgba(23,26,44,.12); --wx-glass-0:rgba(250,251,255,.94); --wx-glass-1:rgba(250,251,255,.62); --wx-glass-t:rgba(250,251,255,0); --wx-note:#ffffff; }
+  @property --wx-band-0 { syntax: '<color>'; inherits: true; initial-value: rgba(0,0,0,.9); }
+  @property --wx-band-1 { syntax: '<color>'; inherits: true; initial-value: #000000; }
+  @property --wx-band-t { syntax: '<color>'; inherits: true; initial-value: rgba(0,0,0,0); }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+  ::view-transition-old(root) { z-index: 1; }
+  ::view-transition-new(root) { z-index: 2; }
+  html.wx-light footer a{ color:#39406a !important; }
+  html.wx-light footer p{ color:#474d70 !important; }
+  html.wx-light #contact p{ color:#474d70 !important; }
+  html.wx-light #contact input{ color:#1b1e30 !important; background:rgba(20,23,44,.05) !important; border-color:rgba(20,23,44,.2) !important; }
+  html.wx-light header{ color:#eef0ff !important; }
+  html.wx-light header button{ color:#eef0ff !important; }
+  /* Apple-style fixed glass nav — always frosted, denser after scroll */
+  header[data-wx-nav] {
+    background: rgba(6, 8, 18, .55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 8px 32px -16px rgba(0, 0, 0, .45);
+  }
+  header[data-wx-nav][data-scrolled] {
+    background: rgba(6, 8, 18, .78);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-shadow: 0 12px 40px -18px rgba(0, 0, 0, .55);
+  }
+  html.wx-light header[data-wx-nav] {
+    background: rgba(238, 240, 247, .72);
+    border-bottom-color: rgba(23, 26, 44, .10);
+    box-shadow: 0 8px 28px -16px rgba(40, 50, 90, .18);
+    color: #15182e !important;
+  }
+  html.wx-light header[data-wx-nav][data-scrolled] {
+    background: rgba(238, 240, 247, .88);
+  }
+  html.wx-light header[data-wx-nav] a { color: #3a4268 !important; }
+  html.wx-light header[data-wx-nav] button { color: #15182e !important; }
+  html.wx-light header[data-wx-nav] [data-cms="site.brand"] { color: #15182e; }
+  html.wx-light [data-screen-label="Hero"]{ color:#eef0ff !important; }
+  html.wx-light #team a{ color:#eef0ff !important; }
+  /* ===== CV overlay — light theme ===== */
+  html.wx-light [data-cv-ov]{ background:#eef0f7 !important; }
+  html.wx-light [data-cv-hero]{ background:linear-gradient(180deg,#dbe6f6 0%,#c4d7ef 42%,#d0ddf1 74%,#eef0f7 100%) !important; }
+  html.wx-light [data-cv-body]{ background:linear-gradient(180deg,#eef0f7 0%,#e8edf6 55%,#eef0f7 100%) !important; }
+  html.wx-light [data-cv-ov] p,
+  html.wx-light [data-cv-ov] h1,
+  html.wx-light [data-cv-ov] h2,
+  html.wx-light [data-cv-ov] h3,
+  html.wx-light [data-cv-ov] span,
+  html.wx-light [data-cv-ov] div:not([data-cv-p]){ color:#2c3358 !important; }
+  html.wx-light [data-cv-ov] [data-cv-p] div{ color:rgba(255,255,255,.92) !important; }
+  html.wx-light [data-cv-ov] [data-cv-stat] > div:first-child{ color:transparent !important; }
+  html.wx-light [data-cv-ov] [data-cv-cta] span{ color:#fff !important; }
+  html.wx-light [data-cv-role]{ text-shadow:none !important; }
+  html.wx-light [data-cv-ov] [data-cv-stat]{ background:rgba(23,26,44,.03) !important; border-color:rgba(23,26,44,.12) !important; }
+  html.wx-light [data-cv-ov] [data-cv-chip]{ color:#2c3358 !important; background:rgba(23,26,44,.04) !important; border-color:rgba(23,26,44,.16) !important; }
+  html.wx-light [data-cv-ov] [data-cv-bar]{ background:rgba(23,26,44,.10) !important; }
+  html.wx-light [data-cv-ov] [data-ov-close]{ background:rgba(23,26,44,.06) !important; border-color:rgba(23,26,44,.20) !important; color:#1c2340 !important; }
+  body { background: var(--wx-bg); transition: background .5s ease; }
+  @keyframes glowPulse { 0%,100% { opacity:.5; } 50% { opacity:.8; } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  ::selection { background: #2E6BFF; color: #fff; }
+  input::placeholder { color: #6c719b; }
+  /* ===== Works 3D chrome showcase ===== */
+  [data-tilt] { transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+  [data-tilt="r"] { transform: perspective(1100px) rotateY(17deg) rotateX(4deg); }
+  [data-tilt="l"] { transform: perspective(1100px) rotateY(-17deg) rotateX(4deg); }
+  [data-w3]:hover [data-tilt="r"] { transform: perspective(1100px) rotateY(8deg) rotateX(2deg) scale(1.03); }
+  [data-w3]:hover [data-tilt="l"] { transform: perspective(1100px) rotateY(-8deg) rotateX(2deg) scale(1.03); }
+  [data-w3-float] { animation: floaty 7.5s ease-in-out infinite; }
+  [data-w3]:nth-child(4n+1) [data-w3-float] { animation-delay: -1.6s; }
+  [data-w3]:nth-child(4n+2) [data-w3-float] { animation-delay: -4.2s; animation-duration: 8.5s; }
+  [data-w3]:nth-child(4n+3) [data-w3-float] { animation-delay: -2.7s; }
+  [data-w3]:nth-child(4n) [data-w3-float] { animation-delay: -5.6s; animation-duration: 8.2s; }
+  [data-w3-frame] { position: relative; width: 440px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.15); background: #0b0c14; box-shadow: 0 34px 90px -34px rgba(0,0,0,.95), 0 0 90px -24px rgba(150,165,255,.35); }
+  [data-w3-bar] { height: 30px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: #10121d; border-bottom: 1px solid rgba(255,255,255,.08); }
+  [data-w3-dot] { width: 8px; height: 8px; border-radius: 50%; background: #343a58; flex: 0 0 auto; }
+  [data-w3-url] { flex: 1; margin-left: 8px; height: 15px; border-radius: 100px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.06); }
+  [data-w3-screen] { height: 264px; position: relative; overflow: hidden; }
+  /* video reels */
+  [data-wv-frame] { position: relative; width: 250px; border-radius: 26px; overflow: hidden; border: 1px solid rgba(255,255,255,.16); background: #0a0b13; box-shadow: 0 34px 90px -34px rgba(0,0,0,.95), 0 0 80px -22px rgba(150,165,255,.30); }
+  [data-wv-screen] { height: 444px; position: relative; overflow: hidden; }
+  /* services glass panels */
+  a[data-w3-panel] { transition: transform .5s ease, border-color .5s ease; }
+  a[data-w3-panel]:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.22); }
+  /* team: alternate tilt direction per item */
+  /* testimonials notification feed */
+  @keyframes tsUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes tsDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  [data-ts-tilt] { transform: perspective(1400px) rotateX(6deg) rotateY(12deg) rotateZ(-2deg); transition: transform .7s ease; }
+  [data-ts-tilt]:hover { transform: perspective(1400px) rotateX(2deg) rotateY(5deg) rotateZ(-1deg); }
+  [data-ts-feed] { display: flex; gap: 18px; height: 560px; overflow: hidden; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%); }
+  [data-ts-col] { animation: tsUp 30s linear infinite; will-change: transform; }
+  [data-ts-col][data-ts-down] { animation-name: tsDown; animation-duration: 38s; }
+  [data-ts-feed]:hover [data-ts-col] { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { [data-ts-col] { animation: none; } }
+  [data-ts-card] { position: relative; width: 300px; border-radius: 14px; background: var(--wx-note); border: 1px solid var(--wx-border); padding: 14px 16px; margin-bottom: 14px; box-shadow: 0 14px 34px -18px rgba(0,0,0,.5); backdrop-filter: blur(6px); transition: background-color .5s ease, border-color .5s ease, filter .45s ease; }
+  [data-ts-day] { width: 300px; display: flex; justify-content: space-between; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .14em; color: var(--wx-muted); padding: 0 4px; margin: 6px 0 12px; }
+  /* client logos marquee — images, not text */
+  [data-logo-slot] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding-inline: 36px;
+    opacity: .72;
+    filter: grayscale(1) brightness(1.15);
+    transition: opacity .3s ease, filter .3s ease;
+  }
+  [data-logo-slot]:hover { opacity: 1; filter: none; }
+  [data-logo-img] {
+    display: block;
+    height: 36px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+  }
+  [data-logo-fallback] {
+    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #3a3f66;
+    white-space: nowrap;
+  }
+  html.wx-light [data-logo-slot] { filter: grayscale(1) brightness(.55); opacity: .8; }
+  html.wx-light [data-logo-slot]:hover { filter: none; opacity: 1; }
+  html.wx-light [data-logo-fallback] { color: #5a6280; }
+  /* neon edge stroke (border only) + outer glow like social icons */
+  [data-w3-frame], [data-wv-frame], a[data-w3-panel], [data-ts-card], [data-tc-card] {
+    --gx: 50%;
+    --gy: 30%;
+  }
+  [data-w3-frame]::before, [data-wv-frame]::before, a[data-w3-panel]::before, [data-ts-card]::before, [data-tc-card]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    z-index: 8;
+    pointer-events: none;
+    background: radial-gradient(200px circle at var(--gx) var(--gy),
+      rgba(220,235,255,1) 0%,
+      rgba(122,162,255,.95) 32%,
+      rgba(46,107,255,.45) 58%,
+      transparent 76%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: .22;
+    transition: opacity .35s ease;
+  }
+  [data-w3-frame]:hover::before, [data-wv-frame]:hover::before, a[data-w3-panel]:hover::before, [data-ts-card]:hover::before, [data-tc-card]:hover::before {
+    opacity: 1;
+  }
+  [data-w3-frame]:hover, [data-wv-frame]:hover, a[data-w3-panel]:hover, [data-ts-card]:hover {
+    border-color: #7aa2ff;
+  }
+  a[data-w3]:hover [data-w3-float],
+  a[data-w3-panel]:hover,
+  [data-ts-card]:hover {
+    filter: drop-shadow(0 0 6px rgba(122,162,255,.85)) drop-shadow(0 0 16px rgba(122,162,255,.45)) drop-shadow(0 0 28px rgba(46,107,255,.3));
+  }
+  /* team: glow on THIS card only (no filter on 3D float — that bled to every card) */
+  [data-tc-card] {
+    transition: border-color .3s ease, box-shadow .3s ease;
+    box-shadow: 0 26px 60px -30px rgba(0,0,0,.85);
+  }
+  [data-tc-card]:hover {
+    border-color: #7aa2ff !important;
+    box-shadow:
+      0 0 6px rgba(122,162,255,.9),
+      0 0 16px rgba(122,162,255,.5),
+      0 0 28px rgba(46,107,255,.35),
+      0 26px 60px -30px rgba(0,0,0,.85) !important;
+  }
+  [data-tc]:has([data-tc-card]:hover) {
+    z-index: 40 !important;
+  }
+  [data-ts-avatar] {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    object-fit: cover;
+    display: block;
+    background: #2a2f45;
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  /* wide reels */
+  [data-wv-frame][data-wv-wide] { width: 420px; }
+  [data-wv-wide] [data-wv-screen] { height: 236px; }
+  /* overlays */
+  [data-cv-ov], [data-vid-ov], [data-work-ov] { opacity: 0; transition: opacity .35s ease; }
+  [data-cv-ov].on, [data-vid-ov].on, [data-work-ov].on { opacity: 1; }
+  [data-ov-close] { position: fixed; top: 22px; left: 22px; z-index: 40; width: 46px; height: 46px; border-radius: 100px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); color: #fff; font-size: 17px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); transition: transform .3s ease, border-color .3s ease; }
+  [data-ov-close]:hover { transform: scale(1.1) rotate(90deg); border-color: #7aa2ff; }
+  .on [data-cv-anim] { animation: cvIn .85s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes cvIn { from { opacity: 0; transform: translateY(44px) scale(.96); } to { opacity: 1; transform: none; } }
+  /* CV page */
+  [data-cv-p] { position: absolute; left: 50%; top: 50%; width: min(23vw, 330px); aspect-ratio: 16/10; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 40px 90px -30px rgba(0,0,0,.8); transform: translate(-50%,-50%); will-change: transform, filter, opacity; opacity: 0; }
+  [data-cv-lab] { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .22em; color: #7fa6d8; display: flex; align-items: center; gap: 12px; }
+  [data-cv-lab]::after { content: ''; width: 46px; height: 1px; background: rgba(127,166,216,.45); }
+  [data-cv-sec] { position: relative; max-width: 1160px; margin: 0 auto; padding: 56px 48px; }
+  [data-cv-stat] { text-align: center; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.045); border-radius: 18px; padding: 26px 16px; backdrop-filter: blur(6px); }
+  [data-cv-chip] { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .05em; color: #dce8f8; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05); border-radius: 100px; padding: 10px 20px; }
+  [data-cv-bar] { height: 6px; border-radius: 100px; background: rgba(255,255,255,.10); overflow: hidden; }
+  [data-cv-bar] > div { height: 100%; border-radius: 100px; background: var(--wx-grad); box-shadow: 0 0 14px rgba(80,130,255,.7); }
+  /* Plyr video player theming */
+  .plyr { --plyr-color-main: #7A2BE6; --plyr-video-control-color: #fff; --plyr-video-control-color-hover: #fff; --plyr-range-thumb-background: #fff; --plyr-range-thumb-shadow: 0 0 10px rgba(122,162,255,.9); --plyr-range-fill-background: linear-gradient(90deg,#7A2BE6,#2E6BFF); --plyr-video-controls-background: linear-gradient(to top, rgba(0,0,0,.85), transparent); --plyr-menu-background: rgba(12,15,30,.92); --plyr-menu-color: #e6ecff; font-family: 'Plus Jakarta Sans', sans-serif; }
+  [data-vid-box] .plyr, [data-vid-box] .plyr__video-wrapper { width: 100%; height: 100%; }
+  [data-vid-box] .plyr__video-wrapper { background: #000; padding-bottom: 0 !important; }
+  [data-vid-box] .plyr video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* portrait (9:16) player is narrow — keep ALL controls, just compact them so the seek bar stays usable */
+  [data-vid-box][data-vid-orient="tall"] .plyr__controls { --plyr-control-spacing: 7px; padding: 7px 8px; }
+  [data-vid-box][data-vid-orient="tall"] .plyr__time--duration { display: none !important; }
+  [data-vid-box][data-vid-orient="tall"] .plyr__volume { min-width: 0; }
+  [data-vid-box][data-vid-orient="tall"] .plyr__volume input[type="range"] { width: 0; min-width: 0; transition: width .18s ease; }
+  [data-vid-box][data-vid-orient="tall"] .plyr__volume:hover input[type="range"],
+  [data-vid-box][data-vid-orient="tall"] .plyr__volume input[type="range"]:focus { width: 56px; min-width: 56px; }
+  /* whatsapp form */
+  [data-wa-form] input, [data-wa-form] select, [data-wa-form] textarea { width: 100%; background: rgba(127,127,160,.08); border: 1px solid var(--wx-border); color: var(--wx-text); padding: 14px 18px; border-radius: 14px; font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 14px; outline: none; transition: border-color .25s ease, background-color .5s ease; }
+  [data-wa-form] input:focus, [data-wa-form] select:focus, [data-wa-form] textarea:focus { border-color: #7aa2ff; }
+  [data-wa-form] input::placeholder, [data-wa-form] textarea::placeholder { color: var(--wx-muted); }
+  [data-wa-form] select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+  [data-wa-form] option { background: #12142a; color: #eef0ff; }
+  /* footer socials — neon stroke (inner + outer) */
+  [data-soc] { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 100px; border: 1px solid var(--wx-border); background: rgba(127,127,160,.08); color: #c4c8ee; text-decoration: none; transition: border-color .3s ease, color .3s ease, transform .3s ease, box-shadow .3s ease; }
+  [data-soc]:hover {
+    border-color: #7aa2ff;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow:
+      0 0 6px rgba(122,162,255,.85),
+      0 0 16px rgba(122,162,255,.45),
+      0 0 28px rgba(46,107,255,.3),
+      inset 0 0 8px rgba(122,162,255,.35),
+      inset 0 0 14px rgba(46,107,255,.15);
+  }
+  html.wx-light [data-soc] { color: #4a5170; }
+  html.wx-light [data-soc]:hover { color: #1c2340; }
+  /* mobile menu */
+  [data-mnav] > a:not([data-mnav-cta]) { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 700; color: #eef0ff; text-decoration: none; letter-spacing: .02em; opacity: 0; transform: translateY(16px); transition: opacity .4s ease, transform .4s ease, color .3s ease; }
+  [data-mnav] > a:not([data-mnav-cta]):hover { color: #7aa2ff; }
+  [data-mnav].open { opacity: 1 !important; pointer-events: auto !important; }
+  [data-mnav].open > a { opacity: 1; transform: none; }
+  [data-mnav] > a:nth-of-type(1) { transition-delay: .05s; }
+  [data-mnav] > a:nth-of-type(2) { transition-delay: .10s; }
+  [data-mnav] > a:nth-of-type(3) { transition-delay: .15s; }
+  [data-mnav] > a:nth-of-type(4) { transition-delay: .20s; }
+  html.wx-light [data-mnav] { background: rgba(238,242,250,.85); }
+  html.wx-light [data-mnav] > a:not([data-mnav-cta]) { color: #1c2340; }
+  /* EN mode: flip direction (layout mirrors via CSS direction) */
+  html.wx-en { direction: ltr; }
+  html.wx-en [dir="rtl"] { direction: ltr; }
+  html.wx-en [data-wa-form] { text-align: left; }
+  /* responsive */
+  @media (max-width: 860px) {
+    header { padding: 14px 18px !important; }
+    header nav { display: none !important; }
+    header [data-desk-cta] { display: none !important; }
+    [data-mburger] { display: flex !important; }
+    [data-hero-c] { padding: 0 22px 64px !important; }
+    #services { padding: 64px 18px 50px !important; }
+    a[data-w3-panel] > div[dir="rtl"] { width: 92% !important; padding: 30px 22px !important; }
+    #contact { padding: 60px 18px 54px !important; }
+    [data-wa-form] { padding: 26px 20px 22px !important; }
+    [data-cv-meta] { padding: 22px 22px 0 76px !important; }
+    [data-cv-foot] { padding: 0 22px 36px !important; }
+    [data-cv-sec] { padding: 40px 22px !important; }
+    [data-work-ov] > div[dir] { padding: 46px 14px !important; gap: 30px !important; }
+    /* testimonials: flatten the 3D tilt + show ONE full-width column so text isn't clipped */
+    [data-ts-tilt] { transform: none !important; }
+    [data-ts-feed] { gap: 12px !important; height: 500px !important; justify-content: center !important; }
+    [data-ts-col][data-ts-down] { display: none !important; }
+    [data-ts-card], [data-ts-day] { width: min(86vw, 340px) !important; }
+    /* CV: decorative panels behind the portrait were tiny (23vw≈90px on phones) — enlarge them */
+    [data-cv-p] { width: min(66vw, 300px) !important; }
+    /* lighten the full-screen mobile-nav blur (cheaper repaint) */
+    [data-mnav] { backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; }
+  }
+  /* team carousel nav */
+  [data-tc-btn] { min-width: 46px; min-height: 46px; width: 46px; height: 46px; border-radius: 100px; background: var(--wx-panel); border: 1px solid var(--wx-border); color: var(--wx-title); font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); transition: transform .3s ease, border-color .3s ease; padding: 0 0 4px; }
+  [data-tc-btn]:hover { transform: scale(1.1); border-color: #7aa2ff; }
+  [data-tc]:nth-child(5n+1) [data-w3-float] { animation-delay: -1.2s; }
+  [data-tc]:nth-child(5n+2) [data-w3-float] { animation-delay: -4.6s; animation-duration: 8.4s; }
+  [data-tc]:nth-child(5n+3) [data-w3-float] { animation-delay: -2.8s; }
+  [data-tc]:nth-child(5n+4) [data-w3-float] { animation-delay: -6.1s; animation-duration: 8.1s; }
+  [data-tc]:nth-child(5n) [data-w3-float] { animation-delay: -3.7s; }
+  /* smooth color transitions on themed surfaces */
+  [data-w3-frame], [data-w3-bar], [data-w3-url], [data-wv-frame], a[data-w3-panel], [data-tc-card] { transition: background-color .5s ease, border-color .5s ease, color .5s ease, box-shadow .5s ease, filter .45s ease; }
+  h2, h3, p { transition: background-color .5s ease, border-color .5s ease, color .5s ease; }
+  /* ===== light theme surfaces ===== */
+  html.wx-light [data-ambient] { opacity: .55; }
+  html.wx-light [data-team-glow] { opacity: .16; }
+  html.wx-light [data-w3-frame] { background: #ffffff; border-color: rgba(23,26,44,.14); box-shadow: 0 30px 70px -32px rgba(50,60,110,.40), 0 0 60px -26px rgba(120,140,255,.28); }
+  html.wx-light [data-w3-bar] { background: #edeff5; border-bottom-color: rgba(23,26,44,.08); }
+  html.wx-light [data-w3-dot] { background: #c6cbde; }
+  html.wx-light [data-w3-url] { background: rgba(23,26,44,.06); border-color: rgba(23,26,44,.05); }
+  html.wx-light [data-wv-frame] { border-color: rgba(23,26,44,.14); box-shadow: 0 30px 70px -32px rgba(50,60,110,.40), 0 0 60px -26px rgba(120,140,255,.28); }
+  html.wx-light a[data-w3-panel]:hover { border-color: rgba(23,26,44,.26); }
+  html.wx-light input::placeholder { color: #8a90ad; }
+</style>
+</helmet>
+<div dir="rtl" style="position:relative; color:var(--wx-text); font-family:'Inter','IBM Plex Sans Arabic',sans-serif; min-height:100vh; overflow-x:hidden; background:transparent;">
+
+  <!-- ===== GLOBAL AMBIENT BACKGROUND ===== -->
+  <div data-ambient style="position:fixed; inset:0; z-index:0; background:radial-gradient(58% 48% at 16% 8%, rgba(122,43,230,.22), transparent 60%), radial-gradient(54% 44% at 88% 18%, rgba(23,201,220,.16), transparent 62%), radial-gradient(80% 65% at 50% 114%, rgba(46,107,255,.24), transparent 72%), var(--wx-bg); pointer-events:none; transition:background .5s ease, opacity .5s ease;">
+    <div style="position:absolute; bottom:-14%; left:50%; transform:translateX(-50%); width:1300px; height:760px; max-width:135vw; background:radial-gradient(ellipse at center, rgba(46,107,255,.18), rgba(122,43,230,.10) 45%, transparent 72%); filter:blur(64px); animation:glowPulse 9s ease-in-out infinite;"></div>
+  </div>
+
+  <div style="position:relative; z-index:1;">
+
+  <!-- ===== STICKY HEADER ===== -->
+  <header data-wx-nav ref="{{ headerRef }}" style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 48px; transition:background .35s, backdrop-filter .35s, border-color .35s, padding .35s, box-shadow .35s;">
+    <div onClick="{{ goHome }}" style="display:flex; align-items:center; gap:12px; cursor:pointer;">
+      <div style="width:34px; height:34px; border-radius:10px; background:var(--wx-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 0 24px -4px rgba(46,107,255,.85);">
+        <div style="width:11px; height:11px; background:#fff; border-radius:3px;"></div>
+      </div>
+      <span data-cms="site.brand" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; letter-spacing:.16em; font-size:15px;">Wexon</span>
+    </div>
+    <nav style="display:flex; align-items:center; gap:32px; font-family:'IBM Plex Sans Arabic','Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:500;">
+      <a href="#services" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">خدماتنا</a>
+      <a href="#works" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">أعمالنا</a>
+      <a href="#team" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">الفريق</a>
+      <a href="#contact" style="color:#c4c8ee; text-decoration:none;" style-hover="color:#7aa2ff;">تواصل</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <div style="display:flex; align-items:center; gap:6px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px;">
+        <button type="button" data-lang-btn="ar" style="all:unset; cursor:pointer; font-weight:700; color:var(--wx-text); padding:4px 2px;">AR</button><span style="color:#4a4f78;">/</span><button type="button" data-lang-btn="en" style="all:unset; cursor:pointer; color:#6c719b; padding:4px 2px;">EN</button>
+      </div>
+      <button type="button" data-mburger aria-label="القائمة" style="display:none; width:40px; height:40px; border-radius:100px; border:1px solid rgba(127,127,160,.34); background:rgba(127,127,160,.10); color:var(--wx-text); font-size:16px; line-height:1; cursor:pointer; align-items:center; justify-content:center; backdrop-filter:blur(8px);">☰</button>
+      <button type="button" onClick="{{ toggleTheme }}" aria-label="Light / dark" style="width:38px; height:38px; border-radius:100px; border:1px solid rgba(127,127,160,.34); background:rgba(127,127,160,.10); color:var(--wx-text); font-size:15px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px);">◐</button>
+      <a href="#contact" data-desk-cta style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:11px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic','Plus Jakarta Sans',sans-serif; font-size:13.5px; font-weight:600; white-space:nowrap; box-shadow:0 8px 24px -8px rgba(46,107,255,.9);">ابدأ مشروعك</a>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div data-mnav dir="rtl" style="position:fixed; inset:0; z-index:49; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:rgba(5,7,16,.80); backdrop-filter:blur(26px); -webkit-backdrop-filter:blur(26px); opacity:0; pointer-events:none; transition:opacity .35s ease;">
+    <a href="#services">خدماتنا</a>
+    <a href="#works">أعمالنا</a>
+    <a href="#team">الفريق</a>
+    <a href="#contact">تواصل</a>
+    <div style="display:flex; align-items:center; gap:20px; margin-top:28px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px;">
+      <button type="button" data-lang-btn="ar" style="all:unset; cursor:pointer; font-weight:700; color:var(--wx-text); padding:6px 4px;">AR</button>
+      <button type="button" data-lang-btn="en" style="all:unset; cursor:pointer; color:#6c719b; padding:6px 4px;">EN</button>
+      <button type="button" onClick="{{ toggleTheme }}" aria-label="Light / dark" style="width:42px; height:42px; border-radius:100px; border:1px solid rgba(127,127,160,.34); background:rgba(127,127,160,.10); color:var(--wx-text); font-size:16px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;">◐</button>
+    </div>
+    <a href="#contact" data-mnav-cta style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:14px 30px; border-radius:100px; font-family:'IBM Plex Sans Arabic','Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:700; margin-top:14px; box-shadow:0 12px 34px -10px rgba(46,107,255,.9);">ابدأ مشروعك</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section data-screen-label="Hero" style="position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden;">
+    <video ref="{{ videoRef }}" muted autoplay loop playsinline style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.9;"></video>
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(4,5,15,.9) 0%, rgba(4,5,15,.4) 40%, rgba(4,5,15,0) 78%);"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(4,5,15,.4) 0%, transparent 34%, rgba(4,5,15,.88) 100%);"></div>
+
+    <!-- content -->
+    <div dir="ltr" data-hero-c style="position:relative; z-index:10; padding:0 48px 96px; max-width:1280px; margin:0 auto; width:100%;">
+      <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.18em; color:var(--wx-accent); margin-bottom:22px;" data-cms="hero.eyebrow">CREATIVE COLLECTIVE — نص تجريبي</div>
+      <h1 data-reveal data-cms-html="hero.titleHtml" dir="rtl" style="font-family:'IBM Plex Sans Arabic','Inter',sans-serif; font-weight:800; font-size:clamp(38px,6.2vw,76px); line-height:1.12; letter-spacing:-.02em; margin:0 0 16px;">نصنع علامات<br>تبقى في الذاكرة<span style="color:#17C9DC;">.</span></h1>
+      <h2 data-reveal dir="rtl" style="font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:500; font-size:clamp(20px,2.4vw,30px); color:#c4c8ee; margin:0 0 26px;" data-cms="hero.subtitle">عنوان فرعي تجريبي يوضع هنا بالعربي</h2>
+      <p data-reveal style="font-family:'Inter','IBM Plex Sans Arabic',sans-serif; font-size:15px; line-height:1.7; color:rgba(238,240,255,.7); max-width:512px; margin:0 0 34px;" data-cms="hero.description">نص تجريبي يوضّح مكان الوصف القصير للصفحة — استبدله بالنص الحقيقي لاحقاً. A short example description goes here.</p>
+      <div data-reveal style="display:flex; align-items:center; gap:16px;">
+        <a href="#works" style="text-decoration:none; color:#fff; background:var(--wx-grad); padding:15px 30px; border-radius:100px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:700; box-shadow:0 12px 34px -10px rgba(46,107,255,.9); display:inline-flex; align-items:center; gap:9px;"><span data-cms="hero.ctaPrimary">شاهد أعمالنا</span> <span style="font-size:17px;">→</span></a>
+        <a href="#contact" style="text-decoration:none; color:#eef0ff; padding:15px 26px; border-radius:100px; font-family:'Plus Jakarta Sans',sans-serif; font-size:15px; font-weight:500; border:1px solid rgba(255,255,255,.16);" data-cms="hero.ctaSecondary">تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SERVICES — DARK GLASS PANELS + CHROME OBJECTS ===== -->
+  <section id="services" data-screen-label="Services" style="position:relative; padding:90px 48px 70px;">
+    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:1000px; height:70%; max-width:90vw; background:radial-gradient(50% 50% at 50% 50%, rgba(122,43,230,.12), transparent 70%); pointer-events:none;"></div>
+    <div style="max-width:1280px; margin:0 auto; position:relative;">
+      <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-muted); margin-bottom:40px;">— WHAT WE DO / خدماتنا</div>
+      <div style="display:flex; flex-direction:column; gap:26px;" data-cms-services></div>
+    </div>
+  </section>
+
+  <!-- ===== LOGO MARQUEE — 3 ROWS SEAMLESS ===== -->
+  <section data-screen-label="Clients" style="padding:44px 0; overflow:hidden;">
+    <div data-reveal style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:#5a5f88; text-align:center; margin-bottom:40px;" data-cms="partners.label">TRUSTED BY / عملاؤنا</div>
+    <div style="display:flex; flex-direction:column; gap:30px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);">
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoARef }}" style="display:flex; align-items:center; width:max-content; will-change:transform;"><sc-for list="{{ logosA2 }}" as="a" hint-placeholder-count="20"><span data-logo-slot><img data-logo-img src="{{ a.image }}" alt="{{ a.name }}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='inline');"><span data-logo-fallback style="display:none;">{{ a.name }}</span></span></sc-for></div></div>
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoBRef }}" style="display:flex; align-items:center; width:max-content; will-change:transform;"><sc-for list="{{ logosB2 }}" as="b" hint-placeholder-count="20"><span data-logo-slot><img data-logo-img src="{{ b.image }}" alt="{{ b.name }}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='inline');"><span data-logo-fallback style="display:none;">{{ b.name }}</span></span></sc-for></div></div>
+      <div dir="ltr" style="overflow:hidden;"><div ref="{{ logoCRef }}" style="display:flex; align-items:center; width:max-content; will-change:transform;"><sc-for list="{{ logosC2 }}" as="c" hint-placeholder-count="20"><span data-logo-slot><img data-logo-img src="{{ c.image }}" alt="{{ c.name }}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='inline');"><span data-logo-fallback style="display:none;">{{ c.name }}</span></span></sc-for></div></div>
+    </div>
+  </section>
+
+  <!-- ===== WORKS — VISUAL GALLERY (صور سوشل / شعارات / هوية — بدون هيدر متصفح) ===== -->
+  <!-- لاستبدال صورة: غيّر src. السلسلة نسختان متطابقتان للّف اللانهائي — عدّلهما معاً. -->
+  <section id="works" data-screen-label="Works (Images)" style="position:relative; padding:80px 0;">
+    <div style="position:absolute; left:0; right:0; top:54%; height:380px; transform:translateY(-50%); background:radial-gradient(55% 100% at 50% 50%, rgba(140,150,255,.08), transparent 70%); pointer-events:none;"></div>
+    <div data-reveal style="position:relative; z-index:5; padding:0 48px; max-width:1400px; margin:0 auto 44px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-muted); margin-bottom:16px;" data-cms="works.imagesLabel">— SELECTED WORK / مختارات</div>
+        <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:700; margin:0; letter-spacing:-.015em; color:var(--wx-title);" data-cms="works.imagesTitle">أعمالنا المصوّرة</h2>
+      </div>
+      <a href="/gallery" style="text-decoration:none; color:#fff; border:1px solid rgba(122,162,255,.45); background:rgba(122,162,255,.08); padding:12px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; backdrop-filter:blur(10px); position:relative; z-index:6;">عرض كل التصاميم ↗</a>
+    </div>
+    <div dir="ltr" style="position:relative; z-index:1; overflow:hidden; padding:120px 0; margin:-90px 0;" onMouseEnter="{{ wiEnter }}" onMouseLeave="{{ wiLeave }}">
+      <div ref="{{ wiTrack }}" style="display:flex; align-items:center; width:max-content; will-change:transform;" data-cms-wi></div>
+    </div>
+  </section>
+
+
+  <!-- ===== WORKS — VIDEO COVERS (أغلفة صورة خفيفة — طولي 250×444 / عريض 420×236) ===== -->
+  <!-- لاستبدال غلاف: غيّر src. السلسلة نسختان متطابقتان للّف اللانهائي — عدّلهما معاً. -->
+  <section data-screen-label="Works (Video)" style="position:relative; padding:70px 0 90px;">
+    <div style="position:absolute; left:0; right:0; top:56%; height:420px; transform:translateY(-50%); background:radial-gradient(55% 100% at 50% 50%, rgba(140,150,255,.07), transparent 70%); pointer-events:none;"></div>
+    <div data-reveal style="position:relative; z-index:5; padding:0 48px; max-width:1400px; margin:0 auto 44px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-muted); margin-bottom:16px;" data-cms="works.videosLabel">— MOTION & FILM / إنتاج مرئي</div>
+        <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:700; margin:0; letter-spacing:-.015em; color:var(--wx-title);" data-cms="works.videosTitle">أعمالنا المرئية</h2>
+      </div>
+      <a href="/video-gallery" style="text-decoration:none; color:#fff; border:1px solid rgba(122,162,255,.45); background:rgba(122,162,255,.08); padding:12px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; backdrop-filter:blur(10px); position:relative; z-index:6;">عرض كل الفيديوهات ↗</a>
+    </div>
+    <div dir="ltr" style="position:relative; z-index:1; overflow:hidden; padding:120px 0; margin:-90px 0;" onMouseEnter="{{ wvEnter }}" onMouseLeave="{{ wvLeave }}">
+      <div ref="{{ wvTrack }}" style="display:flex; align-items:center; width:max-content; will-change:transform;" data-cms-wv></div>
+    </div>
+  </section>
+
+
+  <!-- ===== TEAM — LARGE CLOUDY INK SIDE SLIDER ===== -->
+  <section id="team" data-screen-label="Team" style="position:relative; padding:70px 0 60px; overflow:hidden;">
+    <div data-team-glow style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:1200px; height:100%; max-width:140vw; background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(51,0,153,.3), rgba(51,51,255,.12) 45%, transparent 72%); filter:blur(50px); pointer-events:none; -webkit-mask-image:linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%); mask-image:linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%); transition:opacity .5s ease;"></div>
+    <div data-reveal style="position:relative; padding:0 48px; margin-bottom:50px; max-width:1400px; margin-left:auto; margin-right:auto;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-muted); margin-bottom:16px;">— THE TEAM / الفريق</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(34px,4.4vw,64px); font-weight:700; margin:0; letter-spacing:-.015em;">العقول خلف العمل</h2>
+    </div>
+    <!-- كاروسيل مروحي 3D: البطاقة النشطة بالمنتصف والباقي ينحني للخلف — تنقل بالأزرار أو بالضغط على بطاقة جانبية -->
+    <div dir="ltr" style="position:relative; height:580px; margin-top:10px;" onMouseEnter="{{ teamEnter }}" onMouseLeave="{{ teamLeave }}">
+      <div ref="{{ teamTrack }}" style="position:absolute; inset:0 0 70px 0; perspective:1300px; transform-style:preserve-3d;">
+        <sc-for list="{{ team2 }}" as="m" hint-placeholder-count="5">
+          <div data-tc style="position:absolute; left:50%; top:20px; width:300px; margin-left:-150px; transition:transform .8s cubic-bezier(.2,.7,.2,1), opacity .8s ease, filter .8s ease; will-change:transform, opacity; cursor:default;">
+            <!-- [CV معلّق] cursor:default مؤقت — عند التفعيل أعد cursor:pointer هنا وعلى الرابط -->
+            <a data-w3-float href="#cv" style="text-decoration:none; color:#eef0ff; display:block; cursor:default;">
+              <div data-tc-card style="width:300px; height:400px; border-radius:20px; overflow:visible; position:relative; border:1px solid rgba(255,255,255,.10); background:radial-gradient(90% 70% at 50% 18%, #3f4757 0%, #1a1e29 55%, #0c0e16 100%);">
+                <div style="position:absolute; inset:0; border-radius:inherit; overflow:hidden;">
+                <div style="position:absolute; left:50%; top:15%; transform:translateX(-50%); width:90px; height:90px; border-radius:50%; background:radial-gradient(circle at 40% 35%, #8b93a8, #3a4152 70%);"></div>
+                <div style="position:absolute; left:50%; top:38%; transform:translateX(-50%); width:170px; height:160px; border-radius:70px 70px 0 0; background:linear-gradient(180deg,#565f75,#1a1d28);"></div>
+                <img data-tc-img alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; left:0; right:0; bottom:0; height:46%; background:linear-gradient(to top, rgba(4,5,15,.92) 0%, rgba(4,5,15,.35) 60%, transparent 100%);"></div>
+                <div dir="rtl" style="position:absolute; bottom:0; right:0; left:0; padding:20px;">
+                  <h3 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:20px; font-weight:700; margin:0 0 4px;">{{ m.name }}</h3>
+                  <div style="font-size:13px; color:#c3c8e6; font-family:'IBM Plex Sans Arabic',sans-serif;">{{ m.role }}</div>
+                  <!-- [CV معلّق] أزل التعليق لإظهار رابط السيرة على البطاقة -->
+                  <!-- <div style="display:inline-flex; align-items:center; gap:7px; margin-top:10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; letter-spacing:.04em; color:#7aa2ff;">عرض السيرة ↗</div> -->
+                </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position:absolute; left:50%; bottom:0; transform:translateX(-50%); display:flex; gap:12px; z-index:20;">
+        <button type="button" data-tc-btn onClick="{{ teamPrevGo }}" aria-label="السابق">‹</button>
+        <button type="button" data-tc-btn onClick="{{ teamNextGo }}" aria-label="التالي">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS — NOTIFICATION FEED (عمودان بحركة عمودية متعاكسة + منظور 3D) ===== -->
+  <!-- كل عمود مكرر نسختين متطابقتين حتى يلفّ بلا نهاية — عدّل النسختين معاً -->
+  <section id="testimonials" data-screen-label="Testimonials" style="position:relative; padding:80px 48px; overflow:hidden;">
+    <div style="position:absolute; left:20%; top:50%; transform:translate(-50%,-50%); width:700px; height:600px; background:radial-gradient(50% 50% at 50% 50%, rgba(46,107,255,.10), transparent 70%); pointer-events:none;"></div>
+    <div style="max-width:1280px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap; position:relative;">
+      <div data-reveal style="flex:1; min-width:300px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-muted); margin-bottom:16px;">— TESTIMONIALS / آراء العملاء</div>
+        <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:700; margin:0 0 22px; letter-spacing:-.015em;">كلام عملائنا</h2>
+        <p style="font-size:16px; line-height:1.8; color:var(--wx-body); max-width:420px; margin:0 0 34px; font-family:'IBM Plex Sans Arabic',sans-serif;">نص تجريبي قصير — آراء من عملاء اشتغلنا معهم على هويات ومتاجر ومنصات. يستبدل بالنص الحقيقي.</p>
+        <div style="display:flex; gap:36px; flex-wrap:wrap;">
+          <div><div style="font-family:'Inter',sans-serif; font-weight:800; font-size:30px; color:var(--wx-title);">+40</div><div style="font-size:13px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">عميل سعيد</div></div>
+          <div><div style="font-family:'Inter',sans-serif; font-weight:800; font-size:30px; color:var(--wx-title);">+85</div><div style="font-size:13px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مشروع مسلّم</div></div>
+          <div><div style="font-family:'Inter',sans-serif; font-weight:800; font-size:30px; color:var(--wx-title);">4.9<span style="color:#f5b942;">★</span></div><div style="font-size:13px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">متوسط التقييم</div></div>
+        </div>
+      </div>
+      <div data-reveal style="flex:1.1; min-width:340px; display:flex; justify-content:center;">
+        <div data-ts-tilt>
+          <div data-ts-feed data-cms-ts>
+            <div data-ts-col>
+            <div data-ts-day><span>مشروع: هوية بصرية</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #8b93a8, #3a4152 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير تسويق — شركة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">2d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"تجربة ممتازة — التسليم كان قبل الموعد والجودة فوق المتوقع بكثير."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #c69a6d, #6b4a2f 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مؤسِّس — متجر تجريبي</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">5d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"فريق يفهم بسرعة ويحوّل الفكرة لتصميم حقيقي من أول جلسة."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: متجر إلكتروني</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #9ab39a, #4a5c4a 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مديرة منتج — منصة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">1w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"المتجر ضاعف مبيعاتنا خلال ثلاثة أشهر. أرقام حقيقية مش كلام."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #b98a9a, #5c3a46 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير عام — مؤسسة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">2w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"أفضل استثمار عملناه هذي السنة — النتائج حكت عن نفسها."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: هوية بصرية</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #8b93a8, #3a4152 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير تسويق — شركة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">2d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"تجربة ممتازة — التسليم كان قبل الموعد والجودة فوق المتوقع بكثير."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #c69a6d, #6b4a2f 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مؤسِّس — متجر تجريبي</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">5d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"فريق يفهم بسرعة ويحوّل الفكرة لتصميم حقيقي من أول جلسة."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: متجر إلكتروني</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #9ab39a, #4a5c4a 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مديرة منتج — منصة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">1w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"المتجر ضاعف مبيعاتنا خلال ثلاثة أشهر. أرقام حقيقية مش كلام."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #b98a9a, #5c3a46 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير عام — مؤسسة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">2w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"أفضل استثمار عملناه هذي السنة — النتائج حكت عن نفسها."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            </div>
+            <div data-ts-col data-ts-down style="margin-top:-60px;">
+            <div data-ts-day><span>مشروع: حملة إعلانية</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #7d93c9, #33406b 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير إبداعي — وكالة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">3d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"تعاون سلس من أول يوم، وتفاصيل التنفيذ كانت على مستوى عالمي."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #8b93a8, #3a4152 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مسؤولة علامة — شركة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">6d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"الهوية الجديدة غيّرت نظرة السوق لنا بالكامل."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: موقع تعريفي</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #c69a6d, #6b4a2f 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">شريك مؤسس — ستارتب تجريبي</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">1w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"سرعة استجابة ودقة بالمواعيد نادراً ما تلاقيها."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #9ab39a, #4a5c4a 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مديرة تواصل — جهة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">3w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"من البريف للإطلاق كل خطوة كانت واضحة ومدروسة."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: حملة إعلانية</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #7d93c9, #33406b 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مدير إبداعي — وكالة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">3d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"تعاون سلس من أول يوم، وتفاصيل التنفيذ كانت على مستوى عالمي."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #8b93a8, #3a4152 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مسؤولة علامة — شركة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">6d</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"الهوية الجديدة غيّرت نظرة السوق لنا بالكامل."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-day><span>مشروع: موقع تعريفي</span><span>2026</span></div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #c69a6d, #6b4a2f 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">شريك مؤسس — ستارتب تجريبي</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">1w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"سرعة استجابة ودقة بالمواعيد نادراً ما تلاقيها."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            <div data-ts-card>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span style="width:34px; height:34px; border-radius:50%; flex:0 0 auto; background:radial-gradient(circle at 35% 30%, #9ab39a, #4a5c4a 75%);"></span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">اسم عميل تجريبي</div>
+                  <div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">مديرة تواصل — جهة تجريبية</div>
+                </div>
+                <span style="font-size:10.5px; color:var(--wx-muted); font-family:'Plus Jakarta Sans',sans-serif;">3w</span>
+              </div>
+              <div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif;">"من البريف للإطلاق كل خطوة كانت واضحة ومدروسة."</div>
+              <div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" data-screen-label="Contact" style="position:relative; padding:80px 48px 70px; overflow:hidden;">
+    <div data-reveal style="position:relative; max-width:1000px; margin:0 auto; text-align:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--wx-accent); margin-bottom:26px;" data-cms="contact.label">— CONTACT / تواصل</div>
+      <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(38px,6vw,82px); line-height:1.08; font-weight:600; margin:0 0 28px; letter-spacing:-.015em;" data-cms="contact.title">لنبدأ مشروعك</h2>
+      <p style="font-size:18px; line-height:1.7; color:#9fa3c9; max-width:520px; margin:0 auto 42px; font-family:'IBM Plex Sans Arabic',sans-serif;" data-cms="contact.subtitle">اترك تفاصيل سريعة وسنفتح محادثة واتساب مباشرة.</p>
+      <!-- فورم واتساب: يبني رسالة جاهزة من الحقول ويفتح المحادثة مباشرة -->
+      <div data-wa-form dir="rtl" style="max-width:620px; margin:0 auto; background:var(--wx-note); border:1px solid var(--wx-border); border-radius:26px; padding:34px 32px 28px; backdrop-filter:blur(10px); text-align:right; box-shadow:0 40px 100px -50px rgba(0,0,0,.6);">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+          <label style="display:flex; flex-direction:column; gap:7px; text-align:right;">
+            <span style="font-size:12.5px; font-weight:700; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">الاسم</span>
+            <input data-wa-name type="text" placeholder="اسمك" autocomplete="name">
+          </label>
+          <label style="display:flex; flex-direction:column; gap:7px; text-align:right;">
+            <span style="font-size:12.5px; font-weight:700; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">نوع المشروع</span>
+            <select data-wa-type>
+              <option value="" selected data-wa-type-ph>نوع المشروع…</option>
+              <option>هوية بصرية</option>
+              <option>موشن جرافيك</option>
+              <option>إعلان مصوّر</option>
+              <option>موقع إلكتروني</option>
+              <option>أخرى</option>
+            </select>
+          </label>
+        </div>
+        <label style="display:flex; flex-direction:column; gap:7px; margin-top:14px; text-align:right;">
+          <span style="font-size:12.5px; font-weight:700; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">جوال أو إيميل <span style="font-weight:500; opacity:.7;">(اختياري)</span></span>
+          <input data-wa-contact type="text" placeholder="للتواصل البديل إن لزم" autocomplete="email" inputmode="email" style="width:100%;">
+        </label>
+        <label style="display:flex; flex-direction:column; gap:7px; margin-top:14px; text-align:right;">
+          <span style="font-size:12.5px; font-weight:700; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">تفاصيل إضافية</span>
+          <textarea data-wa-msg rows="3" placeholder="احكِ لنا عن مشروعك باختصار…" style="resize:vertical; min-height:88px;"></textarea>
+        </label>
+        <button type="button" onClick="{{ waGo }}" data-wa-btn style="width:100%; margin-top:18px; display:flex; align-items:center; justify-content:center; gap:11px; border:none; cursor:pointer; color:#fff; background:linear-gradient(135deg,#25D366,#128C7E); padding:16px 30px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15.5px; font-weight:700; box-shadow:0 16px 44px -12px rgba(37,211,102,.5); transition:transform .25s ease, box-shadow .25s ease;">
+          <svg width="19" height="19" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          <span data-cms="contact.button">أرسل عبر واتساب</span>
+        </button>
+        <div style="margin-top:16px; text-align:center; font-size:12.5px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif;">يفتح واتساب برسالة جاهزة من بياناتك — أو راسلنا على <span style="color:#7aa2ff;">hello@wexon.com</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CV OVERLAY — صفحة داخلية لعضو الفريق (تفتح بالضغط على البطاقة النشطة) ===== -->
+  <div data-cv-ov aria-hidden="true" data-ov-display="block" dir="rtl" style="position:fixed; inset:0; z-index:120; display:none; overflow:auto; overscroll-behavior:contain; background:#0a1728;">
+    <button type="button" data-ov-close aria-label="إغلاق">✕</button>
+
+    <!-- ===== hero سينمائي ===== -->
+    <div data-cv-hero style="position:relative; min-height:100vh; overflow:hidden; background:linear-gradient(180deg,#0d2138 0%,#17395a 40%,#122c46 74%,#0a1728 100%);">
+      <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(75% 55% at 50% 6%, rgba(110,170,230,.32), transparent 62%), radial-gradient(50% 45% at 10% 92%, rgba(70,130,200,.22), transparent 60%), radial-gradient(50% 45% at 90% 92%, rgba(70,130,200,.18), transparent 60%);"></div>
+      <div style="position:absolute; left:-12%; right:-12%; bottom:-16%; height:48%; pointer-events:none; background:radial-gradient(55% 95% at 50% 100%, rgba(150,190,230,.32), rgba(120,160,210,.12) 55%, transparent 78%); filter:blur(34px);"></div>
+
+      <!-- شريط المعلومات العلوي -->
+      <div data-cv-anim data-cv-meta style="position:relative; z-index:10; display:flex; align-items:flex-start; justify-content:space-between; gap:24px; padding:26px 90px 0 90px; flex-wrap:wrap;">
+        <div onClick="{{ goHome }}" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; letter-spacing:.16em; font-size:15px; color:#eef4ff; cursor:pointer;">Wexon ✦</div>
+        <div style="display:flex; gap:56px; flex-wrap:wrap;">
+          <div><div style="font-size:11px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">متاح لمشاريع جديدة</div><div style="font-size:13.5px; color:#eef4ff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700;">2 SLOTS</div></div>
+          <div><div style="font-size:11px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">المقر</div><div style="font-size:13.5px; color:#eef4ff; font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:700;">مدينة تجريبية</div></div>
+          <div><div style="font-size:11px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">عضو في</div><div style="font-size:13.5px; color:#eef4ff; font-family:'IBM Plex Sans Arabic',sans-serif; font-weight:700;">فريق Wexon</div></div>
+        </div>
+      </div>
+
+      <!-- المعرض المنحني المتحرك -->
+      <div data-cv-anim style="animation-delay:.1s; position:absolute; left:0; right:0; top:6%; height:58%; perspective:1500px; z-index:2;">
+        <div data-cv-p style="background:radial-gradient(130% 150% at 22% 18%, #6b4526 0%, #241609 60%, #120b06 100%);"><div style="position:absolute; left:16%; top:26%; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 38% 32%, #f2c078, #b06a2e 70%); filter:blur(1px); box-shadow:0 0 60px 10px rgba(230,150,60,.35);"></div><div style="position:absolute; left:-10%; top:58%; width:120%; height:2px; background:linear-gradient(90deg,transparent,rgba(255,200,130,.35),transparent); transform:rotate(-6deg);"></div></div>
+        <div data-cv-p style="background:linear-gradient(160deg,#35255c 0%,#141031 60%,#0a0920 100%);"><div style="position:absolute; left:16px; top:16px; font-family:'Inter',sans-serif; font-weight:800; font-size:34px; color:rgba(255,255,255,.92); line-height:.95;">SS<br>/26</div><div style="position:absolute; right:-34px; bottom:-34px; width:130px; height:130px; border-radius:50%; border:1px solid rgba(170,150,255,.4);"></div></div>
+        <div data-cv-p style="background:linear-gradient(160deg,#1c4a3c 0%,#0d271f 55%,#061410 100%);"><div style="position:absolute; left:50%; top:48%; transform:translate(-50%,-50%) rotate(-9deg); width:64px; height:84px; border-radius:12px; background:linear-gradient(180deg,#3d7a68,#1b3d30); border:1px solid rgba(255,255,255,.2); box-shadow:0 20px 40px -12px rgba(0,0,0,.7);"></div><div style="position:absolute; left:50%; bottom:12%; transform:translateX(-50%); width:110px; height:14px; border-radius:50%; background:rgba(0,0,0,.45); filter:blur(6px);"></div></div>
+        <div data-cv-p style="background:radial-gradient(100% 100% at 50% 25%, #4b5468 0%, #171b26 70%);"><div style="position:absolute; left:50%; top:22%; transform:translateX(-50%); width:52px; height:52px; border-radius:50%; background:radial-gradient(circle at 40% 35%, #98a1b8, #444c60 70%);"></div><div style="position:absolute; left:50%; top:52%; transform:translateX(-50%); width:96px; height:74px; border-radius:40px 40px 0 0; background:linear-gradient(180deg,#5d6780,#20242f);"></div></div>
+        <div data-cv-p style="background:radial-gradient(120% 140% at 70% 20%, #1d4f8a 0%, #0d2547 55%, #071527 100%);"><div style="position:absolute; left:24%; top:30%; width:90px; height:90px; border-radius:50%; background:radial-gradient(circle, rgba(120,190,255,.55), transparent 70%); filter:blur(8px);"></div><div style="position:absolute; right:14%; bottom:16%; width:110px; height:110px; border-radius:50%; border:1px solid rgba(140,190,255,.35);"></div></div>
+        <div data-cv-p style="background:linear-gradient(175deg,#43270f 0%,#1d1108 55%,#0d0804 100%);"><div style="position:absolute; left:50%; bottom:-46px; transform:translateX(-50%); width:130px; height:130px; border-radius:50%; background:radial-gradient(circle at 36% 30%, #f7b566, #a4531d 72%); box-shadow:0 -10px 70px 6px rgba(240,150,60,.3);"></div><div style="position:absolute; left:0; right:0; top:44%; height:1px; background:linear-gradient(90deg,transparent,rgba(255,190,120,.3),transparent);"></div></div>
+        <div data-cv-p style="background:linear-gradient(150deg,#2d1b52 0%,#160f33 55%,#0a081e 100%);"><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:120px; height:120px; border-radius:50%; border:1px solid rgba(160,140,255,.35);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:74px; height:74px; border-radius:50%; border:1px solid rgba(160,140,255,.5);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; background:#b9a8ff; box-shadow:0 0 24px 6px rgba(150,120,255,.6);"></div></div>
+        <div data-cv-p style="background:linear-gradient(160deg,#0f3d44 0%,#092228 55%,#04151a 100%);"><div style="position:absolute; left:18px; top:24px;"><span style="display:block; width:110px; height:7px; border-radius:4px; background:rgba(255,255,255,.85);"></span><span style="display:block; margin-top:9px; width:70px; height:6px; border-radius:4px; background:rgba(255,255,255,.35);"></span></div><div style="position:absolute; left:18px; right:18px; bottom:20px; height:4px; border-radius:2px; background:rgba(255,255,255,.14);"><div style="width:58%; height:100%; border-radius:2px; background:linear-gradient(90deg,#7A2BE6,#2E6BFF);"></div></div></div>
+      </div>
+
+      <!-- صورة العضو -->
+      <div style="position:absolute; left:50%; top:47%; transform:translate(-50%,-52%); z-index:6; width:min(24vw,330px); min-width:230px;">
+        <div data-cv-anim style="animation-delay:.22s; position:relative;">
+          <div style="position:absolute; left:50%; top:52%; transform:translate(-50%,-50%); width:160%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle, rgba(120,170,230,.38), transparent 64%); filter:blur(28px); pointer-events:none;"></div>
+          <img data-cv-photo alt="" style="position:relative; width:100%; aspect-ratio:3/4; max-height:46vh; object-fit:cover; border-radius:20px; border:1px solid rgba(255,255,255,.28); box-shadow:0 60px 130px -40px rgba(0,0,0,.9); display:block;">
+        </div>
+      </div>
+
+      <!-- محتوى الهيرو السفلي -->
+      <div data-cv-foot style="position:absolute; left:0; right:0; bottom:0; z-index:8; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; padding:0 90px 42px; flex-wrap:wrap;">
+        <div data-cv-anim style="animation-delay:.32s; max-width:680px;">
+          <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13px; font-weight:700; letter-spacing:.2em; color:#a9c2e2; margin-bottom:12px;">أهلاً، أنا <span data-cv-name>اسم تجريبي</span></div>
+          <h1 data-cv-role style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(40px,5.8vw,80px); font-weight:700; margin:0 0 24px; color:#f2f6ff; letter-spacing:-.02em; text-shadow:0 10px 50px rgba(0,0,0,.4);">مسمّى تجريبي</h1>
+          <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+            <a href="#contact" data-cv-cta style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:#fff; color:#0d1c30; padding:14px 28px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14.5px; font-weight:700; box-shadow:0 16px 44px -12px rgba(0,0,0,.6);"><span style="width:22px; height:22px; border-radius:100px; background:var(--wx-grad); display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:12px;">←</span> ابدأ مشروع معي</a>
+            <span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12.5px; color:#9db8d8; letter-spacing:.06em;">↓ مرّر لباقي الملف الشخصي</span>
+          </div>
+        </div>
+        <div data-cv-anim style="animation-delay:.42s; max-width:340px; padding-bottom:4px;">
+          <p style="font-size:14.5px; line-height:1.9; color:#c6d6ec; font-family:'IBM Plex Sans Arabic',sans-serif; margin:0 0 16px;">نبذة تجريبية قصيرة — الخبرات، التخصص، وأسلوب العمل. تستبدل بالنص الحقيقي لكل عضو من الفريق.</p>
+          <div data-cv-sign style="font-family:'Instrument Serif',serif; font-style:italic; font-size:34px; color:#e8eefc; transform:rotate(-4deg);">اسم تجريبي</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== جسم الـ CV ===== -->
+    <div data-cv-body style="position:relative; background:linear-gradient(180deg,#0a1728 0%,#0a1523 55%,#091220 100%);">
+
+      <!-- أرقام -->
+      <div data-cv-sec style="padding-top:72px; padding-bottom:30px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:18px;">
+          <div data-cv-stat><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:38px; font-weight:800; background:var(--wx-grad); -webkit-background-clip:text; background-clip:text; color:transparent;">+7</div><div style="font-size:13px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-top:6px;">سنوات خبرة</div></div>
+          <div data-cv-stat><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:38px; font-weight:800; background:var(--wx-grad); -webkit-background-clip:text; background-clip:text; color:transparent;">+120</div><div style="font-size:13px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-top:6px;">مشروعاً منجزاً</div></div>
+          <div data-cv-stat><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:38px; font-weight:800; background:var(--wx-grad); -webkit-background-clip:text; background-clip:text; color:transparent;">+40</div><div style="font-size:13px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-top:6px;">عميلاً حول العالم</div></div>
+          <div data-cv-stat><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:38px; font-weight:800; background:var(--wx-grad); -webkit-background-clip:text; background-clip:text; color:transparent;">6</div><div style="font-size:13px; color:#9db4d4; font-family:'IBM Plex Sans Arabic',sans-serif; margin-top:6px;">جوائز وتكريمات</div></div>
+        </div>
+      </div>
+
+      <!-- نبذة -->
+      <div data-cv-sec>
+        <div style="display:flex; gap:56px; flex-wrap:wrap;">
+          <div style="flex:0 0 200px;"><div data-cv-lab>نبذة — ABOUT</div></div>
+          <p style="flex:1; min-width:280px; font-size:19px; line-height:2.05; color:#d7e3f4; font-family:'IBM Plex Sans Arabic',sans-serif; margin:-8px 0 0;">فقرة تعريفية تجريبية — من هو هذا العضو؟ خلفيته، شغفه، والمجالات التي يبدع فيها. تكتب هنا نبذة موسّعة عن مسيرته المهنية وفلسفته في العمل وأبرز المحطات التي شكّلت أسلوبه، وتستبدل بالمحتوى الحقيقي لكل عضو من الفريق.</p>
+        </div>
+      </div>
+
+      <!-- الخبرة -->
+      <div data-cv-sec>
+        <div data-cv-lab>الخبرة — EXPERIENCE</div>
+        <div style="margin-top:36px; border-right:1px solid rgba(255,255,255,.12); padding-right:34px; display:flex; flex-direction:column; gap:38px;">
+          <div style="position:relative;">
+            <span style="position:absolute; right:-39.5px; top:7px; width:10px; height:10px; border-radius:50%; background:var(--wx-grad); box-shadow:0 0 14px rgba(90,140,255,.9);"></span>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.12em; color:#7fa6d8; margin-bottom:6px;">2023 — الآن</div>
+            <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:19px; font-weight:700; color:#eef4ff;">مسمّى وظيفي أول — تجريبي <span style="font-size:13px; font-weight:400; color:#9db4d4;">· استوديو تجريبي</span></div>
+            <p style="font-size:14px; line-height:1.9; color:#b7c8e0; font-family:'IBM Plex Sans Arabic',sans-serif; margin:8px 0 0; max-width:640px;">سطر وصف تجريبي عن المسؤوليات وأبرز الإنجازات في هذه المرحلة — يستبدل بالمحتوى الحقيقي.</p>
+          </div>
+          <div style="position:relative;">
+            <span style="position:absolute; right:-39.5px; top:7px; width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.28);"></span>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.12em; color:#7fa6d8; margin-bottom:6px;">2020 — 2023</div>
+            <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:19px; font-weight:700; color:#eef4ff;">مسمّى وظيفي — تجريبي <span style="font-size:13px; font-weight:400; color:#9db4d4;">· شركة تجريبية</span></div>
+            <p style="font-size:14px; line-height:1.9; color:#b7c8e0; font-family:'IBM Plex Sans Arabic',sans-serif; margin:8px 0 0; max-width:640px;">سطر وصف تجريبي عن المسؤوليات وأبرز الإنجازات في هذه المرحلة — يستبدل بالمحتوى الحقيقي.</p>
+          </div>
+          <div style="position:relative;">
+            <span style="position:absolute; right:-39.5px; top:7px; width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.28);"></span>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.12em; color:#7fa6d8; margin-bottom:6px;">2017 — 2020</div>
+            <div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:19px; font-weight:700; color:#eef4ff;">بداية المسيرة — تجريبي <span style="font-size:13px; font-weight:400; color:#9db4d4;">· وكالة تجريبية</span></div>
+            <p style="font-size:14px; line-height:1.9; color:#b7c8e0; font-family:'IBM Plex Sans Arabic',sans-serif; margin:8px 0 0; max-width:640px;">سطر وصف تجريبي عن المسؤوليات وأبرز الإنجازات في هذه المرحلة — يستبدل بالمحتوى الحقيقي.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- المهارات + الأدوات -->
+      <div data-cv-sec>
+        <div style="display:flex; gap:70px; flex-wrap:wrap;">
+          <div style="flex:1 1 400px;">
+            <div data-cv-lab>المهارات — SKILLS</div>
+            <div style="margin-top:30px; display:flex; flex-direction:column; gap:22px;">
+              <div><div style="display:flex; justify-content:space-between; margin-bottom:9px;"><span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; color:#e2ebf8;">إخراج فني</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:#7fa6d8;">92%</span></div><div data-cv-bar><div style="width:92%;"></div></div></div>
+              <div><div style="display:flex; justify-content:space-between; margin-bottom:9px;"><span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; color:#e2ebf8;">موشن جرافيك</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:#7fa6d8;">88%</span></div><div data-cv-bar><div style="width:88%;"></div></div></div>
+              <div><div style="display:flex; justify-content:space-between; margin-bottom:9px;"><span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; color:#e2ebf8;">مونتاج وتلوين</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:#7fa6d8;">84%</span></div><div data-cv-bar><div style="width:84%;"></div></div></div>
+              <div><div style="display:flex; justify-content:space-between; margin-bottom:9px;"><span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; color:#e2ebf8;">تصوير سينمائي</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:#7fa6d8;">80%</span></div><div data-cv-bar><div style="width:80%;"></div></div></div>
+              <div><div style="display:flex; justify-content:space-between; margin-bottom:9px;"><span style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:700; color:#e2ebf8;">تصميم ثلاثي الأبعاد</span><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12.5px; font-weight:700; color:#7fa6d8;">76%</span></div><div data-cv-bar><div style="width:76%;"></div></div></div>
+            </div>
+          </div>
+          <div style="flex:1 1 300px;">
+            <div data-cv-lab>الأدوات — TOOLS</div>
+            <div style="margin-top:30px; display:flex; flex-wrap:wrap; gap:12px;">
+              <span data-cv-chip>After Effects</span>
+              <span data-cv-chip>Premiere Pro</span>
+              <span data-cv-chip>DaVinci Resolve</span>
+              <span data-cv-chip>Blender</span>
+              <span data-cv-chip>Cinema 4D</span>
+              <span data-cv-chip>Figma</span>
+            </div>
+            <div data-cv-lab style="margin-top:44px;">اللغات — LANGUAGES</div>
+            <div style="margin-top:26px; display:flex; flex-wrap:wrap; gap:12px;">
+              <span data-cv-chip>العربية — الأم</span>
+              <span data-cv-chip>English — C1</span>
+              <span data-cv-chip>Türkçe — B1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- أعمال مختارة -->
+      <div data-cv-sec>
+        <div data-cv-lab>أعمال مختارة — SELECTED</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:22px; margin-top:32px;">
+          <div><div style="position:relative; aspect-ratio:16/10; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.16); background:radial-gradient(130% 150% at 22% 18%, #6b4526 0%, #241609 60%, #120b06 100%);"><div style="position:absolute; left:16%; top:26%; width:54px; height:54px; border-radius:50%; background:radial-gradient(circle at 38% 32%, #f2c078, #b06a2e 70%); filter:blur(1px);"></div></div><div style="margin-top:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.14em; color:#7aa2ff;">FILM</div><div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15.5px; font-weight:700; color:#eef4ff; margin-top:4px;">عمل تجريبي</div></div>
+          <div><div style="position:relative; aspect-ratio:16/10; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.16); background:linear-gradient(160deg,#1c4a3c 0%,#0d271f 55%,#061410 100%);"><div style="position:absolute; left:50%; top:48%; transform:translate(-50%,-50%) rotate(-9deg); width:54px; height:72px; border-radius:11px; background:linear-gradient(180deg,#3d7a68,#1b3d30); border:1px solid rgba(255,255,255,.2);"></div></div><div style="margin-top:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.14em; color:#7aa2ff;">PRODUCT</div><div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15.5px; font-weight:700; color:#eef4ff; margin-top:4px;">عمل تجريبي</div></div>
+          <div><div style="position:relative; aspect-ratio:16/10; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.16); background:radial-gradient(120% 140% at 70% 20%, #1d4f8a 0%, #0d2547 55%, #071527 100%);"><div style="position:absolute; left:24%; top:30%; width:80px; height:80px; border-radius:50%; background:radial-gradient(circle, rgba(120,190,255,.55), transparent 70%); filter:blur(8px);"></div><div style="position:absolute; right:14%; bottom:16%; width:92px; height:92px; border-radius:50%; border:1px solid rgba(140,190,255,.35);"></div></div><div style="margin-top:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.14em; color:#7aa2ff;">BRAND</div><div style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15.5px; font-weight:700; color:#eef4ff; margin-top:4px;">عمل تجريبي</div></div>
+        </div>
+      </div>
+
+      <!-- دعوة للتواصل -->
+      <div data-cv-sec style="padding-bottom:110px; text-align:center;">
+        <div data-cv-lab style="justify-content:center;">تواصل — CONTACT</div>
+        <h2 style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:clamp(30px,4vw,52px); font-weight:700; color:#f2f6ff; margin:22px 0 30px;">جاهز نبدأ مشروعك القادم؟</h2>
+        <a href="#contact" data-cv-cta style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:#fff; color:#0d1c30; padding:15px 32px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15px; font-weight:700; box-shadow:0 18px 50px -14px rgba(0,0,0,.7);"><span style="width:22px; height:22px; border-radius:100px; background:var(--wx-grad); display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:12px;">←</span> ابدأ مشروع معي</a>
+        <div style="margin-top:22px; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; color:#7fa6d8;">hello@wexon.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO LIGHTBOX — مشغّل فوق الواجهة بخلفية مضببة ===== -->
+  <div data-vid-ov aria-hidden="true" role="dialog" aria-label="مشغّل الفيديو" style="position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; padding:5vh 4vw; background:rgba(3,5,12,.55); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);">
+    <button type="button" data-ov-close aria-label="إغلاق">✕</button>
+    <div data-vid-box data-cv-anim style="position:relative; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.18); box-shadow:0 40px 120px -30px rgba(0,0,0,.9); background:#000; max-width:94vw; max-height:88vh;">
+      <video data-vid-player playsinline style="display:block; width:100%; height:100%; object-fit:cover; background:#000; cursor:pointer;"></video>
+      <div data-vid-title dir="rtl" style="position:absolute; top:0; left:0; right:0; z-index:5; padding:14px 18px 30px; background:linear-gradient(to bottom, rgba(0,0,0,.65), transparent); color:#fff; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:15px; font-weight:700; pointer-events:none;"></div>
+      <a href="#" data-vid-page hidden style="position:absolute; bottom:14px; inset-inline-start:14px; z-index:6; display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:#fff; background:rgba(4,6,12,.6); border:1px solid rgba(255,255,255,.28); padding:9px 18px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:12px; font-weight:700; backdrop-filter:blur(8px);">صفحة المشروع ↗</a>
+    </div>
+  </div>
+
+  <!-- ===== WORK LIGHTBOX — دراسة حالة بقائمة جانبية ===== -->
+  <div data-work-ov aria-hidden="true" role="dialog" aria-label="تفاصيل المشروع" style="position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; overflow:auto; background:rgba(3,5,12,.5); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);">
+    <button type="button" data-ov-close aria-label="إغلاق">✕</button>
+    <div dir="rtl" style="display:flex; align-items:center; justify-content:center; gap:56px; padding:60px 40px; flex-wrap:wrap; width:100%;">
+      <div data-cv-anim style="width:400px; max-width:92vw; border-radius:22px; background:var(--wx-note); border:1px solid var(--wx-border); padding:34px; box-shadow:0 40px 110px -40px rgba(0,0,0,.85); backdrop-filter:blur(10px);">
+        <div data-wk-tag style="display:inline-block; font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:.14em; color:#7aa2ff; border:1px solid rgba(122,162,255,.35); border-radius:100px; padding:6px 14px; margin-bottom:18px;">—</div>
+        <h3 data-wk-title style="font-family:'IBM Plex Sans Arabic',sans-serif; font-size:27px; font-weight:700; margin:0 0 14px; color:var(--wx-title);">—</h3>
+        <p data-wk-detail style="font-size:14px; line-height:1.9; color:var(--wx-body); font-family:'IBM Plex Sans Arabic',sans-serif; margin:0 0 8px;">وصف تجريبي لدراسة الحالة — التحدي الذي واجهه العميل، الحل الذي صممناه، والنتيجة التي تحققت. يستبدل بالمحتوى الحقيقي لكل مشروع.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px 20px; margin:24px 0 26px; padding-top:22px; border-top:1px solid var(--wx-border);">
+          <div><div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">العميل</div><div data-wk-client style="font-size:13.5px; font-weight:700; color:var(--wx-title); font-family:'IBM Plex Sans Arabic',sans-serif;">—</div></div>
+          <div><div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">السنة</div><div data-wk-year style="font-size:13.5px; font-weight:700; color:var(--wx-title); font-family:'Plus Jakarta Sans',sans-serif;">—</div></div>
+          <div><div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">الخدمة</div><div data-wk-mtag style="font-size:13.5px; font-weight:700; color:var(--wx-title); font-family:'Plus Jakarta Sans',sans-serif;">—</div></div>
+          <div><div style="font-size:11px; color:var(--wx-muted); font-family:'IBM Plex Sans Arabic',sans-serif; margin-bottom:4px;">المدة</div><div data-wk-duration style="font-size:13.5px; font-weight:700; color:var(--wx-title); font-family:'IBM Plex Sans Arabic',sans-serif;">—</div></div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <a href="#contact" data-wk-cta style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#fff; background:var(--wx-grad); padding:12px 24px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700; box-shadow:0 10px 28px -10px rgba(46,107,255,.8);">اطلب مشروعاً مشابهاً →</a>
+          <a href="#" data-wk-page hidden style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--wx-title); border:1px solid var(--wx-border); padding:12px 22px; border-radius:100px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px; font-weight:700;">دراسة الحالة الكاملة ↗</a>
+        </div>
+      </div>
+      <div data-cv-anim style="animation-delay:.12s; perspective:1300px;">
+        <div data-w3-float><div data-work-clone style="transform:rotateY(9deg) rotateX(2deg) scale(1.08); transform-origin:center;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER — مركزي بأيقونات المنصات ===== -->
+  <footer dir="rtl" style="position:relative; padding:78px 24px 44px; text-align:center; overflow:hidden;">
+    <div style="position:absolute; left:50%; bottom:-150px; transform:translateX(-50%); width:660px; height:300px; background:radial-gradient(50% 50% at 50% 50%, rgba(46,107,255,.15), transparent 70%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:560px; margin:0 auto;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:18px;">
+        <div style="width:34px; height:34px; border-radius:10px; background:var(--wx-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 0 24px -4px rgba(46,107,255,.85);">
+          <div style="width:11px; height:11px; background:#fff; border-radius:3px;"></div>
+        </div>
+        <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; letter-spacing:.16em; font-size:15px;" data-cms="site.brand">Wexon</span>
+      </div>
+      <p style="font-size:14.5px; line-height:1.8; color:#8a8fb4; margin:0 0 30px; font-family:'IBM Plex Sans Arabic',sans-serif;" data-cms="footer.blurb">وكالة إبداعية نصنع بها هويات بصرية ومحتوى يتحرك.</p>
+      <div dir="ltr" data-socials style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:34px;"></div>
+      <nav aria-label="روابط الموقع" style="display:flex; justify-content:center; gap:10px 26px; flex-wrap:wrap; margin-bottom:30px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:13.5px;">
+        <a href="/" style="color:#9ba0c8; text-decoration:none;">الرئيسية</a>
+        <a href="/gallery" style="color:#9ba0c8; text-decoration:none;">معرض التصاميم</a>
+        <a href="/video-gallery" style="color:#9ba0c8; text-decoration:none;">معرض الفيديو</a>
+        <a href="#services" style="color:#9ba0c8; text-decoration:none;">خدماتنا</a>
+        <a href="#team" style="color:#9ba0c8; text-decoration:none;">الفريق</a>
+        <a href="#contact" style="color:#9ba0c8; text-decoration:none;">تواصل</a>
+      </nav>
+      <div style="height:1px; background:linear-gradient(90deg, transparent, var(--wx-border), transparent); margin-bottom:24px;"></div>
+      <div style="font-family:'Plus Jakarta Sans','IBM Plex Sans Arabic',sans-serif; font-size:12.5px; color:#5a5f88;" data-cms="footer.copyright">© 2026 Wexon — جميع الحقوق محفوظة ✦</div>
+    </div>
+  </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;pauseMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;الحركة&quot;},&quot;speedFactor&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.4,&quot;max&quot;:1.8,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;x&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;الحركة&quot;},&quot;hideInk&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;حبر مخفي&quot;}}">
+class Component extends DCLogic {
+  headerRef = React.createRef();
+  videoRef = React.createRef();
+  inkRef = React.createRef();
+  wiTrack = React.createRef();
+  wvTrack = React.createRef();
+  teamTrack = React.createRef();
+  logoARef = React.createRef();
+  logoBRef = React.createRef();
+  logoCRef = React.createRef();
+
+  content = null;
+
+  componentDidMount() {
+    this._restoreTheme();
+    this._loadContent().then(() => {
+      this._applyCmsText();
+      this._paintServices();
+      this._paintWorks();
+      this._paintTestimonials();
+      try { this.forceUpdate(); } catch (e) {}
+      const boot = () => {
+        this._fixLogoFallbacks();
+        this._initHeader();
+        this._initVideo();
+        this._initReveals();
+        this._when(() => this.wiTrack.current && this.logoARef.current, () => this._initMarquees());
+        this._when(() => this.teamTrack.current && this.teamTrack.current.querySelector('[data-tc]'), () => this._initTeamCarousel());
+        this._when(() => document.querySelector('[data-cv-ov]'), () => this._initOverlays());
+      };
+      requestAnimationFrame(() => requestAnimationFrame(boot));
+    }).catch(() => {
+      this._initReveals();
+      this._when(() => this.wiTrack.current && this.logoARef.current, () => this._initMarquees());
+      this._when(() => this.teamTrack.current && this.teamTrack.current.querySelector('[data-tc]'), () => this._initTeamCarousel());
+      this._when(() => document.querySelector('[data-cv-ov]'), () => this._initOverlays());
+    });
+    this._when(() => window.Hls, () => this._initVideo());
+    this._when(() => window.THREE && this.inkRef.current, () => this._initInk());
+    this._initHeader();
+    this._initGlow();
+    this._when(() => document.querySelector('[data-mburger]'), () => { this._initMnav(); this._initLang(); });
+    try {
+      fetch('/api/visits/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: location.pathname || '/', ref: document.referrer || '' }),
+      });
+    } catch (e) {}
+  }
+
+  _loadContent() {
+    return fetch('/api/content').then((r) => r.json()).then((c) => {
+      this.content = c;
+      return c;
+    });
+  }
+
+  _cmsGet(path) {
+    if (!this.content) return null;
+    return path.split('.').reduce((a, k) => (a == null ? a : a[k]), this.content);
+  }
+
+  _applyCmsText() {
+    document.querySelectorAll('[data-cms]').forEach((el) => {
+      const v = this._cmsGet(el.getAttribute('data-cms'));
+      if (v != null && v !== '') el.textContent = v;
+    });
+    document.querySelectorAll('[data-cms-html]').forEach((el) => {
+      const v = this._cmsGet(el.getAttribute('data-cms-html'));
+      if (v != null && v !== '') el.innerHTML = v;
+    });
+    const ct = this.content && this.content.contact;
+    if (ct) {
+      const name = document.querySelector('[data-wa-name]');
+      const type = document.querySelector('[data-wa-type]');
+      const msg = document.querySelector('[data-wa-msg]');
+      const typePh = document.querySelector('[data-wa-type-ph]');
+      if (name && ct.namePlaceholder) name.placeholder = ct.namePlaceholder;
+      if (typePh && ct.typePlaceholder) typePh.textContent = ct.typePlaceholder;
+      if (msg && ct.msgPlaceholder) msg.placeholder = ct.msgPlaceholder;
+    }
+    const socials = this.content && this.content.site && this.content.site.socials;
+    if (socials) {
+      document.querySelectorAll('[data-soc]').forEach((a) => {
+        const key = a.getAttribute('data-soc');
+        if (key && socials[key]) a.setAttribute('href', socials[key]);
+      });
+    }
+    this._paintSocials();
+  }
+
+  _paintSocials() {
+    const host = document.querySelector('[data-socials]');
+    if (!host) return;
+    const site = (this.content && this.content.site) || {};
+    let links = Array.isArray(site.socialLinks) ? site.socialLinks.slice() : [];
+    if (!links.length && site.socials) {
+      links = Object.keys(site.socials).map((platform) => ({
+        platform,
+        label: platform,
+        url: site.socials[platform],
+      }));
+    }
+    const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    const icons = {
+      instagram: '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor" stroke="none"/></svg>',
+      x: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.227-8.26L1.61 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>',
+      linkedin: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9z"/></svg>',
+      behance: '<span style="font-family:\'Plus Jakarta Sans\',sans-serif;font-weight:800;font-size:14.5px;letter-spacing:.02em;">Bē</span>',
+      tiktok: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.28 0 .56.04.83.13v-3.4a6.37 6.37 0 0 0-.83-.05A6.34 6.34 0 0 0 3.15 15.4 6.34 6.34 0 0 0 9.49 21.7a6.34 6.34 0 0 0 6.34-6.33V8.83a8.18 8.18 0 0 0 4.76 3.77 8.18 8.18 0 0 0 3.76.9V9.99a4.85 4.85 0 0 1-1.76-.3z"/></svg>',
+      youtube: '<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>',
+      facebook: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3.1l.9-3H13v-2c0-.6.4-1 1-1z"/></svg>',
+      dribbble: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm6.63 5.55a8 8 0 0 1 1.2 4.2c-.9-.18-2.1-.3-3.5-.3-.7 0-1.4.04-2.05.1a28 28 0 0 0-1.3-3.2c2.4-.8 4.3-1.9 5.65-.8zM12 4c1.7 0 3.26.55 4.52 1.47-1.1.85-2.7 1.75-4.75 2.4A24 24 0 0 0 9.1 4.7C10 4.25 11 4 12 4zm-4.2 1.35c.7.9 1.7 2.2 2.55 3.7-2.35.7-5.1 1.1-7.1.85A8.03 8.03 0 0 1 7.8 5.35zM4 12c0-.2 0-.4.02-.6 2.35.3 5.5-.15 8.2-1 .45 1 0.85 2.05 1.15 3.15-1.55.5-2.95 1.45-3.95 2.85A8 8 0 0 1 4 12zm4.55 5.55c.85-1.2 2.05-2.05 3.45-2.5.55 1.55 1.15 2.95 1.55 3.95A8.05 8.05 0 0 1 8.55 17.55zm6.2 1.05c-.4-1.05-1-2.5-1.55-4.1.55-.08 1.15-.12 1.8-.12 1.35 0 2.55.15 3.5.4a8.05 8.05 0 0 1-3.75 3.82z"/></svg>',
+      whatsapp: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 6.9 12.5l-.3.5.8 2.9-3-.8-.5.3A8.2 8.2 0 1 1 12 3.8zm4.5 11.7c-.2.6-1.2 1.1-1.7 1.2-.4.1-.9.1-1.5-.1-1.4-.5-2.9-1.5-4-3.1-1-1.4-1.5-2.9-1.6-3.4-.2-.8.2-1.5.5-1.8.2-.2.5-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.4.5c-.1.2-.3.3-.1.6.4.7 1.1 1.5 1.9 2 .7.4 1 .5 1.3.3l.6-.3c.2-.1.4-.1.6 0l1.8.8c.2.1.4.2.4.4 0 .1 0 .5-.2 1z"/></svg>',
+      custom: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L11 5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.8 13.12a5 5 0 0 0 7.07 7.07L13 19"/></svg>',
+    };
+    host.innerHTML = links
+      .filter((s) => s && String(s.url || '').trim() !== '')
+      .map((s) => {
+        const platform = String(s.platform || 'custom').toLowerCase();
+        const label = esc(s.label || platform);
+        const href = esc(s.url);
+        const icon = icons[platform] || icons.custom;
+        const external = href && href !== '#' && !href.startsWith('#');
+        return '<a data-soc="' + esc(platform) + '" href="' + href + '"'
+          + (external ? ' target="_blank" rel="noopener noreferrer"' : '')
+          + ' aria-label="' + label + '">' + icon + '</a>';
+      })
+      .join('');
+  }
+
+  _fixLogoFallbacks() {
+    document.querySelectorAll('[data-logo-img]').forEach((img) => {
+      const src = (img.getAttribute('src') || '').trim();
+      const fb = img.nextElementSibling;
+      if (!src || src === 'undefined' || src === 'null') {
+        img.style.display = 'none';
+        if (fb) fb.style.display = 'inline';
+      }
+    });
+  }
+
+  _paintServices() {
+    const host = document.querySelector('[data-cms-services]');
+    const list = (this.content && this.content.services) || [];
+    if (!host) return;
+    const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    host.innerHTML = list.map((s, i) => {
+      const end = (s.align || (i % 2 ? 'start' : 'end')) === 'end';
+      const img = s.image
+        ? '<img src="' + esc(s.image) + '" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">'
+        : '<div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#1b1d2c,#1b1d2c 13px,#141625 13px,#141625 26px);"></div>';
+      const glow = end
+        ? 'radial-gradient(60% 95% at 22% 50%, rgba(122,43,230,.30), transparent 62%)'
+        : 'radial-gradient(60% 95% at 78% 50%, rgba(46,107,255,.30), transparent 62%)';
+      const mask1 = end ? 'linear-gradient(90deg, transparent 30%, #000 52%)' : 'linear-gradient(90deg, #000 48%, transparent 70%)';
+      const mask2 = end ? 'linear-gradient(90deg, transparent 44%, #000 66%)' : 'linear-gradient(90deg, #000 34%, transparent 56%)';
+      const mask3 = end ? 'linear-gradient(90deg, transparent 58%, #000 80%)' : 'linear-gradient(90deg, #000 20%, transparent 42%)';
+      const veil = end
+        ? 'linear-gradient(90deg, var(--wx-glass-t) 30%, var(--wx-glass-1) 62%, var(--wx-glass-0) 100%)'
+        : 'linear-gradient(90deg, var(--wx-glass-0) 0%, var(--wx-glass-1) 38%, var(--wx-glass-t) 70%)';
+      const justify = end ? 'flex-end' : 'flex-start';
+      const link = s.link || (i === 0 ? '/gallery' : '/video-gallery');
+      return (
+        '<a data-w3-panel data-reveal href="' + esc(link) + '" dir="ltr" style="text-decoration:none; color:var(--wx-title); position:relative; display:flex; align-items:center; justify-content:' + justify + '; min-height:290px; border-radius:22px; overflow:hidden; background:var(--wx-panel); border:1px solid var(--wx-border); box-shadow:0 40px 100px -50px rgba(0,0,0,.55);">' +
+        img +
+        '<div style="position:absolute; inset:0; background:' + glow + ';"></div>' +
+        '<div style="position:absolute; inset:0; backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); -webkit-mask:' + mask1 + '; mask:' + mask1 + ';"></div>' +
+        '<div style="position:absolute; inset:0; backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); -webkit-mask:' + mask2 + '; mask:' + mask2 + ';"></div>' +
+        '<div style="position:absolute; inset:0; backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); -webkit-mask:' + mask3 + '; mask:' + mask3 + ';"></div>' +
+        '<div style="position:absolute; inset:0; background:' + veil + ';"></div>' +
+        '<div dir="rtl" style="position:relative; z-index:2; width:56%; padding:44px 48px;">' +
+        '<div style="font-family:Plus Jakarta Sans,sans-serif; font-size:12px; font-weight:700; letter-spacing:.2em; color:#7aa2ff; margin-bottom:12px;">/' + esc(s.index || String(i + 1).padStart(2, '0')) + '</div>' +
+        '<h3 style="font-family:IBM Plex Sans Arabic,sans-serif; font-size:clamp(22px,2.6vw,34px); font-weight:700; margin:0 0 14px;">' + esc(s.title) + '</h3>' +
+        '<p style="font-size:15px; line-height:1.7; color:var(--wx-body); margin:0 0 24px; max-width:440px; font-family:IBM Plex Sans Arabic,sans-serif;">' + esc(s.description) + '</p>' +
+        '<span style="display:inline-flex; align-items:center; gap:9px; color:#fff; background:var(--wx-grad); padding:11px 22px; border-radius:100px; font-family:IBM Plex Sans Arabic,sans-serif; font-size:13.5px; font-weight:700;">' + esc(s.cta || 'اكتشف الخدمة →') + '</span>' +
+        '</div></a>'
+      );
+    }).join('');
+  }
+
+  _paintWorks() {
+    const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    const allImages = (this.content && this.content.works && this.content.works.images) || [];
+    const allVideos = (this.content && this.content.works && this.content.works.videos) || [];
+    const images = allImages.filter((w) => w && w.published !== false && w.showOnHome !== false);
+    const videos = allVideos.filter((w) => w && w.published !== false && w.showOnHome !== false);
+    if (this.wiTrack.current) {
+      const items = images.concat(images);
+      this.wiTrack.current.innerHTML = items.map((w, i) => {
+        const tilt = (i % 2 === 0) ? 'r' : 'l';
+        return (
+          '<a data-w3 href="/work/' + encodeURIComponent(w.slug || w.id) + '" aria-label="' + esc(w.title) + ' — عرض المشروع" data-work-id="' + esc(w.id) + '" data-case-url="/work/' + encodeURIComponent(w.slug || w.id) + '" style="text-decoration:none; color:var(--wx-title); display:block; flex:0 0 auto; margin:0 36px;">' +
+          '<div data-w3-float><div data-tilt="' + tilt + '"><div data-w3-frame style="height:294px;">' +
+          '<img src="' + esc(w.cover) + '" alt="' + esc(w.title) + '" width="440" height="294" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">' +
+          '</div></div>' +
+          '<div dir="rtl" style="text-align:center; margin-top:22px;">' +
+          '<div style="font-family:Plus Jakarta Sans,sans-serif; font-size:11px; letter-spacing:.12em; color:#7aa2ff; margin-bottom:7px;">' + esc(w.tag) + '</div>' +
+          '<h3 style="font-family:IBM Plex Sans Arabic,sans-serif; font-size:18px; font-weight:700; margin:0; color:var(--wx-title);">' + esc(w.title) + '</h3>' +
+          '<p data-work-detail style="display:none;">' + esc(w.detail) + '</p>' +
+          '<span data-work-client style="display:none;">' + esc(w.client || '') + '</span>' +
+          '<span data-work-year style="display:none;">' + esc(w.year || '') + '</span>' +
+          '<span data-work-duration style="display:none;">' + esc(w.duration || '') + '</span>' +
+          '</div></div></a>'
+        );
+      }).join('');
+    }
+    if (this.wvTrack.current) {
+      const items = videos.concat(videos);
+      this.wvTrack.current.innerHTML = items.map((w, i) => {
+        const tilt = (i % 2 === 0) ? 'r' : 'l';
+        const wide = w.size === 'wide';
+        const wh = wide ? ' width="420" height="236"' : ' width="250" height="444"';
+        return (
+          '<a data-w3 href="/film/' + encodeURIComponent(w.slug || w.id) + '" aria-label="' + esc(w.title) + ' — مشاهدة المشروع" data-video-url="' + esc(w.videoUrl) + '" data-video-loop="' + (w.loop === false ? 'false' : 'true') + '" data-case-url="/film/' + encodeURIComponent(w.slug || w.id) + '" style="text-decoration:none; color:var(--wx-title); display:block; flex:0 0 auto; margin:0 34px;">' +
+          '<div data-w3-float><div data-tilt="' + tilt + '">' +
+          '<div data-wv-frame' + (wide ? ' data-wv-wide' : '') + '>' +
+          '<div data-wv-screen>' +
+          '<img src="' + esc(w.cover) + '" alt="' + esc(w.title) + '"' + wh + ' loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">' +
+          '</div></div></div>' +
+          '<div dir="rtl" style="text-align:center; margin-top:20px;">' +
+          '<div style="font-family:Plus Jakarta Sans,sans-serif; font-size:11px; letter-spacing:.12em; color:#7aa2ff; margin-bottom:7px;">' + esc(w.tag) + '</div>' +
+          '<h3 style="font-family:IBM Plex Sans Arabic,sans-serif; font-size:17px; font-weight:700; margin:0; color:var(--wx-title);">' + esc(w.title) + '</h3>' +
+          '</div></div></a>'
+        );
+      }).join('');
+    }
+  }
+
+  _paintTestimonials() {
+    const host = document.querySelector('[data-cms-ts]');
+    const list = (this.content && this.content.testimonials) || [];
+    if (!host || !list.length) return;
+    const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    const card = (t) => {
+      const img = t.avatar
+        ? '<img data-ts-avatar src="' + esc(t.avatar) + '" alt="" width="34" height="34" loading="lazy" decoding="async" onerror="this.style.opacity=.35">'
+        : '<span data-ts-avatar style="background:#3a4152;"></span>';
+      return (
+        '<div data-ts-card>' +
+        '<div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">' +
+        img +
+        '<div style="flex:1; min-width:0;">' +
+        '<div style="font-family:IBM Plex Sans Arabic,sans-serif; font-size:13.5px; font-weight:700; color:var(--wx-title);">' + esc(t.name) + '</div>' +
+        '<div style="font-size:11px; color:var(--wx-muted); font-family:IBM Plex Sans Arabic,sans-serif;">' + esc(t.role) + '</div>' +
+        '</div></div>' +
+        '<div style="font-size:13px; line-height:1.7; color:var(--wx-body); font-family:IBM Plex Sans Arabic,sans-serif;">"' + esc(t.quote) + '"</div>' +
+        '<div style="margin-top:8px; font-size:11px; letter-spacing:3px; color:#f5b942;">★★★★★</div>' +
+        '</div>'
+      );
+    };
+    const mid = Math.ceil(list.length / 2) || 1;
+    const colA = list.slice(0, mid);
+    const colB = list.slice(mid);
+    const buildCol = (items, down) => {
+      const body = items.map((t) => card(t)).join('');
+      return '<div data-ts-col' + (down ? ' data-ts-down style="margin-top:-60px;"' : '') + '>' + body + body + '</div>';
+    };
+    host.innerHTML = buildCol(colA, false) + buildCol(colB.length ? colB : colA, true);
+  }
+
+
+  // يستعيد الثيم المحفوظ (فاتح/داكن) ويحدّث زر التبديل
+  _restoreTheme() {
+    let light = false;
+    try { light = localStorage.getItem('wx-theme') === 'light'; } catch (e) {}
+    if (light) document.documentElement.classList.add('wx-light');
+    this._when(() => document.querySelector('[aria-label="Light / dark"]'), () => {
+      const g = document.documentElement.classList.contains('wx-light') ? '\u263e' : '\u25d0';
+      document.querySelectorAll('[aria-label="Light / dark"]').forEach((b) => { try { b.textContent = g; } catch (e) {} });
+    });
+  }
+
+  // يعيد فتح سيرة العضو التي كانت مفتوحة قبل تحديث الصفحة
+  // [CV معلّق] أزل التعليق عن جسم الدالة لإعادة التفعيل
+  _restoreCv() {
+    /*
+    if (this._cvRestored) return;
+    this._cvRestored = 1;
+    let idx = -1;
+    try { const v = sessionStorage.getItem('wx-cv'); if (v !== null) idx = parseInt(v, 10); } catch (e) {}
+    if (idx >= 0 && this._teamCards && this._teamCards[idx]) {
+      this._teamIdx = idx;
+      if (this._teamLayout) this._teamLayout();
+      this._openCv(this._teamCards[idx]);
+    }
+    */
+  }
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._mraf) cancelAnimationFrame(this._mraf);
+    if (this._teamTimer) clearInterval(this._teamTimer);
+    if (this._inkRaf) cancelAnimationFrame(this._inkRaf);
+    if (this._onInkResize) window.removeEventListener('resize', this._onInkResize);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._glowMove) document.removeEventListener('mousemove', this._glowMove);
+    if (this._ovEsc) document.removeEventListener('keydown', this._ovEsc);
+    if (this._cvRaf) cancelAnimationFrame(this._cvRaf);
+    if (this._lbHls) { try { this._lbHls.destroy(); } catch (e) {} }
+    if (this._hls) { try { this._hls.destroy(); } catch (e) {} }
+  }
+
+  _when(check, cb) {
+    if (check()) { cb(); return; }
+    let n = 0;
+    const id = setInterval(() => {
+      if (check()) { clearInterval(id); cb(); }
+      else if (++n > 120) clearInterval(id);
+    }, 60);
+  }
+
+  _initHeader() {
+    if (this._onScroll) {
+      window.removeEventListener('scroll', this._onScroll);
+      this._onScroll = null;
+    }
+    this._onScroll = () => {
+      const h = this.headerRef.current || document.querySelector('header[data-wx-nav]');
+      if (!h) return;
+      if (window.scrollY > 24) h.setAttribute('data-scrolled', '');
+      else h.removeAttribute('data-scrolled');
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+
+  _initVideo() {
+    const v = this.videoRef.current;
+    if (!v) return;
+    if (this._hls) { try { this._hls.destroy(); } catch (e) {} this._hls = null; }
+    // React/runtime doesn't reflect muted/loop attributes to DOM properties.
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.loop = true;
+    v.setAttribute('loop', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.removeAttribute('src');
+    try { v.load(); } catch (e) {}
+    const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
+    const restart = () => {
+      try { v.currentTime = 0; } catch (e) {}
+      tryPlay();
+    };
+    const src = (this.content && this.content.hero && this.content.hero.videoSrc)
+      || 'https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8';
+    const isHls = /\.m3u8(\?|$)/i.test(src);
+    try {
+      if (isHls && window.Hls && window.Hls.isSupported()) {
+        const hh = new window.Hls({ enableWorker: false, capLevelToPlayerSize: true, startFragPrefetch: true });
+        hh.loadSource(src);
+        hh.attachMedia(v);
+        hh.on(window.Hls.Events.MANIFEST_PARSED, tryPlay);
+        hh.on(window.Hls.Events.ERROR, (_e, data) => {
+          if (!data || !data.fatal) return;
+          if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) hh.startLoad();
+          else if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR) hh.recoverMediaError();
+        });
+        this._hls = hh;
+      } else if (isHls && v.canPlayType('application/vnd.apple.mpegurl')) {
+        v.src = src;
+        v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      } else {
+        v.src = src;
+        v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      }
+      if (!v._wxLoopBound) {
+        v._wxLoopBound = 1;
+        v.addEventListener('ended', restart);
+        v.addEventListener('stalled', tryPlay);
+        v.addEventListener('waiting', tryPlay);
+      }
+      if (!this._heroVidIO && 'IntersectionObserver' in window) {
+        this._heroVidIO = new IntersectionObserver((es) => {
+          if (es[0] && es[0].isIntersecting) tryPlay(); else { try { v.pause(); } catch (e) {} }
+        }, { threshold: 0.05 });
+        this._heroVidIO.observe(v);
+      }
+      tryPlay();
+    } catch (e) {}
+  }
+
+  _initInk() {
+    try {
+      const THREE = window.THREE;
+      const c = this.inkRef.current;
+      if (!c || c.childNodes.length) return;
+      const w = c.clientWidth || 800, h = c.clientHeight || 220;
+      const scene = new THREE.Scene();
+      const cam = new THREE.Camera();
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(w, h);
+      renderer.setClearColor(0x000000, 0);
+      const cv = renderer.domElement;
+      cv.style.width = '100%'; cv.style.height = '100%'; cv.style.display = 'block';
+      c.appendChild(cv);
+      const frag = `
+        precision highp float;
+        varying vec2 vUv;
+        uniform float uTime;
+        uniform vec2 uRes;
+        vec2 hash(vec2 p){ p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))); return -1.0+2.0*fract(sin(p)*43758.5453123); }
+        float noise(vec2 p){
+          vec2 i=floor(p), f=fract(p);
+          vec2 u=f*f*(3.0-2.0*f);
+          return mix(mix(dot(hash(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(hash(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),
+                     mix(dot(hash(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(hash(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);
+        }
+        float fbm(vec2 p){ float v=0.0,a=0.5; for(int i=0;i<6;i++){ v+=a*noise(p); p=p*2.0+7.3; a*=0.5; } return v; }
+        void main(){
+          float aspect=uRes.x/max(uRes.y,1.0);
+          vec2 uv=vUv;
+          vec2 p=vec2(uv.x*aspect,uv.y)*2.2;
+          float t=uTime*0.05;
+          vec2 q=vec2(fbm(p+vec2(0.0,t)),fbm(p+vec2(5.2,1.3-t*0.8)));
+          vec2 r=vec2(fbm(p+3.5*q+vec2(1.7,9.2)+t*0.9),fbm(p+3.5*q+vec2(8.3,2.8)-t*0.6));
+          float f=fbm(p+4.0*r);
+          float n=smoothstep(-0.35,0.5,f);
+          vec3 c1=vec3(0.40,0.10,0.85);
+          vec3 c2=vec3(0.16,0.42,1.0);
+          vec3 c3=vec3(0.34,0.60,0.90);
+          vec3 col=mix(c1,c2,smoothstep(0.32,0.7,n));
+          col=mix(col,c3,smoothstep(0.74,1.0,n)*0.85);
+          float ink=smoothstep(0.24,0.82,n);          float vfade=smoothstep(0.0,0.34,uv.y)*smoothstep(1.0,0.62,uv.y);
+          float hfade=smoothstep(0.0,0.06,uv.x)*smoothstep(1.0,0.94,uv.x);
+          gl_FragColor=vec4(col, ink*vfade*hfade);
+        }
+      `;
+      const mat = new THREE.ShaderMaterial({
+        transparent: true, depthTest: false, depthWrite: false,
+        uniforms: { uTime: { value: 0 }, uRes: { value: new THREE.Vector2(w, h) } },
+        vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader: frag
+      });
+      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
+      mesh.frustumCulled = false;
+      scene.add(mesh);
+      const resize = () => {
+        const W = c.clientWidth || w, H = c.clientHeight || h;
+        renderer.setSize(W, H);
+        mat.uniforms.uRes.value.set(W, H);
+      };
+      this._onInkResize = resize;
+      window.addEventListener('resize', resize);
+      // Only render the shader while the divider is on (or near) the screen — stops continuous GPU load when scrolled away.
+      this._inkVis = true;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((es) => { this._inkVis = !!(es[0] && es[0].isIntersecting); }, { rootMargin: '150px' });
+        io.observe(c.parentElement || c);
+      }
+      const animate = (ts) => {
+        this._inkRaf = requestAnimationFrame(animate);
+        const pr = this.props || {};
+        const hidden = pr.hideInk === true;
+        cv.style.display = hidden ? 'none' : 'block';
+        if (c.parentElement) c.parentElement.style.height = hidden ? '0px' : '220px';
+        if (hidden) return;
+        if (this._inkVis === false) return;
+        if (pr.pauseMotion !== true) mat.uniforms.uTime.value = (ts || 0) * 0.001 * (pr.speedFactor || 1);
+        renderer.render(scene, cam);
+      };
+      this._inkRaf = requestAnimationFrame(animate);
+      this._ink = { renderer, mat };
+    } catch (e) {}
+  }
+
+  // 3D fan carousel for the team section: active card centered, others recede.
+  _initTeamCarousel() {
+    const stage = this.teamTrack.current;
+    if (!stage || stage.dataset.tc) return;
+    stage.dataset.tc = '1';
+    const cards = Array.from(stage.querySelectorAll('[data-tc]'));
+    const n = cards.length;
+    if (n < 2) return;
+    this._teamIdx = 0;
+    this._teamCards = cards;
+    const team = (this.content && this.content.team) || [];
+    cards.forEach((el, i) => {
+      const im = el.querySelector('[data-tc-img]');
+      const src = (team[i] && team[i].image) || '';
+      if (im) { im.onerror = () => { im.style.opacity = '0'; }; if (src) im.src = src; }
+    });
+    this._teamLayout = () => {
+      const idx = this._teamIdx;
+      for (let i = 0; i < n; i++) {
+        let off = ((i - idx) % n + n) % n;
+        if (off > n / 2) off -= n;
+        const abs = Math.abs(off);
+        const el = cards[i];
+        el.style.transform = 'translateX(' + (off * 290) + 'px) translateZ(' + (-(abs * 130 + abs * abs * 50)) + 'px) translateY(' + (abs * abs * 14) + 'px) rotateY(' + (-off * 22) + 'deg)';
+        el.style.opacity = abs > 1 ? '.3' : (abs ? '.65' : '1');
+        el.style.filter = abs ? 'blur(' + Math.min(abs * 1.2, 2.6) + 'px)' : 'none';
+        el.style.zIndex = String(10 - abs);
+      }
+    };
+    cards.forEach((el, i) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (i !== this._teamIdx) { this._teamIdx = i; this._teamLayout(); }
+        // [CV معلّق] أزل التعليق عن السطر التالي لإعادة فتح صفحة السيرة عند الضغط على البطاقة النشطة
+        // else this._openCv(el);
+      });
+    });
+    this._teamLayout();
+    this._teamTimer = setInterval(() => {
+      if (this._teamPaused) return;
+      this._teamIdx = (this._teamIdx + 1) % n;
+      this._teamLayout();
+    }, 4500);
+  }
+
+  _teamGo(d) {
+    if (!this._teamCards || !this._teamCards.length) return;
+    const n = this._teamCards.length;
+    this._teamIdx = ((this._teamIdx + d) % n + n) % n;
+    this._teamLayout();
+  }
+
+  // cursor-following neon: updates --gx/--gy on the card under the pointer
+  _initGlow() {
+    if (this._glowMove) return;
+    const SEL = '[data-w3-frame],[data-wv-frame],[data-w3-panel],[data-ts-card],[data-tc-card]';
+    this._glowMove = (e) => {
+      const el = e.target && e.target.closest ? e.target.closest(SEL) : null;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      el.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(2) + '%');
+      el.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(2) + '%');
+    };
+    document.addEventListener('mousemove', this._glowMove, { passive: true });
+  }
+
+  // ===== overlays: CV page, video lightbox, work case-study =====
+  _initOverlays() {
+    if (this._ovInit) return;
+    this._ovInit = 1;
+    this._ovCv = document.querySelector('[data-cv-ov]');
+    this._ovVid = document.querySelector('[data-vid-ov]');
+    this._ovWork = document.querySelector('[data-work-ov]');
+    document.querySelectorAll('[data-ov-close]').forEach((b) => b.addEventListener('click', () => this._ovClose()));
+    // Click any empty area (outside the content) to close — video + work case-study overlays.
+    const clickOut = (ov, sel) => { if (!ov) return; ov.addEventListener('click', (e) => { if (e.target.closest('[data-ov-close]')) return; if (sel && e.target.closest(sel)) return; this._ovClose(); }); };
+    clickOut(this._ovVid, '[data-vid-box]');
+    clickOut(this._ovWork, '[data-cv-anim]');
+    this._ovEsc = (e) => { if (e.key === 'Escape') this._ovClose(); };
+    document.addEventListener('keydown', this._ovEsc);
+    document.querySelectorAll('[data-cv-cta]').forEach((b) => b.addEventListener('click', () => this._ovClose()));
+    const wkCta = this._ovWork && this._ovWork.querySelector('[data-wk-cta]');
+    if (wkCta) wkCta.addEventListener('click', () => this._ovClose());
+    // النقر العادي يفتح المودال — ctrl/cmd/shift/الزر الأوسط يفتح صفحة المشروع مباشرة
+    const plainClick = (e) => !(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0);
+    document.querySelectorAll('[data-screen-label="Works (Video)"] a[data-w3]').forEach((a) => {
+      a.addEventListener('click', (e) => { if (!plainClick(e)) return; e.preventDefault(); this._openVideo(a); });
+    });
+    document.querySelectorAll('#works a[data-w3]').forEach((a) => {
+      a.addEventListener('click', (e) => { if (!plainClick(e)) return; e.preventDefault(); this._openWork(a); });
+    });
+  }
+
+  _ovShow(el) {
+    if (!el) return;
+    el.style.display = el.getAttribute('data-ov-display') || 'flex';
+    el.classList.remove('on');
+    void el.offsetWidth;
+    el.classList.add('on');
+    el.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+    this._ovCur = el;
+  }
+
+  _ovClose() {
+    const el = this._ovCur;
+    if (!el) return;
+    el.classList.remove('on');
+    el.style.display = 'none';
+    el.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = '';
+    this._ovCur = null;
+    try { sessionStorage.removeItem('wx-cv'); } catch (e) {}
+    if (this._cvRaf) { cancelAnimationFrame(this._cvRaf); this._cvRaf = null; }
+    if (this._lbHls) { try { this._lbHls.destroy(); } catch (e) {} this._lbHls = null; }
+    if (this._plyr) { try { this._plyr.destroy(); } catch (e) {} this._plyr = null; }
+    const v = document.querySelector('[data-vid-player]');
+    if (v) { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) {} }
+  }
+
+  _openVideo(a) {
+    const ov = this._ovVid;
+    if (!ov) return;
+    const wide = !!a.querySelector('[data-wv-wide]');
+    const box = ov.querySelector('[data-vid-box]');
+    if (wide) { box.style.width = 'min(72vw, 1080px)'; box.style.height = 'auto'; box.style.aspectRatio = '16/9'; }
+    else { box.style.height = 'min(82vh, 760px)'; box.style.width = 'auto'; box.style.aspectRatio = '9/16'; }
+    box.setAttribute('data-vid-orient', wide ? 'wide' : 'tall');
+    const t = a.querySelector('h3');
+    const tag = t ? t.previousElementSibling : null;
+    ov.querySelector('[data-vid-title]').textContent = (t ? t.textContent : '') + (tag ? ' — ' + tag.textContent : '');
+    const vidPage = ov.querySelector('[data-vid-page]');
+    if (vidPage) {
+      const caseUrl = a.getAttribute('data-case-url') || '';
+      vidPage.hidden = !caseUrl;
+      if (caseUrl) vidPage.href = caseUrl;
+    }
+    this._ovShow(ov);
+    const v = ov.querySelector('[data-vid-player]');
+    const src = a.getAttribute('data-video-url') || '';
+    if (!src) return;
+    v.loop = a.getAttribute('data-video-loop') !== 'false';
+    // Rebuild the player each open so the quality menu matches the stream.
+    if (this._plyr) { try { this._plyr.destroy(); } catch (e) {} this._plyr = null; }
+    if (this._lbHls) { try { this._lbHls.destroy(); } catch (e) {} this._lbHls = null; }
+    const baseOpts = {
+      controls: ['play-large', 'play', 'progress', 'current-time', 'duration', 'mute', 'volume', 'settings', 'pip', 'fullscreen'],
+      settings: ['quality', 'speed'],
+      speed: { selected: 1, options: [0.5, 1, 1.5, 2] },
+      clickToPlay: true,
+      i18n: { play: 'تشغيل', pause: 'إيقاف', mute: 'كتم الصوت', unmute: 'تشغيل الصوت', enterFullscreen: 'ملء الشاشة', exitFullscreen: 'إنهاء ملء الشاشة', settings: 'الإعدادات', speed: 'السرعة', normal: 'عادي', quality: 'الجودة', qualityLabel: { 0: 'تلقائي' } }
+    };
+    const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
+    try {
+      const isHls = /\.m3u8(\?|$)/i.test(src);
+      if (isHls && window.Hls && window.Hls.isSupported()) {
+        const hh = new window.Hls({ enableWorker: false, capLevelToPlayerSize: true, startLevel: 0, startFragPrefetch: true, maxBufferLength: 20 });
+        this._lbHls = hh;
+        hh.loadSource(src);
+        hh.attachMedia(v);
+        hh.on(window.Hls.Events.MANIFEST_PARSED, () => {
+          // Build a quality menu from the stream's available renditions (+ Auto).
+          const heights = Array.from(new Set(hh.levels.map((l) => l.height).filter(Boolean))).sort((a, b) => b - a);
+          const opts = Object.assign({}, baseOpts);
+          if (heights.length > 1) {
+            opts.quality = {
+              default: 0,
+              options: [0].concat(heights),
+              forced: true,
+              onChange: (q) => {
+                if (!q) { hh.currentLevel = -1; return; }
+                hh.levels.forEach((lvl, i) => { if (lvl.height === q) hh.currentLevel = i; });
+              }
+            };
+          }
+          this._plyr = new window.Plyr(v, opts);
+          tryPlay();
+        });
+        // Recover from segment/network aborts so playback never dead-stalls.
+        hh.on(window.Hls.Events.ERROR, (_e, data) => {
+          if (!data || !data.fatal) return;
+          if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) hh.startLoad();
+          else if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR) hh.recoverMediaError();
+        });
+      } else if (isHls && v.canPlayType('application/vnd.apple.mpegurl')) {
+        v.src = src;
+        this._plyr = new window.Plyr(v, baseOpts);
+        v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      } else {
+        v.src = src;
+        this._plyr = new window.Plyr(v, baseOpts);
+        v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      }
+    } catch (e) {}
+  }
+
+  _openWork(a) {
+    const ov = this._ovWork;
+    if (!ov) return;
+    const frame = a.querySelector('[data-w3-frame]');
+    const holder = ov.querySelector('[data-work-clone]');
+    holder.innerHTML = '';
+    if (frame) { const c = frame.cloneNode(true); c.style.margin = '0'; holder.appendChild(c); }
+    const t = a.querySelector('h3');
+    const tagEl = t ? t.previousElementSibling : null;
+    ov.querySelector('[data-wk-title]').textContent = t ? t.textContent : '';
+    ov.querySelector('[data-wk-tag]').textContent = tagEl ? tagEl.textContent : '';
+    const detail = a.querySelector('[data-work-detail]');
+    const wkDetail = ov.querySelector('[data-wk-detail]');
+    if (wkDetail) wkDetail.textContent = detail && detail.textContent ? detail.textContent : '';
+    const mtag = ov.querySelector('[data-wk-mtag]');
+    if (mtag) mtag.textContent = tagEl ? tagEl.textContent : '';
+    const setMeta = (sel, fromSel) => {
+      const el = ov.querySelector(sel);
+      const src = a.querySelector(fromSel);
+      if (el) el.textContent = (src && src.textContent) ? src.textContent : '—';
+    };
+    setMeta('[data-wk-client]', '[data-work-client]');
+    setMeta('[data-wk-year]', '[data-work-year]');
+    setMeta('[data-wk-duration]', '[data-work-duration]');
+    const wkPage = ov.querySelector('[data-wk-page]');
+    if (wkPage) {
+      const caseUrl = a.getAttribute('data-case-url') || '';
+      wkPage.hidden = !caseUrl;
+      if (caseUrl) wkPage.href = caseUrl;
+    }
+    this._ovShow(ov);
+  }
+
+  // [CV معلّق] أزل التعليق عن جسم الدالة لإعادة تفعيل صفحة السيرة
+  _openCv(cardEl) {
+    /*
+    const ov = this._ovCv;
+    if (!ov) return;
+    const ci = this._teamCards ? this._teamCards.indexOf(cardEl) : -1;
+    try { sessionStorage.setItem('wx-cv', String(ci)); } catch (e) {}
+    const img = cardEl.querySelector('[data-tc-img]');
+    const name = cardEl.querySelector('h3');
+    const role = name ? name.nextElementSibling : null;
+    const ph = ov.querySelector('[data-cv-photo]');
+    if (ph) {
+      if (img && img.src) { ph.src = img.src; ph.style.display = 'block'; }
+      else ph.style.display = 'none';
+    }
+    ov.querySelectorAll('[data-cv-name]').forEach((n) => { n.textContent = name ? name.textContent : ''; });
+    ov.querySelector('[data-cv-role]').textContent = role ? role.textContent : '';
+    ov.querySelector('[data-cv-sign]').textContent = name ? name.textContent : '';
+    ov.scrollTop = 0;
+    this._ovShow(ov);
+    this._cvSpin();
+    */
+  }
+
+  // curved gallery drift: panels flow along a concave arc behind the portrait,
+  // sharp at the center and defocused toward the edges (focal curve)
+  _cvSpin() {
+    const ov = this._ovCv;
+    const panels = ov ? Array.from(ov.querySelectorAll('[data-cv-p]')) : [];
+    if (!panels.length) return;
+    if (this._cvRaf) cancelAnimationFrame(this._cvRaf);
+    const N = panels.length;
+    const t0 = performance.now();
+    const step = (now) => {
+      this._cvRaf = requestAnimationFrame(step);
+      const t = (now - t0) * 0.001;
+      const sp = Math.min(window.innerWidth * 0.19, 310);
+      for (let i = 0; i < N; i++) {
+        const pos = ((i + t * 0.13) % N + N) % N;
+        const off = pos - N / 2;
+        const abs = Math.abs(off);
+        const z = -150 + Math.min(abs, 2.3) * 64;
+        const blur = Math.max(0, abs - 1.15) * 2.4;
+        const op = Math.max(0, Math.min(1, (N / 2 - abs) / 1.3));
+        panels[i].style.transform = 'translate(-50%,-50%) translateX(' + (off * sp).toFixed(1) + 'px) translateY(' + (abs * abs * 3).toFixed(1) + 'px) translateZ(' + z.toFixed(1) + 'px) rotateY(' + (-off * 15).toFixed(2) + 'deg)';
+        panels[i].style.opacity = op.toFixed(3);
+        panels[i].style.filter = blur > 0.05 ? 'blur(' + blur.toFixed(2) + 'px)' : 'none';
+      }
+    };
+    this._cvRaf = requestAnimationFrame(step);
+  }
+
+  // القائمة الجوّالة: يفتحها زر ☰ وتغلق عند اختيار رابط
+  _initMnav() {
+    if (this._mnavInit) return;
+    const burger = document.querySelector('[data-mburger]');
+    const nav = document.querySelector('[data-mnav]');
+    if (!burger || !nav) return;
+    this._mnavInit = 1;
+    const set = (open) => { nav.classList.toggle('open', open); burger.textContent = open ? '✕' : '☰'; };
+    burger.addEventListener('click', () => set(!nav.classList.contains('open')));
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
+  }
+
+  // تبديل اللغة: يستبدل النصوص عبر قاموس ثنائي الاتجاه ويقلب اتجاه الصفحة
+  _initLang() {
+    if (this._langInit) return;
+    this._langInit = 1;
+    const D = [["CREATIVE COLLECTIVE — نص تجريبي","CREATIVE COLLECTIVE — SAMPLE TAG"],["عنوان فرعي تجريبي يوضع هنا بالعربي","A sample subtitle goes here in English"],["نص تجريبي يوضّح مكان الوصف القصير للصفحة — استبدله بالنص الحقيقي لاحقاً. A short example description goes here.","A short sample description sits here — replace it with the real copy later."],["تواصل معنا","Contact us"],["— WHAT WE DO / خدماتنا","— WHAT WE DO / SERVICES"],["عنوان خدمة تجريبي","Sample service title"],["نص تجريبي يوضّح وصف الخدمة الأولى — يستبدل بالنص الحقيقي.","A sample description of the first service — replaced with the real copy."],["نص تجريبي يوضّح وصف الخدمة الثانية — يستبدل بالنص الحقيقي.","A sample description of the second service — replaced with the real copy."],["اكتشف الخدمة →","Explore the service →"],["TRUSTED BY / عملاؤنا","TRUSTED BY / OUR CLIENTS"],["— SELECTED WORK / مختارات","— SELECTED WORK / HIGHLIGHTS"],["أعمالنا المصوّرة","Our design work"],["مشروع تجريبي","Sample project"],["— MOTION & FILM / إنتاج مرئي","— MOTION & FILM / VIDEO PRODUCTION"],["أعمالنا المرئية","Our motion work"],["عمل مرئي تجريبي","Sample motion piece"],["— THE TEAM / الفريق","— THE TEAM / OUR PEOPLE"],["العقول خلف العمل","The minds behind the work"],["عرض السيرة ↗","View profile ↗"],["— TESTIMONIALS / آراء العملاء","— TESTIMONIALS / CLIENT WORDS"],["كلام عملائنا","What clients say"],["نص تجريبي قصير — آراء من عملاء اشتغلنا معهم على هويات ومتاجر ومنصات. يستبدل بالنص الحقيقي.","A short sample line — words from clients we worked with on brands, stores and platforms."],["عميل سعيد","Happy clients"],["مشروع مسلّم","Projects shipped"],["متوسط التقييم","Average rating"],["مشروع: هوية بصرية","Project: Brand identity"],["اسم عميل تجريبي","Sample client name"],["مدير تسويق — شركة تجريبية","Marketing manager — Sample Co."],["\"تجربة ممتازة — التسليم كان قبل الموعد والجودة فوق المتوقع بكثير.\"","\"Excellent experience — delivered early with quality far above expectations.\""],["مؤسِّس — متجر تجريبي","Founder — Sample store"],["\"فريق يفهم بسرعة ويحوّل الفكرة لتصميم حقيقي من أول جلسة.\"","\"A team that gets it fast and turns ideas into real design from the first session.\""],["مشروع: متجر إلكتروني","Project: E-commerce store"],["مديرة منتج — منصة تجريبية","Product lead — Sample platform"],["\"المتجر ضاعف مبيعاتنا خلال ثلاثة أشهر. أرقام حقيقية مش كلام.\"","\"The store doubled our sales in three months. Real numbers, not talk.\""],["مدير عام — مؤسسة تجريبية","General manager — Sample org"],["\"أفضل استثمار عملناه هذي السنة — النتائج حكت عن نفسها.\"","\"The best investment we made this year — the results spoke for themselves.\""],["مشروع: حملة إعلانية","Project: Ad campaign"],["مدير إبداعي — وكالة تجريبية","Creative director — Sample agency"],["\"تعاون سلس من أول يوم، وتفاصيل التنفيذ كانت على مستوى عالمي.\"","\"Smooth collaboration from day one, with world-class execution details.\""],["مسؤولة علامة — شركة تجريبية","Brand manager — Sample Co."],["\"الهوية الجديدة غيّرت نظرة السوق لنا بالكامل.\"","\"The new identity completely changed how the market sees us.\""],["مشروع: موقع تعريفي","Project: Company website"],["شريك مؤسس — ستارتب تجريبي","Co-founder — Sample startup"],["\"سرعة استجابة ودقة بالمواعيد نادراً ما تلاقيها.\"","\"Response speed and punctuality you rarely find.\""],["مديرة تواصل — جهة تجريبية","Comms manager — Sample entity"],["\"من البريف للإطلاق كل خطوة كانت واضحة ومدروسة.\"","\"From brief to launch, every step was clear and deliberate.\""],["عنوان تجريبي كبير","A big sample headline"],["للتواصل","to connect"],["نص تجريبي قصير يشرح دعوة التواصل — يستبدل لاحقاً بالنص الحقيقي.","A short sample line explaining the call to action — replaced later."],["نوع المشروع…","Project type…"],["هوية بصرية","Brand identity"],["موشن جرافيك","Motion graphics"],["إعلان مصوّر","Video ad"],["موقع إلكتروني","Website"],["أخرى","Other"],["أرسل عبر واتساب","Send via WhatsApp"],["يفتح واتساب برسالة جاهزة من بياناتك — أو راسلنا على","Opens WhatsApp with a ready message — or email us at"],["متاح لمشاريع جديدة","Available for projects"],["المقر","Based in"],["مدينة تجريبية","Sample City"],["عضو في","Member of"],["فريق Wexon","Wexon team"],["أهلاً، أنا","Hi, I'm"],["اسم تجريبي","Sample Name"],["مسمّى تجريبي","Sample Role"],["ابدأ مشروع معي","Start a project with me"],["↓ مرّر لباقي الملف الشخصي","↓ Scroll for the full profile"],["نبذة تجريبية قصيرة — الخبرات، التخصص، وأسلوب العمل. تستبدل بالنص الحقيقي لكل عضو من الفريق.","A short sample bio — experience, focus and way of working. Replaced per member."],["سنوات خبرة","Years of experience"],["مشروعاً منجزاً","Projects completed"],["عميلاً حول العالم","Clients worldwide"],["جوائز وتكريمات","Awards & honors"],["نبذة — ABOUT","ABOUT"],["فقرة تعريفية تجريبية — من هو هذا العضو؟ خلفيته، شغفه، والمجالات التي يبدع فيها. تكتب هنا نبذة موسّعة عن مسيرته المهنية وفلسفته في العمل وأبرز المحطات التي شكّلت أسلوبه، وتستبدل بالمحتوى الحقيقي لكل عضو من الفريق.","A sample introduction — who is this member? Their background, passion and craft. An extended bio about their career, philosophy and the milestones that shaped their style goes here — replaced with real content per member."],["الخبرة — EXPERIENCE","EXPERIENCE"],["2023 — الآن","2023 — Present"],["مسمّى وظيفي أول — تجريبي","Senior sample title"],["· استوديو تجريبي","· Sample studio"],["سطر وصف تجريبي عن المسؤوليات وأبرز الإنجازات في هذه المرحلة — يستبدل بالمحتوى الحقيقي.","A sample line about responsibilities and key wins in this period — replaced with real content."],["مسمّى وظيفي — تجريبي","Sample title"],["· شركة تجريبية","· Sample company"],["بداية المسيرة — تجريبي","Career start — sample"],["· وكالة تجريبية","· Sample agency"],["المهارات — SKILLS","SKILLS"],["إخراج فني","Art direction"],["مونتاج وتلوين","Editing & grading"],["تصوير سينمائي","Cinematography"],["تصميم ثلاثي الأبعاد","3D design"],["الأدوات — TOOLS","TOOLS"],["اللغات — LANGUAGES","LANGUAGES"],["العربية — الأم","Arabic — Native"],["أعمال مختارة — SELECTED","SELECTED WORK"],["عمل تجريبي","Sample piece"],["تواصل — CONTACT","CONTACT"],["جاهز نبدأ مشروعك القادم؟","Ready to start your next project?"],["المعرض الكامل قيد التجهيز","The full showcase is in the works"],["نجهّز حالياً صفحة كاملة لهذه الخدمة بكل تفاصيلها وأعمالها ونتائجها — قريباً جداً.","We are preparing a full page for this service with all its details, work and results — very soon."],["→ رجوع للرئيسية","→ Back to home"],["تواصل معنا الآن","Contact us now"],["وصف تجريبي لدراسة الحالة — التحدي الذي واجهه العميل، الحل الذي صممناه، والنتيجة التي تحققت. يستبدل بالمحتوى الحقيقي لكل مشروع.","A sample case-study description — the challenge, the solution we designed, and the outcome. Replaced per project."],["العميل","Client"],["عميل تجريبي","Sample client"],["السنة","Year"],["الخدمة","Service"],["المدة","Duration"],["٦ أسابيع","6 weeks"],["اطلب مشروعاً مشابهاً →","Request a similar project →"],["نص تجريبي قصير عن الاستوديو — يستبدل بالوصف الحقيقي.","A short sample line about the studio — replaced with the real one."],["© 2026 Wexon — جميع الحقوق محفوظة ✦","© 2026 Wexon — All rights reserved ✦"],["اسمك","Your name"],["احكِ لنا عن مشروعك باختصار…","Tell us briefly about your project…"],["خدماتنا","Services"],["أعمالنا","Works"],["الفريق","Team"],["تواصل","Contact"],["ابدأ مشروعك","Start a project"],["شاهد أعمالنا","View our work"],["نصنع علامات","We build brands"],["تبقى في الذاكرة","that last in memory"],["عرض كل التصاميم ↗","View all designs ↗"],["عرض كل الفيديوهات ↗","View all videos ↗"],["جوال أو إيميل (اختياري)","Phone or email (optional)"],["معرض التصاميم","Design gallery"],["معرض الفيديو","Video gallery"],["الرئيسية","Home"]];
+    this._arMap = new Map(D);
+    this._enMap = new Map(D.map((p) => [p[1], p[0]]));
+    const apply = (lang) => {
+      const map = lang === 'en' ? this._arMap : this._enMap;
+      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let n;
+      while ((n = w.nextNode())) {
+        const t = n.nodeValue.trim();
+        if (t && map.has(t)) n.nodeValue = n.nodeValue.replace(t, map.get(t));
+      }
+      document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach((el) => {
+        const p = el.getAttribute('placeholder');
+        if (map.has(p)) el.setAttribute('placeholder', map.get(p));
+      });
+      document.documentElement.classList.toggle('wx-en', lang === 'en');
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ar');
+      document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+      this._lang = lang;
+      try { localStorage.setItem('wx-lang', lang); } catch (e) {}
+      document.querySelectorAll('[data-lang-btn]').forEach((b) => {
+        const on = b.getAttribute('data-lang-btn') === lang;
+        b.style.fontWeight = on ? '700' : '400';
+        b.style.color = on ? 'var(--wx-text)' : '#6c719b';
+      });
+    };
+    this._applyLang = apply;
+    document.querySelectorAll('[data-lang-btn]').forEach((b) => {
+      b.addEventListener('click', () => { const l = b.getAttribute('data-lang-btn'); if (l !== (this._lang || 'ar')) apply(l); });
+    });
+    let saved = 'ar';
+    try { saved = localStorage.getItem('wx-lang') || 'ar'; } catch (e) {}
+    this._lang = 'ar';
+    apply(saved === 'en' ? 'en' : 'ar');
+  }
+
+  _initReveals() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!els.length) return;
+    const reveal = (el) => { el.style.opacity = '1'; };
+    els.forEach((el) => {
+      el.style.transition = 'opacity .85s ease';
+      const r = el.getBoundingClientRect();
+      el.style.opacity = (r.top < window.innerHeight * 0.92) ? '1' : '0';
+    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach((el) => { if (el.style.opacity === '0') io.observe(el); });
+    } else { els.forEach(reveal); }
+    setTimeout(() => els.forEach(reveal), 2600);
+  }
+
+  _initMarquees() {
+    // {ref, dir, speed(px/s)}  dir: -1 = leftward, +1 = rightward
+    const defs = [
+      { el: this.logoARef.current, dir: 1, speed: 55, slow: false, off: 0, cur: 55, copies: 3 },
+      { el: this.logoBRef.current, dir: -1, speed: 48, slow: false, off: 0, cur: 48, copies: 3 },
+      { el: this.logoCRef.current, dir: 1, speed: 62, slow: false, off: 0, cur: 62, copies: 3 },
+      { name: 'wi', el: this.wiTrack.current, dir: -1, speed: 50, slow: false, off: 0, cur: 50, copies: 2 },
+      { name: 'wv', el: this.wvTrack.current, dir: 1, speed: 46, slow: false, off: 0, cur: 46, copies: 2 },
+    ].filter((m) => m.el);
+    this._mq = {};
+    defs.forEach((m) => { if (m.name) this._mq[m.name] = m; });
+    // إيقاف عند اللمس (الموبايل لا يملك hover) — يستأنف بعد ثانيتين من رفع الإصبع
+    defs.forEach((m) => {
+      if (!m.name || !m.el.parentElement) return;
+      const wrap = m.el.parentElement;
+      wrap.addEventListener('touchstart', () => { clearTimeout(m._tt); m.slow = true; }, { passive: true });
+      wrap.addEventListener('touchend', () => { clearTimeout(m._tt); m._tt = setTimeout(() => { m.slow = false; }, 2000); }, { passive: true });
+    });
+    this._mqs = defs;
+    this._mlast = 0;
+    const tick = (ts) => {
+      if (!this._mlast) this._mlast = ts;
+      let dt = (ts - this._mlast) / 1000; this._mlast = ts;
+      if (dt > 0.05) dt = 0.05;
+      const p = this.props || {};
+      const factor = p.speedFactor || 1;
+      const paused = p.pauseMotion === true;
+      for (let i = 0; i < this._mqs.length; i++) {
+        try {
+          const m = this._mqs[i];
+          const period = (m.el.scrollWidth / m.copies) || 1;
+          // ماركي الأعمال (wi/wv) يتوقف كلياً عند hover/لمس؛ ماركي الشعارات يبطئ فقط
+          const target = paused ? 0 : (m.slow ? (m.name ? 0 : m.speed * 0.16) : m.speed) * factor;
+          m.cur += (target - m.cur) * Math.min(1, dt * 4);
+          m.off += m.cur * dt * m.dir;
+          let o = m.off % period;
+          if (o > 0) o -= period;
+          m.el.style.setProperty('transform', 'translateX(' + o + 'px)');
+        } catch (e) {}
+      }
+      this._mraf = requestAnimationFrame(tick);
+    };
+    this._mraf = requestAnimationFrame(tick);
+  }
+
+  _setSlow(name, v) { if (this._mq && this._mq[name]) this._mq[name].slow = v; }
+
+  renderVals() {
+    const p = (this.content && this.content.partners) || {};
+    const toLogo = (x) => {
+      if (!x) return { name: '', image: '' };
+      if (typeof x === 'string') return { name: x, image: '' };
+      return { name: x.name || '', image: x.image || '' };
+    };
+    const logosA = (p.logosA || []).map(toLogo);
+    const logosB = (p.logosB || []).map(toLogo);
+    const logosC = (p.logosC || []).map(toLogo);
+    const team = (this.content && this.content.team) || [
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+      { name: 'اسم تجريبي', role: 'مسمّى تجريبي' },
+    ];
+    return {
+      headerRef: this.headerRef,
+      videoRef: this.videoRef,
+      inkRef: this.inkRef,
+      wiTrack: this.wiTrack,
+      wvTrack: this.wvTrack,
+      teamTrack: this.teamTrack,
+      logoARef: this.logoARef,
+      logoBRef: this.logoBRef,
+      logoCRef: this.logoCRef,
+      logosA2: logosA.concat(logosA, logosA),
+      logosB2: logosB.concat(logosB, logosB),
+      logosC2: logosC.concat(logosC, logosC),
+      team2: team,
+      wiEnter: () => this._setSlow('wi', true), wiLeave: () => this._setSlow('wi', false),
+      wvEnter: () => this._setSlow('wv', true), wvLeave: () => this._setSlow('wv', false),
+      teamEnter: () => { this._teamPaused = true; }, teamLeave: () => { this._teamPaused = false; },
+      teamPrevGo: () => this._teamGo(-1),
+      teamNextGo: () => this._teamGo(1),
+      // يبني رسالة واتساب من حقول الفورم ويفتح المحادثة
+      waGo: () => {
+        const g = (s) => { const el = document.querySelector(s); return el && el.value ? el.value.trim() : ''; };
+        const WA_NUM = (this.content && this.content.site && this.content.site.whatsapp) || '970567818143';
+        const name = g('[data-wa-name]'), type = g('[data-wa-type]'), msg = g('[data-wa-msg]'), alt = g('[data-wa-contact]');
+        let text = 'مرحباً Wexon 👋';
+        if (name) text += '\nالاسم: ' + name;
+        if (type) text += '\nنوع المشروع: ' + type;
+        if (alt) text += '\nتواصل بديل: ' + alt;
+        if (msg) text += '\nالتفاصيل: ' + msg;
+        window.open('https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(text), '_blank');
+      },
+      // الشعار = زر الرئيسية: يغلق أي طبقة مفتوحة (مثل الـ CV) ثم يصعد للأعلى
+      goHome: () => {
+        try { this._ovClose(); } catch (e) {}
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+      },
+      // Theme switch: circular reveal from the toggle button via the View
+      // Transitions API; plain class flip on browsers without support.
+      toggleTheme: (e) => {
+        const doc = document.documentElement;
+        const btn = e && e.currentTarget;
+        const rect = btn && btn.getBoundingClientRect ? btn.getBoundingClientRect() : null;
+        const x = (e && e.clientX) || (rect ? rect.left + rect.width / 2 : 80);
+        const y = (e && e.clientY) || (rect ? rect.top + rect.height / 2 : 40);
+        const flip = () => {
+          const light = doc.classList.toggle('wx-light');
+          try { localStorage.setItem('wx-theme', light ? 'light' : 'dark'); } catch (er) {}
+          document.querySelectorAll('[aria-label="Light / dark"]').forEach((b) => { try { b.textContent = light ? '☾' : '◐'; } catch (err) {} });
+        };
+        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!document.startViewTransition || reduced) { flip(); return; }
+        const vt = document.startViewTransition(flip);
+        const r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+        vt.ready.then(() => {
+          doc.animate(
+            { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + Math.ceil(r) + 'px at ' + x + 'px ' + y + 'px)'] },
+            { duration: 650, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: '::view-transition-new(root)' }
+          );
+        }).catch(() => {});
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
