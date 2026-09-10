@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
-const { PUBLIC_DIR } = require('./content');
+const { ROOT } = require('./content');
 
-const UPLOAD_DIR = path.join(PUBLIC_DIR, 'uploads');
+const UPLOAD_DIR = path.join(ROOT, 'uploads');
 
 function ensureUploadDir() {
   if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });

@@ -10,7 +10,7 @@
     "cf:check": "npx wrangler deploy --dry-run",
     "cf:dev": "npx wrangler dev",
     "cf:deploy": "npx wrangler deploy",
-    "media:manifest": "node scripts/build-media-manifest.js"
+    "media:sync": "node scripts/sync-media-to-r2.js"
   },
   "engines": {
     "node": ">=18"

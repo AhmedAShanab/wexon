@@ -10,9 +10,16 @@ binding = "DB"
 database_name = "wexon"
 database_id = "217dfe5c-7b5f-4785-852a-2e1bbedb0ac8"
 
-# The site (Landing.dc.html, support.js, admin/, gallery/, uploads/) ships as
-# static assets. Anything matching a real file is served before the Worker
-# runs; everything else falls through to workers/api/src/index.ts.
+# Media is owned by R2 so the admin dashboard can list, upload and delete it at
+# runtime. uploads/ stays in git as a backup only; `npm run media:sync` pushes
+# it to the bucket.
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "wexon-media"
+
+# The site shell (Landing.dc.html, support.js, admin/, gallery/) ships as static
+# assets. Anything matching a real file is served before the Worker runs;
+# everything else falls through to workers/api/src/index.ts.
 # Only public/ is uploaded, so nothing server-side can leak into the bundle.
 [assets]
 directory = "./public"
