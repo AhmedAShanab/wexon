@@ -128,9 +128,17 @@
     return `<button type="button" class="btn sm" data-pick-media="${esc(path)}">من المكتبة</button>`;
   }
 
+  function resolveApiUrl(url) {
+    const base = (window.__WEXON_API_BASE__ || '').replace(/\/+$/, '');
+    if (!base) return url;
+    return base + url;
+  }
+
   async function api(url, opts = {}) {
-    const res = await fetch(url, {
-      credentials: 'same-origin',
+    const fullUrl = resolveApiUrl(url);
+    const useCredentials = (window.__WEXON_API_BASE__ || '').trim() ? 'include' : 'same-origin';
+    const res = await fetch(fullUrl, {
+      credentials: useCredentials,
       headers: opts.body && !(opts.body instanceof FormData)
         ? { 'Content-Type': 'application/json', ...(opts.headers || {}) }
         : opts.headers,

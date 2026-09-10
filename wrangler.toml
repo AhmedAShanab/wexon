@@ -1,0 +1,15 @@
+name = "wexon"
+main = "workers/api/src/index.ts"
+compatibility_date = "2026-09-10"
+
+[vars]
+SITE_URL = "https://wexon.ahmedabushanab12018.workers.dev"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wexon"
+database_id = "217dfe5c-7b5f-4785-852a-2e1bbedb0ac8"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "wexon-media"

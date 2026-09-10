@@ -6,7 +6,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "node --watch server/index.js"
+    "dev": "node --watch server/index.js",
+    "cf:check": "npx wrangler deploy --dry-run",
+    "cf:dev": "npx wrangler dev",
+    "cf:deploy": "npx wrangler deploy"
   },
   "engines": {
     "node": ">=18"
@@ -15,5 +18,8 @@
     "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }
