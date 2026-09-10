@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const { ROOT, readContent, writeContent } = require('./content');
+const { PUBLIC_DIR, readContent, writeContent } = require('./content');
 const {
   hasAdmin,
   setupKey,
@@ -41,13 +41,13 @@ app.use(express.json({ limit: '2mb' }));
 app.use(trackMiddleware);
 
 app.use('/uploads', express.static(UPLOAD_DIR));
-app.use('/admin', express.static(path.join(ROOT, 'admin')));
-app.use('/gallery-assets', express.static(path.join(ROOT, 'gallery')));
+app.use('/admin', express.static(path.join(PUBLIC_DIR, 'admin')));
+app.use('/gallery-assets', express.static(path.join(PUBLIC_DIR, 'gallery')));
 app.get('/admin', (_req, res) => {
-  res.sendFile(path.join(ROOT, 'admin', 'index.html'));
+  res.sendFile(path.join(PUBLIC_DIR, 'admin', 'index.html'));
 });
 app.get('/admin/*', (_req, res) => {
-  res.sendFile(path.join(ROOT, 'admin', 'index.html'));
+  res.sendFile(path.join(PUBLIC_DIR, 'admin', 'index.html'));
 });
 
 app.get('/api/content', (_req, res) => {
@@ -160,7 +160,7 @@ app.delete('/api/admin/media/:name', requireAdmin, (req, res) => {
 });
 
 app.get('/support.js', (_req, res) => {
-  res.sendFile(path.join(ROOT, 'support.js'));
+  res.sendFile(path.join(PUBLIC_DIR, 'support.js'));
 });
 
 app.get('/robots.txt', (req, res) => {
@@ -189,18 +189,18 @@ app.get('/sitemap.xml', (req, res) => {
 
 function sendLanding(req, res) {
   try {
-    const raw = fs.readFileSync(path.join(ROOT, 'Landing.dc.html'), 'utf8');
+    const raw = fs.readFileSync(path.join(PUBLIC_DIR, 'Landing.dc.html'), 'utf8');
     const html = injectSeoHead(raw, readContent(), requestOrigin(req));
     res.type('html').send(html);
   } catch (e) {
-    res.sendFile(path.join(ROOT, 'Landing.dc.html'));
+    res.sendFile(path.join(PUBLIC_DIR, 'Landing.dc.html'));
   }
 }
 
 function sendGallery(file, settingsKey, routePath) {
   return (req, res) => {
     try {
-      const raw = fs.readFileSync(path.join(ROOT, 'gallery', file), 'utf8');
+      const raw = fs.readFileSync(path.join(PUBLIC_DIR, 'gallery', file), 'utf8');
       const content = readContent();
       const settings = (content.works && content.works[settingsKey]) || {};
       const scoped = {
@@ -216,7 +216,7 @@ function sendGallery(file, settingsKey, routePath) {
       };
       res.type('html').send(injectSeoHead(raw, scoped, requestOrigin(req)));
     } catch {
-      res.sendFile(path.join(ROOT, 'gallery', file));
+      res.sendFile(path.join(PUBLIC_DIR, 'gallery', file));
     }
   };
 }
@@ -246,7 +246,7 @@ function sendCaseStudy(kind) {
       return;
     }
     try {
-      const raw = fs.readFileSync(path.join(ROOT, 'gallery', 'case.html'), 'utf8');
+      const raw = fs.readFileSync(path.join(PUBLIC_DIR, 'gallery', 'case.html'), 'utf8');
       const cs = item.caseStudy || {};
       const routePath = '/' + kind + '/' + encodeURIComponent(item.slug || item.id);
       const scoped = {
@@ -263,7 +263,7 @@ function sendCaseStudy(kind) {
       };
       res.type('html').send(injectSeoHead(raw, scoped, requestOrigin(req)));
     } catch {
-      res.sendFile(path.join(ROOT, 'gallery', 'case.html'));
+      res.sendFile(path.join(PUBLIC_DIR, 'gallery', 'case.html'));
     }
   };
 }

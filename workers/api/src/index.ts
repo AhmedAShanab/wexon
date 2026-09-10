@@ -1,8 +1,10 @@
 // @ts-nocheck
 
+import mediaManifest from '../../../data/media-manifest.json';
+
 interface Env {
   DB: any;
-  MEDIA: any;
+  ASSETS: any;
   SITE_URL: string;
 }
 
@@ -240,14 +242,11 @@ function startOfDay(ts: number) {
   return d.getTime();
 }
 
-async function listMedia(env: Env) {
-  const list = await env.MEDIA.list();
-  return (list.objects || []).map((obj: any) => ({
-    name: obj.key,
-    url: '/uploads/' + obj.key,
-    size: obj.size,
-    mtime: obj.uploaded?.getTime ? obj.uploaded.getTime() : Date.now(),
-  }));
+// Media ships as static assets, which expose no runtime listing API, so the
+// admin library reads the manifest bundled at build time. Regenerate it with
+// `npm run media:manifest` after changing uploads/.
+function listMedia() {
+  return mediaManifest;
 }
 
 function sanitizeFileName(name: string) {
@@ -270,18 +269,7 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.pathname.startsWith('/uploads/') && request.method === 'GET') {
-      const objectName = decodeURIComponent(url.pathname.replace(/^\/uploads\//, ''));
-      const obj = await env.MEDIA.get(objectName);
-      if (!obj) {
-        return json({ error: 'الملف غير موجود' }, { status: 404 });
-      }
-
-      const headers = new Headers();
-      const mime = obj.httpMetadata?.contentType || 'application/octet-stream';
-      headers.set('content-type', mime);
-      return new Response(obj.body, { headers });
-    }
+    // /uploads/* is served directly from static assets before the Worker runs.
 
     if (url.pathname === '/api/content' && request.method === 'GET') {
       const content = await readContentFromDb(env);
@@ -436,7 +424,7 @@ export default {
         return json({ error: auth.error }, { status: auth.status });
       }
 
-      const items = await listMedia(env);
+      const items = listMedia();
       return json({ items });
     }
 
@@ -446,41 +434,10 @@ export default {
         return json({ error: auth.error }, { status: auth.status });
       }
 
-      try {
-        const formData = await request.formData();
-        const file = formData.get('file');
-
-        if (!(file instanceof File)) {
-          return json({ error: 'لا يوجد ملف' }, { status: 400 });
-        }
-
-        if (!isValidMediaType(file)) {
-          return json({ error: 'نوع ملف غير مدعوم — استخدم صورة أو فيديو mp4/webm/mov' }, { status: 400 });
-        }
-
-        const ext = String(file.name || '').includes('.')
-          ? '.' + String(file.name || '').split('.').pop()
-          : '';
-        const name = `${Date.now().toString(36)}-${crypto.getRandomValues(new Uint8Array(4)).join('-')}${ext}`;
-        const bytes = await file.arrayBuffer();
-
-        await env.MEDIA.put(name, bytes, {
-          httpMetadata: { contentType: file.type || 'application/octet-stream' },
-        });
-
-        await env.DB.prepare(
-          'INSERT INTO media_meta (name, key, size, mime, created_at) VALUES (?, ?, ?, ?, ?)'
-        ).bind(name, name, bytes.byteLength, file.type || 'application/octet-stream', Date.now()).run();
-
-        return json({
-          ok: true,
-          name,
-          url: '/uploads/' + name,
-          size: bytes.byteLength,
-        });
-      } catch (e) {
-        return json({ error: e instanceof Error ? e.message : 'فشل الرفع' }, { status: 400 });
-      }
+      return json(
+        { error: 'الرفع من لوحة التحكم غير متاح — الوسائط تُنشر كملفات ثابتة. أضف الملف إلى uploads/ ثم شغّل npm run media:manifest واعمل commit.' },
+        { status: 501 }
+      );
     }
 
     if (url.pathname.startsWith('/api/admin/media/') && request.method === 'DELETE') {
@@ -489,19 +446,10 @@ export default {
         return json({ error: auth.error }, { status: auth.status });
       }
 
-      try {
-        const name = sanitizeFileName(url.pathname.slice('/api/admin/media/'.length));
-        const exists = await env.MEDIA.get(name);
-        if (!exists) {
-          return json({ error: 'الملف غير موجود' }, { status: 404 });
-        }
-
-        await env.MEDIA.delete(name);
-        await env.DB.prepare('DELETE FROM media_meta WHERE key = ?').bind(name).run();
-        return json({ ok: true });
-      } catch (e) {
-        return json({ error: e instanceof Error ? e.message : 'فشل الحذف' }, { status: e instanceof Error && e.message === 'اسم ملف غير صالح' ? 400 : 500 });
-      }
+      return json(
+        { error: 'الحذف من لوحة التحكم غير متاح — الوسائط تُنشر كملفات ثابتة. احذف الملف من uploads/ ثم شغّل npm run media:manifest واعمل commit.' },
+        { status: 501 }
+      );
     }
 
     if (url.pathname === '/robots.txt') {
@@ -525,6 +473,8 @@ export default {
       });
     }
 
-    return html('<!doctype html><html><body>Worker API ready</body></html>');
+    // Unmatched paths (including "/") fall back to the landing page: it lives
+    // at Landing.dc.html, not at an index.html the asset router would find.
+    return env.ASSETS.fetch(new Request(new URL('/Landing.dc.html', url.origin), { method: 'GET' }));
   },
 };

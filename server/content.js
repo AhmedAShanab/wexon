@@ -3,6 +3,9 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
+// Everything served to the browser lives here; it is also the directory
+// published to Cloudflare as static assets (see wrangler.toml).
+const PUBLIC_DIR = path.join(ROOT, 'public');
 const CONTENT_PATH = path.join(DATA_DIR, 'content.json');
 
 function ensureDataDir() {
@@ -23,4 +26,4 @@ function writeContent(data) {
   return data;
 }
 
-module.exports = { ROOT, DATA_DIR, CONTENT_PATH, readContent, writeContent, ensureDataDir };
+module.exports = { ROOT, PUBLIC_DIR, DATA_DIR, CONTENT_PATH, readContent, writeContent, ensureDataDir };
